@@ -1,0 +1,89 @@
+{
+  "short_name": "Hospitadent",
+  "name": "Hospitadent - Türkiye'nin En Büyük Diş Sağlığı Kuruluşu",
+  "description": "20+ yıllık deneyimle implant, ortodonti, diş beyazlatma ve daha fazlası. 18 şubede hizmet veriyoruz. Online randevu alın!",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#004876",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["medical", "health", "business", "dental"],
+  "lang": "tr",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "screenshots": [
+    {
+      "src": "screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Hospitadent Ana Sayfa"
+    },
+    {
+      "src": "screenshot-narrow.png", 
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Hospitadent Mobil Görünüm"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Online Randevu",
+      "short_name": "Randevu",
+      "description": "Hızlı online randevu alın",
+      "url": "/#randevu",
+      "icons": [
+        {
+          "src": "favicon.ico",
+          "sizes": "64x64"
+        }
+      ]
+    },
+    {
+      "name": "Şubelerimiz",
+      "short_name": "Şubeler",
+      "description": "En yakın şubemizi bulun",
+      "url": "/subelerimiz",
+      "icons": [
+        {
+          "src": "favicon.ico",
+          "sizes": "64x64"
+        }
+      ]
+    },
+    {
+      "name": "İletişim",
+      "short_name": "İletişim",
+      "description": "Bizimle iletişime geçin",
+      "url": "/iletisim",
+      "icons": [
+        {
+          "src": "favicon.ico",
+          "sizes": "64x64"
+        }
+      ]
+    }
+  ]
+} 

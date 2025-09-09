@@ -1,0 +1,341 @@
+{
+  "navbar": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "process": "Prozess",
+    "clients": "Kunden",
+    "contact": "Kontakt",
+    "language": "Sprache",
+    "search": "Suchen",
+    "searchPlaceholder": "Suchen...",
+    "viewAllResults": "Alle Ergebnisse anzeigen",
+    "contactUs": "Kontakt",
+    "aiAssistant": "KI-Assistent",
+    "onlineAppointment": "Online-Termin",
+    "phoneAppointment": "Telefontermin",
+    "corporate": "Unternehmen",
+    "administrativeStaff": "Verwaltungspersonal",
+    "patientSatisfactionVideos": "Patientenzufriedenheitsvideos",
+    "patientReviews": "Patientenbewertungen",
+    "contractedInstitutions": "Vertragsinstitutionen",
+    "hrJobApplicationForm": "HR-Stellenbewerbungsformular",
+    "franchisePartnershipApplication": "Franchise-Partnerschaftsantrag",
+    "adverseEventNotificationForm": "Formular für unerwünschte Ereignisse",
+    "hospitadentAcademy": "Hospitadent Akademie",
+    "hospitadentSocialResponsibility": "Hospitadent soziale Verantwortung",
+    "ourAwards": "Auszeichnungen",
+    "corporateIdentity": "Unternehmensidentität",
+    "ourBranches": "Filialen",
+    "istanbul": "Istanbul",
+    "mecidiyekoy": "Mecidiyekoy",
+    "bagcilar": "Bagcilar",
+    "bakirkoy": "Bakirkoy",
+    "fatih": "Fatih",
+    "camlica": "Camlica",
+    "pendik": "Pendik",
+    "serifali": "Serifali",
+    "cevizlibag": "Cevizlibag",
+    "gokturk": "Gokturk",
+    "kayseri": "Kayseri",
+    "bodrum": "Bodrum",
+    "alanya": "Alanya",
+    "antalya": "Antalya",
+    "ankara": "Ankara",
+    "denizli": "Denizli",
+    "kocaeli": "Kocaeli",
+    "bursa": "Bursa",
+    "germany": "Deutschland",
+    "netherlands": "Niederlande",
+    "ourTreatments": "Behandlungen",
+    "cosmeticDentistry": "Ästhetische Zahnheilkunde",
+    "hollywoodSmile": "Was ist Hollywood Smile (Lächeldesign)?",
+    "smileDesign": "Was ist Lächeldesign (Ästhetik)? Wie wird es gemacht?",
+    "teethWhitening": "Was ist Zahnaufhellung? Was sind die Methoden?",
+    "pinkAesthetics": "Wie wird rosa Ästhetik (Zahnfleischästhetik) gemacht?",
+    "laminateVeneer": "Was ist Laminate Veneer? Wie wird es gemacht?",
+    "zirconiumCrown": "Wie wird Zirkonkrone gemacht?",
+    "porcelainCrown": "Was ist Porzellankrone? Wie wird sie gemacht?",
+    "lumineersVeneer": "Was ist Lumineers Veneer? Wie wird es gemacht?",
+    "emaxCrown": "Wie wird Emax-Krone gemacht? Wie lange hält sie?",
+    "aestheticFilling": "Was ist ästhetische Füllung? Wie wird sie gemacht?",
+    "bisectomy": "Was ist Bisectomie (Wangenästhetik)?",
+    "laserDentalTreatment": "Laser-Zahnbehandlung",
+    "inlayFilling": "Was ist Inlay-Füllung? Wie wird sie angewendet?",
+    "onlayFilling": "Was ist Onlay-Füllung? Wie wird sie angewendet?",
+    "dentalDiamond": "Was ist Zahndiamant (Zahnkristall)?",
+    "dentalTattoo": "Was ist Zahntattoo? Wie wird es angewendet?",
+    "dentalJewelry": "Was ist Zahnersatz / Grillz? Wie wird es gemacht?",
+    "bondingTreatment": "Was ist Bonding-Behandlung? Wie wird sie angewendet?",
+    "missingTeeth": "Fehlende Zähne",
+    "dentalBridge": "Was ist Zahnbrücke? Wie wird sie angewendet?",
+    "denture": "Was ist Zahnprothese?",
+    "fixedProsthesis": "Was ist feste Prothese? Wie wird sie angewendet?",
+    "snapOnDenture": "Was ist Klick-Prothese? Wie wird sie angewendet?",
+    "fullMouthTreatment": "Was ist Vollmund-Zahnbehandlung?",
+    "implant": "Implantat",
+    "singleToothImplant": "Was ist Einzelzahn-Implantatbehandlung?",
+    "fullMouthImplant": "Vollmund-Implantatbehandlung",
+    "multipleToothImplant": "Mehrfachzahn-Implantatbehandlung",
+    "oneDayImplant": "Was ist 1-Tag-Implantat?",
+    "allOnFour": "Was ist All on Four?",
+    "allOnSix": "Was ist All on Six?",
+    "boxTechnique": "Was ist Box-Technik?",
+    "generalDentalTreatments": "Allgemeine Zahnbehandlungen",
+    "dentalExamination": "Zahnuntersuchung",
+    "crownVeneer": "Was ist eine Zahnkrone? Wie wird sie gemacht?",
+    "dentalFilling": "Wie wird eine Zahnfüllung gemacht? Was sind ihre Typen?",
+    "rootCanalTreatment": "Wie wird Wurzelkanalbehandlung gemacht? Tut es weh?",
+    "toothExtraction": "Was ist Zahnextraktion? Wie wird sie gemacht?",
+    "impactedToothExtraction": "Was ist Entfernung von impaktierten Zähnen?",
+    "wisdomToothExtraction": "Weisheitszahn-Entfernung",
+    "brokenToothTreatment": "Was ist Behandlung von gebrochenen Zähnen?",
+    "preventiveDentalTreatments": "Präventive Zahnbehandlungen",
+    "badBreath": "Was ist Mundgeruch? Wie wird er behandelt?",
+    "toothSensitivity": "Was ist Zahnempfindlichkeit? Wie wird sie behandelt?",
+    "teethGrinding": "Was ist Zähneknirschen (Bruxismus)? Wie wird es behandelt?",
+    "teethGrindingTreatment": "Was ist Zähneknirschen-Behandlung? Wie wird sie gemacht?",
+    "snoringTreatment": "Was ist Schnarch-Behandlung? Wie wird sie angewendet?",
+    "orthodontics": "Kieferorthopädie",
+    "bracesTreatment": "Was ist Zahnspangen-Behandlung? Wie wird sie angewendet?",
+    "clearBracketTreatment": "Transparente Brackets-Behandlung",
+    "invisalignTreatment": "Invisalign (Transparente Schienen) Behandlung",
+    "invisibleBracesTreatment": "Unsichtbare Zahnspangen-Behandlung",
+    "pedodontics": "Kinderzahnheilkunde",
+    "fluorideApplication": "Fluorid-Anwendung",
+    "fissureSealant": "Fissurenversiegelung",
+    "pediatricOrthodonticTreatment": "Was ist kinder-kieferorthopädische Behandlung?",
+    "babyBottleToothDecay": "Was ist Flaschenkaries?",
+    "spaceMaintainerTreatment": "Was ist Lückenhalter-Behandlung?",
+    "periodontology": "Parodontologie",
+    "gumTreatment": "Zahnfleisch-Behandlung",
+    "curettageTreatment": "Was ist Kürettage-Behandlung?",
+    "flapTreatment": "Lappen-Behandlung",
+    "gingivitis": "Zahnfleischentzündung | Gingivitis",
+    "dentalCalculusCleaning": "Was ist Zahnstein-Reinigung? Wie wird sie gemacht?",
+    "specialDentalTreatments": "Spezielle Zahnbehandlungen",
+    "digitalDentistry": "Digitale Zahnheilkunde und Zahndesign",
+    "needleFreeAnesthesia": "Nadellose Anästhesie-Anwendung",
+    "sedationAndGeneralAnesthesia": "Sedierung und Vollnarkose",
+    "rubberDamApplication": "Kofferdam-Anwendung",
+    "jawTumor": "Kiefertumor",
+    "jawFractureTreatment": "Kieferbruch-Behandlung",
+    "dentalSpa": "Zahn-Spa",
+    "tenByTenExamination": "10 X 10 Untersuchung",
+    "ourDoctors": "Ärzte",
+    "blog": "Blog"
+  },
+  "home": {
+    "title": "Eine neue Ära in der digitalen Zahnheilkunde",
+    "subtitle": "Vereinbaren Sie jetzt einen Termin für gesunde und ästhetische Lächeln mit 3D-Technologien.",
+    "desc": "Moderne Klinik, erfahrenes Personal, digitale Lösungen.",
+    "button": "Termin vereinbaren",
+    "heroSlides": {
+      "slide1": {
+        "title": "Führer im zahnmedizinischen Gesundheitstourismus",
+        "subtitle": "4 aufeinanderfolgende Jahre an erster Stelle, weltklasse Behandlung."
+      },
+      "slide2": {
+        "title": "99% Patientenzufriedenheit",
+        "subtitle": "Tausende glücklicher Patienten, zuverlässiger und qualitativ hochwertiger Service."
+      },
+      "slide3": {
+        "title": "Eine neue Ära in der digitalen Zahnheilkunde",
+        "subtitle": "Vereinbaren Sie jetzt einen Termin für gesunde und ästhetische Lächeln mit 3D-Technologien."
+      },
+      "slide4": {
+        "title": "Moderne Klinik, erfahrenes Personal",
+        "subtitle": "Schnelle, komfortable und sichere Behandlung mit digitalen Lösungen."
+      }
+    },
+    "typewriterWords": [
+      "Zahnaufhellung",
+      "Implantat",
+      "Kieferorthopädie",
+      "Zahnspange",
+      "Zirkonkrone",
+      "Laminate Veneer",
+      "Porzellanzähne",
+      "Zahnextraktion",
+      "Zahnfleischbehandlung",
+      "Kinderzahnheilkunde",
+      "Zahnfüllung",
+      "Wurzelkanalbehandlung",
+      "Zahnreinigung",
+      "Lächeldesign",
+      "Zahnersatz",
+      "Zahnröntgen"
+    ],
+    "stats": {
+      "years": "Jahre Erfahrung",
+      "patients": "Glückliche Patienten",
+      "employees": "Glückliche Mitarbeiter",
+      "branches": "Filialen",
+      "countries": "Länder",
+      "dentists": "Zahnärzte"
+    },
+    "contactButton": "Kontakt",
+    "whatsappContact": "Kontakt über WhatsApp",
+    "aiAssistantTitle": "KI-Assistent",
+    "onlineAppointmentTitle": "Online-Termin",
+    "phoneAppointmentTitle": "Telefontermin"
+  },
+  "services": {
+    "title": "Dienstleistungen",
+    "viewAll": "Alle anzeigen",
+    "prev": "Vorherige",
+    "next": "Nächste"
+  },
+  "footer": {
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "instagram": {
+    "title": "Unsere Sozialen Inhalte",
+    "subtitle": "Verfolgen Sie unsere neuesten Behandlungen, Patientenzufriedenheit und Klinikleben auf Instagram!",
+    "loading": "Instagram-Beiträge werden geladen...",
+    "error": "Beim Laden der Instagram-Beiträge ist ein Fehler aufgetreten.",
+    "followUs": "Folgen Sie uns",
+    "viewPost": "Beitrag anzeigen"
+  },
+  "awards": {
+    "title": "Unsere Auszeichnungen",
+    "subtitle": "Unsere Auszeichnungen",
+    "comingSoon": "Diese Seite wird bald mit Inhalten gefüllt."
+  },
+  "about": {
+    "title": "Über uns",
+    "subtitle": "Mit über 20 Jahren Erfahrung dienen wir als eine der führenden zahnmedizinischen Gesundheitsorganisationen der Türkei.",
+    "vision": {
+      "title": "UNSERE VISION",
+      "text": "Die nächste und innovativste Marke für Mund- und Zahngesundheit für die Patienten der Welt zu sein."
+    },
+    "mission": {
+      "title": "UNSERE MISSION",
+      "text": "Menschen, Gesellschaft und Umwelt mit hoher Servicequalität einen Mehrwert zu bieten; Vertrauen zu geben, indem wir jeden unserer Patienten wie unsere eigenen Angehörigen auf ethische, aufrichtige und einfühlsame Weise behandeln, mehr Menschen mit ausgewogenem physischem Wachstum zu erreichen, technologische und wissenschaftliche Entwicklungen zu verfolgen und sie in pionierhafter Weise anzuwenden, Menschen glücklich zu machen, indem wir ästhetische Lächeln mit Lächeln-Architekten gestalten."
+    },
+    "values": {
+      "title": "UNSERE WERTE",
+      "value1": {
+        "title": "Wir Schätzen:",
+        "text": "Wir sind uns des Wertes von Menschen, Leben und der Welt bewusst."
+      },
+      "value2": {
+        "title": "Wir Kümmern Uns:",
+        "text": "Wir kümmern uns um unsere Patienten wie um unsere Angehörigen und Gäste, die wir zu Hause beherbergen."
+      },
+      "value3": {
+        "title": "Wir Geben Vertrauen:",
+        "text": "Jeder, der mit uns in Kontakt kommt (unsere Patienten, Lieferanten, Umwelt, etc.), ist sicher, dass wir versuchen, unser Bestes und das Richtige zu tun, und dass wir an ethische Regeln gebunden sind. Wir tun nur das, was wir sagen, und sagen nur das, was wir tun werden."
+      },
+      "value4": {
+        "title": "Wir Sind Aufrichtig und Nah:",
+        "text": "Wir zeigen ausgewogene Aufrichtigkeit und Nähe zu allen."
+      },
+      "value5": {
+        "title": "Wir Fühlen Uns Verantwortlich:",
+        "text": "Wir fühlen uns verantwortlich gegenüber Menschen, Gesellschaft, Umwelt, also dem gesamten Universum."
+      },
+      "value6": {
+        "title": "Wir Sind Innovativ:",
+        "text": "Wir sind immer neugierig und bereit für Innovationen und Entwicklungen."
+      },
+      "value7": {
+        "title": "Wir Schätzen Qualität:",
+        "text": "Die besten Materialien, die neueste Technologie und hohe Hygiene sind für uns unverzichtbar."
+      },
+      "value8": {
+        "title": "Wir Arbeiten Zusammen:",
+        "text": "Wir achten auf die Interessen unserer Patienten und Lieferanten, indem wir mit ihnen zusammenarbeiten, und im Team denken wir, dass wenn einer von uns fehlt, wir alle fehlen."
+      },
+      "value9": {
+        "title": "Wir Möchten Glück Geben:",
+        "text": "Wir denken, dass wahres Glück das Glück anderer ist und streben danach."
+      }
+    },
+    "history": {
+      "text1": "Hospitadent, das 2006 gegründet wurde, setzt seinen Dienst mit dem Slogan \"Vom ersten Tag an ist unser gesamtes Geschäft Zähne\" fort. Mit seinen 22 national und international etablierten Filialen, modernen medizinischen Geräten, angesehenem Ärztepersonal und Fachpersonal hebt Hospitadent die Standards in der Mund- und Zahngesundheit an."
+    },
+    "branches": {
+      "title": "Hohe Servicequalität in Jeder Filiale",
+      "text1": "Nach dem ersten in Bağcılar eröffneten Zentrum eröffnete Hospitadent, das sich 2008 nach Fatih, 2009 nach Çamlıca, 2011 nach Pendik und Mecidiyeköy ausdehnte, 2012 seine erste internationale Filiale in Frankfurt, Deutschland. Die Krankenhausgruppe, die die Anzahl der Filialen mit einem neuen in Bakırköy eröffneten Zentrum erhöhte, eröffnete 2014 in Kayseri, 2015 in Den Haag, Niederlande, 2018 in Şerifali, 2021 in Alanya und Bodrum und 2022 die Ankara-Filiale, die Kocaeli-Filiale, die Antalya-Filiale, die Cevizlibağ-Filiale in Istanbul und schließlich die Bursa-Filiale. Hospitadent wächst mit selbstbewussten Schritten mit vielen Filialen in 4 verschiedenen Ländern weiter.",
+      "text2": "Zusätzlich zur rasch wachsenden Anzahl von Filialen wurde 2008 die Hospitadent Akademie für die kontinuierliche Ausbildung von Fachärzten und technischem Personal in beruflicher Entwicklung und technologischen Innovationen gegründet.",
+      "text3": "Hospitadent ist ein Pioniername, der mit seinen innovativen Projekten Standards im Gesundheitssektor setzt. Das Krankenhaus, das 2016 das Dent Guard Treueprogramm startete, schuf ein garantiertes Zahnersatzsystem mit personalisierten Karten und Vorteilen. In der 2017 gegründeten Dental Design Abteilung wurde mit dem digitalen Lächeln-Design begonnen. Hospitadent, das in jeder seiner Filialen überlegene technologische Infrastruktur bietet, dient seinen Patienten mit einem individuellen und langlebigen Zahnersatzansatz."
+    },
+    "innovations": {
+      "title": "Hospitadent, Adresse der Ersten",
+      "text": "Hospitadent, das 2007 als erstes in der Türkei mit dem Dental-Gesundheitstourismus begann, ist die gesuchte Adresse für Zahnersatz von Patienten aus der ganzen Welt geworden. Hospitadent, das eine Premiere im Gesundheitssektor erreichte und erstmals in der Türkei die Patientenerfahrungsabteilung gründete, legt großen Wert auf Patientenerfahrung und -zufriedenheit. Mit diesem Verständnis zielt das Krankenhaus, das 2016 ein spezielles Konzept namens Dental Spa schuf, darauf ab, die Angst vor Zahnärzten mit seinem VIP-Konzept zu beenden, das Patienten eine entspannende Umgebung und psychologische Unterstützung bietet."
+    },
+    "awards": {
+      "title": "Erfolgsgeschichte Gekrönt mit Auszeichnungen",
+      "text1": "Hospitadents weltklasse Vision, Fachpersonal, innovative und kundenorientierte Arbeit wurden mit Auszeichnungen zertifiziert. Hospitadent, das bewies, dass es die Wahl des Volkes war, indem es bis 2010 mehr als 1 Million Patienten diente, gewann 2013 das TEMOS International Quality Certificate.",
+      "text2": "2015 wurde es als Ergebnis der Ekovitrin Magazine 14. Stars of the Year Survey als würdig für die Auszeichnung als Gesundheitsinstitution des Jahres erachtet.",
+      "text3": "Hospitadent wurde das erste Krankenhaus in der Türkei, das einen Stevie Award gewann, indem es den Most Innovative Customer Service Award des Jahres bei den Stevie Awards gewann, wo die erfolgreichsten Unternehmen der Welt 2018 ausgezeichnet werden.",
+      "text4": "Hospitadent, das in der Türkei Exporters Assembly's Turkey's 500 Service Exporters Forschung 2018 in der Kategorie Dental Treatment Services den ersten Platz belegte, bewies seinen Erfolg und seine Kompetenz im Gesundheitssektor einmal mehr.",
+      "text5": "Hospitadent, das sich qualifizierte, in das \"Turquality Brand Support Program\" einzutreten, das 2020 zum Zweck der Markierung türkischer Produkte im Ausland, der Etablierung und Unterstützung des türkischen Warenimages, das seit 16 Jahren in Kraft ist, geschaffen wurde, setzt fort, ein positives Image zu schaffen, indem es einen wichtigen Schritt in der Markierung macht. Das erste Dental-Gesundheitsgruppe zu sein, die am Turquality Markenunterstützungsprogramm teilnimmt, an dem nur fünf Krankenhäuser im Gesundheitsbereich beteiligt sind, demonstriert hohe Standards sowie die Schaffung eines Qualitätsimages.",
+      "text6": "Hospitadent, das sich qualifizierte, als \"Great Place To Work® Certified\" Unternehmen bezeichnet zu werden als Ergebnis der Bewertung und Analyse, die von GPTW Türkei in der letzten Periode von 2021 durchgeführt wurde, erlebt den berechtigten Stolz, die erste Dental-Gruppe zu sein, die das beste Unternehmenskulturzertifikat hat."
+    },
+    "conclusion": "Hospitadent, das kontinuierlich sich entwickelnde medizinische Technologien verfolgt und kontinuierlich Diagnose- und Behandlungsmethoden mit den aktuellsten Technologien vorantreibt, setzt fort, sichere und qualitativ hochwertige Gesundheitsdienstleistungen mit seinem Fachpersonal zu erbringen."
+  },
+  "breadcrumbs": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "treatments": "Behandlungen",
+    "branches": "Filialen",
+    "staff": "Verwaltungspersonal",
+    "patientVideos": "Patientenzufriedenheit Videos",
+    "patientReviews": "Patientenbewertungen",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "academy": "Akademie",
+    "partnerInstitutions": "Partnerinstitutionen",
+    "awards": "Auszeichnungen",
+    "corporateIdentity": "Unternehmensidentität",
+    "socialResponsibility": "Soziale Verantwortung",
+    "search": "Suche"
+  },
+  "staff": {
+    "title": "Verwaltungspersonal",
+    "ahmet_name": "Zahnarzt Ahmet SELVİ",
+    "ahmet_title": "Vorsitzender des Verwaltungsrats",
+    "recep_name": "Zahnarzt Recep EŞKAR",
+    "recep_title": "CEO Generaldirektor",
+    "halit_name": "Halit Burak ALTINKAYA",
+    "halit_title": "Manager für Informationsmanagementsysteme",
+    "abdullah_name": "Abdullah DEMİRCAN",
+    "abdullah_title": "Manager für Verkauf und Marketing",
+    "caner_name": "Caner ÇOBAN",
+    "caner_title": "Manager für Geschäftsentwicklung und Operationen",
+    "bayram_name": "Bayram SAYMAN",
+    "bayram_title": "Buchhaltungsmanager",
+    "zeynep_name": "Zeynep Aydın SOYDANER",
+    "zeynep_title": "Anwältin",
+    "neslihan_name": "Neslihan DEMİR",
+    "neslihan_title": "Verwaltungsmanagerin Bağcılar",
+    "tugba_name": "Tuğba KAVALCI",
+    "tugba_title": "Verwaltungsmanagerin Fatih",
+    "veysel_name": "Veysel YILMAZ",
+    "veysel_title": "Verwaltungsmanager Çamlıca",
+    "ercument_name": "Erçüment MERT",
+    "ercument_title": "Verwaltungsmanager Pendik",
+    "nursah_name": "Nurşah IŞIK",
+    "nursah_title": "Verwaltungsmanagerin Mecidiyeköy",
+    "kadriye_name": "Kadriye SOYSAL",
+    "kadriye_title": "Verwaltungsmanagerin Kayseri",
+    "sena_name": "Sena KELEŞ",
+    "sena_title": "Verwaltungsmanagerin Şerifali",
+    "berra_name": "Berra Sinanoğlu GÖRGÜLÜ",
+    "berra_title": "Verwaltungsmanagerin Alanya",
+    "selin_name": "Selin HOŞÇEYLAN",
+    "selin_title": "Verwaltungsmanagerin Bodrum",
+    "iclal_name": "İclal HARMANCI",
+    "iclal_title": "Verwaltungsmanagerin Kocaeli",
+    "mehmet_name": "Mehmet Ziya KÖK",
+    "mehmet_title": "Verwaltungsmanager Antalya",
+    "muslum_name": "Müslüm YENİKAN",
+    "muslum_title": "Verwaltungsmanager Cevizlibağ",
+    "gaye_name": "Gaye MERÇAN",
+    "gaye_title": "Verwaltungsmanagerin Bursa",
+    "ibrahim_name": "İbrahim YÜCEL",
+    "ibrahim_title": "Verwaltungsmanager Göktürk"
+  }
+} 

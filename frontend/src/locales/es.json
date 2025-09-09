@@ -1,0 +1,387 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "services": "Servicios",
+    "process": "Proceso",
+    "clients": "Clientes",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "search": "Buscar",
+    "searchPlaceholder": "Buscar...",
+    "viewAllResults": "Ver todos los resultados",
+    "contactUs": "Contacto",
+    "aiAssistant": "Asistente IA",
+    "onlineAppointment": "Cita en línea",
+    "phoneAppointment": "Cita por teléfono",
+    "corporate": "Corporativo",
+    "administrativeStaff": "Personal administrativo",
+    "patientSatisfactionVideos": "Videos de satisfacción del paciente",
+    "patientReviews": "Reseñas de pacientes",
+    "contractedInstitutions": "Instituciones contratadas",
+    "hrJobApplicationForm": "Formulario de solicitud de empleo RRHH",
+    "franchisePartnershipApplication": "Solicitud de franquicia - asociación",
+    "adverseEventNotificationForm": "Formulario de notificación de eventos adversos",
+    "hospitadentAcademy": "Academia Hospitadent",
+    "hospitadentSocialResponsibility": "Responsabilidad social Hospitadent",
+    "ourAwards": "Premios",
+    "corporateIdentity": "Identidad corporativa",
+    "ourBranches": "Sucursales",
+    "istanbul": "Estambul",
+    "mecidiyekoy": "Mecidiyekoy",
+    "bagcilar": "Bagcilar",
+    "bakirkoy": "Bakirkoy",
+    "fatih": "Fatih",
+    "camlica": "Camlica",
+    "pendik": "Pendik",
+    "serifali": "Serifali",
+    "cevizlibag": "Cevizlibag",
+    "gokturk": "Gokturk",
+    "kayseri": "Kayseri",
+    "bodrum": "Bodrum",
+    "alanya": "Alanya",
+    "antalya": "Antalya",
+    "ankara": "Ankara",
+    "denizli": "Denizli",
+    "kocaeli": "Kocaeli",
+    "bursa": "Bursa",
+    "germany": "Alemania",
+    "netherlands": "Países Bajos",
+    "ourTreatments": "Tratamientos",
+    "cosmeticDentistry": "Odontología cosmética",
+    "hollywoodSmile": "¿Qué es Hollywood Smile (Diseño de sonrisa)?",
+    "smileDesign": "¿Qué es el diseño de sonrisa (Estética)? ¿Cómo se hace?",
+    "teethWhitening": "¿Qué es el blanqueamiento dental? ¿Cuáles son los métodos?",
+    "pinkAesthetics": "¿Cómo se hace la estética rosa (Estética de encías)?",
+    "laminateVeneer": "¿Qué es la carilla de laminado? ¿Cómo se hace?",
+    "zirconiumCrown": "¿Cómo se hace la corona de circonio?",
+    "porcelainCrown": "¿Qué es la corona de porcelana? ¿Cómo se hace?",
+    "lumineersVeneer": "¿Qué es la carilla Lumineers? ¿Cómo se hace?",
+    "emaxCrown": "¿Cómo se hace la corona Emax? ¿Cuánto dura?",
+    "aestheticFilling": "¿Qué es el empaste estético? ¿Cómo se hace?",
+    "bisectomy": "¿Qué es la bisectomía (Estética de mejillas)?",
+    "laserDentalTreatment": "Tratamiento dental con láser",
+    "inlayFilling": "¿Qué es el empaste inlay? ¿Cómo se aplica?",
+    "onlayFilling": "¿Qué es el empaste onlay? ¿Cómo se aplica?",
+    "dentalDiamond": "¿Qué es el diamante dental (Cristal dental)?",
+    "dentalTattoo": "¿Qué es el tatuaje dental? ¿Cómo se aplica?",
+    "dentalJewelry": "¿Qué es la joyería dental / Grillz? ¿Cómo se hace?",
+    "bondingTreatment": "¿Qué es el tratamiento de unión? ¿Cómo se aplica?",
+    "missingTeeth": "Dientes faltantes",
+    "implant": "Implante",
+    "generalDentalTreatments": "Tratamientos dentales generales",
+    "orthodontics": "Ortodoncia",
+    "pedodontics": "Odontopediatría",
+    "periodontology": "Periodoncia",
+    "specialDentalTreatments": "Tratamientos dentales especiales",
+    "ourDoctors": "Médicos",
+    "blog": "Blog"
+  },
+  "home": {
+    "title": "Una nueva era en odontología digital",
+    "subtitle": "Obtén una cita ahora para sonrisas saludables y estéticas con tecnologías 3D.",
+    "desc": "Clínica moderna, personal experto, soluciones digitales.",
+    "button": "Reservar cita",
+    "heroSlides": {
+      "slide1": {
+        "title": "Líder en turismo de salud dental",
+        "subtitle": "4 años consecutivos en primer lugar, tratamiento de clase mundial."
+      },
+      "slide2": {
+        "title": "99% de satisfacción del paciente",
+        "subtitle": "Miles de pacientes felices, servicio confiable y de calidad."
+      },
+      "slide3": {
+        "title": "Una nueva era en odontología digital",
+        "subtitle": "Obtén una cita ahora para sonrisas saludables y estéticas con tecnologías 3D."
+      },
+      "slide4": {
+        "title": "Clínica moderna, personal experto",
+        "subtitle": "Tratamiento rápido, cómodo y seguro con soluciones digitales."
+      }
+    },
+    "typewriterWords": [
+      "Blanqueamiento dental",
+      "Implante",
+      "Ortodoncia",
+      "Brackets",
+      "Corona de circonio",
+      "Carilla de laminado",
+      "Dientes de porcelana",
+      "Extracción dental",
+      "Tratamiento de encías",
+      "Odontopediatría",
+      "Empaste dental",
+      "Tratamiento de conducto",
+      "Limpieza dental",
+      "Diseño de sonrisa",
+      "Prótesis dental",
+      "Radiografía dental"
+    ],
+    "stats": {
+      "years": "Años de experiencia",
+      "patients": "Pacientes felices",
+      "employees": "Empleados felices",
+      "branches": "Sucursales",
+      "countries": "Países",
+      "dentists": "Dentistas"
+    },
+    "contactButton": "Contacto",
+    "whatsappContact": "Contacto vía WhatsApp",
+    "aiAssistantTitle": "Asistente IA",
+    "onlineAppointmentTitle": "Cita en línea",
+    "phoneAppointmentTitle": "Cita por teléfono"
+  },
+  "services": {
+    "title": "Servicios",
+    "viewAll": "Ver todo",
+    "prev": "Anterior",
+    "next": "Siguiente"
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados."
+  },
+  "instagram": {
+    "title": "Nuestro Contenido Social",
+    "subtitle": "¡Sigue nuestros últimos tratamientos, satisfacción del paciente y vida de la clínica en Instagram!",
+    "loading": "Cargando publicaciones de Instagram...",
+    "error": "Ocurrió un error al cargar las publicaciones de Instagram.",
+    "followUs": "Síguenos",
+    "viewPost": "Ver publicación"
+  },
+  "about": {
+    "title": "Acerca de nosotros",
+    "subtitle": "Con más de 20 años de experiencia, servimos como una de las principales organizaciones de salud dental de Turquía.",
+    "vision": {
+      "title": "NUESTRA VISIÓN",
+      "text": "Ser la marca de salud bucal y dental más cercana e innovadora para los pacientes del mundo."
+    },
+    "mission": {
+      "title": "NUESTRA MISIÓN",
+      "text": "Agregar valor a las personas, la sociedad y el medio ambiente con alta calidad de servicio; dar confianza tratando a cada uno de nuestros pacientes como nuestros propios familiares de manera ética, sincera y compasiva, llegar a más personas con crecimiento físico equilibrado, seguir los desarrollos tecnológicos y científicos y aplicarlos de manera pionera, hacer felices a las personas diseñando sonrisas estéticas con arquitectos de sonrisas."
+    },
+    "values": {
+      "title": "NUESTROS VALORES",
+      "value1": {
+        "title": "Valoramos:",
+        "text": "Somos conscientes del valor de las personas, la vida y el mundo."
+      },
+      "value2": {
+        "title": "Nos Preocupamos:",
+        "text": "Nos preocupamos por nuestros pacientes como nuestros familiares y huéspedes que recibimos en casa."
+      },
+      "value3": {
+        "title": "Damos Confianza:",
+        "text": "Todos los que entran en contacto con nosotros (nuestros pacientes, proveedores, medio ambiente, etc.) están seguros de que intentamos hacer nuestro mejor y correcto trabajo, y que estamos vinculados por reglas éticas. Solo hacemos lo que decimos, y solo decimos lo que haremos."
+      },
+      "value4": {
+        "title": "Somos Sinceros y Cercanos:",
+        "text": "Mostramos sinceridad y cercanía equilibradas a todos."
+      },
+      "value5": {
+        "title": "Sentimos Responsabilidad:",
+        "text": "Sentimos responsabilidad hacia las personas, la sociedad, el medio ambiente, es decir, todo el universo."
+      },
+      "value6": {
+        "title": "Somos Innovadores:",
+        "text": "Siempre somos curiosos y estamos listos para la innovación y el desarrollo."
+      },
+      "value7": {
+        "title": "Valoramos la Calidad:",
+        "text": "Los mejores materiales, las tecnologías más nuevas y la alta higiene son indispensables para nosotros."
+      },
+      "value8": {
+        "title": "Colaboramos:",
+        "text": "Nos preocupamos por los intereses de nuestros pacientes y proveedores colaborando con ellos, y en el equipo pensamos que si uno de nosotros está ausente, todos estamos ausentes."
+      },
+      "value9": {
+        "title": "Queremos Dar Felicidad:",
+        "text": "Pensamos que la verdadera felicidad es la felicidad de otros y aspiramos a esto."
+      }
+    },
+    "history": {
+      "text1": "Fundado en 2006, Hospitadent continúa sirviendo con el lema \"Desde el primer día, todo nuestro negocio son los dientes\". Con 22 sucursales creadas en el país y en el extranjero, equipos médicos modernos, personal médico distintivo y personal experto, Hospitadent eleva los estándares en salud bucal y dental."
+    },
+    "branches": {
+      "title": "Alta Calidad de Servicio en Cada Sucursal",
+      "text1": "Después del primer centro abierto en Bagcilar, Hospitadent, que se expandió a Fatih en 2008, Camlica en 2009, Pendik y Mecidiyekoy en 2011, abrió su primera sucursal internacional en Frankfurt, Alemania en 2012. El grupo hospitalario, que aumentó el número de sucursales con el nuevo centro abierto en Bakirkoy, abrió la sucursal de Ankara, la sucursal de Kocaeli, la sucursal de Antalya, la sucursal de Cevizlibag en Estambul y finalmente la sucursal de Bursa en 2014 en Kayseri, 2015 en La Haya, Países Bajos, 2018 en Serifali, 2021 en Alanya y Bodrum y 2022. Hospitadent continúa creciendo con pasos seguros con muchas sucursales en 4 países diferentes.",
+      "text2": "Además del número de sucursales que crece rápidamente, la Academia Hospitadent fue fundada en 2008 para la educación continua de médicos expertos y personal técnico para el desarrollo profesional y las innovaciones tecnológicas.",
+      "text3": "Hospitadent es un nombre pionero que establece estándares en el sector de la salud con sus proyectos innovadores. El hospital, que comenzó el programa de lealtad Dent Guard en 2016, creó un sistema garantizado de tratamiento dental con tarjetas personalizadas y beneficios. En el departamento de Dental Design, fundado en 2017, se inició el diseño digital de sonrisas. Hospitadent, que ofrece una infraestructura tecnológica superior en cada una de sus sucursales, sirve a sus pacientes con un enfoque individual y duradero para el tratamiento dental."
+    },
+    "innovations": {
+      "title": "Hospitadent, Dirección de los Primeros",
+      "text": "Hospitadent, que fue el primero en Turquía en comenzar el turismo de salud dental en 2007, se convirtió en la dirección buscada para el tratamiento dental por pacientes de todo el mundo. Hospitadent, que alcanzó el primer lugar en el sector de la salud y fue el primero en Turquía en establecer el departamento de experiencia del paciente, da gran importancia a la experiencia y satisfacción del paciente. Con esta comprensión, el hospital, que creó un concepto especial llamado Dental Spa en 2016, busca poner fin al miedo a los dentistas con su concepto VIP que proporciona a los pacientes un ambiente relajante y apoyo psicológico."
+    },
+    "awards": {
+      "title": "Historia de Éxito Coronada con Premios",
+      "text1": "La visión de clase mundial de Hospitadent, el personal experto, el trabajo innovador y orientado a la satisfacción del cliente han sido certificados con premios. Hospitadent, que demostró que era la elección del pueblo sirviendo a más de 1 millón de pacientes para 2010, ganó el Certificado de Calidad Internacional TEMOS en 2013.",
+      "text2": "En 2015, fue considerado digno del premio Institución de Salud del Año como resultado de la encuesta de la Revista Ekovitrin 14ª Estrella del Año.",
+      "text3": "Hospitadent se convirtió en el primer hospital en Turquía en ganar el premio Stevie, ganando el Premio al Servicio al Cliente Más Innovador del Año en los Premios Stevie, donde las empresas más exitosas del mundo son premiadas en 2018.",
+      "text4": "Hospitadent, que ocupó el primer lugar en la categoría de Servicios de Tratamiento Dental en la investigación de la Asamblea de Exportadores de Turquía 500 Exportadores de Servicios de Turquía en 2018, demostró una vez más su éxito y competencia en el sector de la salud.",
+      "text5": "Hospitadent, que calificó para ingresar al \"Programa de Apoyo a Marcas Turquality\", creado en 2020 con el objetivo de marcar productos turcos en el extranjero, establecer y apoyar la imagen de bienes turcos, que ha estado operando durante 16 años, continúa creando una imagen positiva dando un paso importante en el marcado. Ser el primer grupo de salud dental en participar en el programa de apoyo a marcas Turquality, en el que participan solo cinco hospitales en el campo de la salud, demuestra altos estándares, así como la creación de una imagen de calidad.",
+      "text6": "Hospitadent, que calificó para ser nombrado empresa \"Great Place To Work® Certified\" como resultado de la evaluación y análisis realizados por GPTW Turkey en el último período de 2021, experimenta el orgullo legítimo de ser el primer grupo dental en tener el certificado más alto de cultura corporativa."
+    },
+    "conclusion": "Hospitadent, que sigue continuamente las tecnologías médicas en desarrollo y promueve continuamente los métodos de diagnóstico y tratamiento con las tecnologías más modernas, continúa proporcionando servicios de salud seguros y de calidad con su personal experto."
+  },
+  "appointment": {
+    "title": "Cita en línea",
+    "selectCity": "Seleccionar ciudad",
+    "selectBranch": "Seleccionar sucursal",
+    "selectDoctor": "Seleccionar médico",
+    "selectDate": "Seleccionar fecha",
+    "selectTime": "Seleccionar hora",
+    "dentalClinic": "Clínica dental",
+    "contactInfo": "Información de contacto",
+    "selectedAppointment": "Cita seleccionada",
+    "name": "Nombre completo",
+    "phone": "Número de teléfono",
+    "namePlaceholder": "Ingrese su nombre completo",
+    "phonePlaceholder": "Ingrese su número de teléfono",
+    "phoneFormat": "Comenzando con 0, ej: 05XXXXXXXXX",
+    "appointmentInfo": "Su solicitud de cita será recibida y será contactado lo antes posible.",
+    "completeAppointment": "Completar cita",
+    "closed": "Cerrado",
+    "next": "Continuar",
+    "previous": "Atrás",
+    "book": "Reservar cita",
+    "submit": "Enviar cita",
+    "submitting": "Enviando...",
+    "success": "¡Su solicitud de cita ha sido recibida exitosamente!",
+    "error": "Ocurrió un error. Por favor inténtelo de nuevo."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Información actual sobre salud dental y métodos de tratamiento",
+    "pageTitle": "Blog - Hospitadent",
+    "pageDescription": "Salud dental, métodos de tratamiento e información actual sobre odontología. Consejos y recomendaciones de nuestros dentistas expertos.",
+    "pageKeywords": "blog salud dental, información tratamiento dental, artículos odontología, salud bucal, cuidado dental",
+    "by": "Por:",
+    "readMore": "Leer más",
+    "loadMore": "Cargar más",
+    "categories": {
+      "dentalHealth": "Salud Dental",
+      "orthodontics": "Ortodoncia",
+      "implant": "Implante",
+      "cosmetic": "Odontología Estética",
+      "pediatric": "Odontología Pediátrica",
+      "technology": "Tecnología"
+    },
+    "post1": {
+      "title": "Importancia del cuidado dental diario",
+      "excerpt": "Aprenda cómo debe ser su rutina de cuidado diario para dientes saludables.",
+      "content": "El cuidado dental diario es la base de la salud bucal. Puede prevenir problemas dentales con técnicas de cepillado apropiadas, uso de hilo dental y controles regulares.",
+      "author": "Dr. Ahmet Yılmaz"
+    },
+    "post2": {
+      "title": "Proceso de tratamiento ortodóntico",
+      "excerpt": "¿Qué sucede durante el tratamiento ortodóntico y qué camino se sigue?",
+      "content": "El tratamiento ortodóntico es un proceso a largo plazo aplicado para alinear correctamente los dientes. La conformidad del paciente es muy importante en este proceso.",
+      "author": "Dr. Ayşe Demir"
+    },
+    "post3": {
+      "title": "Lo que necesita saber sobre el tratamiento de implantes",
+      "excerpt": "¿Cómo se realiza el tratamiento de implantes y a quién se puede aplicar?",
+      "content": "El tratamiento de implantes es un método de tratamiento moderno que ofrece soluciones permanentes para reemplazar dientes faltantes. Información detallada sobre el proceso quirúrgico y las consecuencias.",
+      "author": "Dr. Mehmet Kaya"
+    },
+    "post4": {
+      "title": "Diseño de sonrisa y odontología estética",
+      "excerpt": "Soluciones de odontología estética para una sonrisa perfecta.",
+      "content": "El diseño de sonrisa es un plan de tratamiento integral que mejora la apariencia estética de los dientes según la estructura facial de la persona.",
+      "author": "Dr. Fatma Özkan"
+    },
+    "post5": {
+      "title": "Salud dental en niños",
+      "excerpt": "Lo que los padres necesitan saber para la salud dental de sus hijos.",
+      "content": "La salud dental en niños se asegura a través del cuidado regular y controles desde una edad temprana. El papel de los padres es muy importante.",
+      "author": "Dr. Ali Çelik"
+    },
+    "post6": {
+      "title": "Tecnologías de odontología digital",
+      "excerpt": "Tecnologías digitales utilizadas en la odontología moderna.",
+      "content": "La odontología digital ofrece tecnologías innovadoras que aceleran los procesos de tratamiento y aumentan el confort del paciente.",
+      "author": "Dr. Zeynep Arslan"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Inicio",
+    "about": "Sobre nosotros",
+    "treatments": "Tratamientos",
+    "branches": "Sucursales",
+    "staff": "Personal administrativo",
+    "patientVideos": "Videos de satisfacción del paciente",
+    "patientReviews": "Reseñas de pacientes",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "academy": "Academia",
+    "partnerInstitutions": "Instituciones asociadas",
+    "awards": "Premios",
+    "corporateIdentity": "Identidad corporativa",
+    "socialResponsibility": "Responsabilidad social",
+    "search": "Búsqueda"
+  },
+  "staff": {
+    "title": "Personal administrativo",
+    "ahmet_name": "Dentista Ahmet SELVİ",
+    "ahmet_title": "Presidente del Consejo de Administración",
+    "recep_name": "Dentista Recep EŞKAR",
+    "recep_title": "CEO Director General",
+    "halit_name": "Halit Burak ALTINKAYA",
+    "halit_title": "Gerente de Sistemas de Gestión de Información",
+    "abdullah_name": "Abdullah DEMİRCAN",
+    "abdullah_title": "Gerente de Ventas y Marketing",
+    "caner_name": "Caner ÇOBAN",
+    "caner_title": "Gerente de Desarrollo de Negocios y Operaciones",
+    "bayram_name": "Bayram SAYMAN",
+    "bayram_title": "Gerente de Contabilidad",
+    "zeynep_name": "Zeynep Aydın SOYDANER",
+    "zeynep_title": "Abogada",
+    "neslihan_name": "Neslihan DEMİR",
+    "neslihan_title": "Gerente Administrativa Bagcilar",
+    "tugba_name": "Tuğba KAVALCI",
+    "tugba_title": "Gerente Administrativa Fatih",
+    "veysel_name": "Veysel YILMAZ",
+    "veysel_title": "Gerente Administrativo Camlica",
+    "ercument_name": "Erçüment MERT",
+    "ercument_title": "Gerente Administrativo Pendik",
+    "nursah_name": "Nurşah IŞIK",
+    "nursah_title": "Gerente Administrativa Mecidiyekoy",
+    "kadriye_name": "Kadriye SOYSAL",
+    "kadriye_title": "Gerente Administrativa Kayseri",
+    "sena_name": "Sena KELEŞ",
+    "sena_title": "Gerente Administrativa Serifali",
+    "berra_name": "Berra Sinanoğlu GÖRGÜLÜ",
+    "berra_title": "Gerente Administrativa Alanya",
+    "selin_name": "Selin HOŞÇEYLAN",
+    "selin_title": "Gerente Administrativa Bodrum",
+    "iclal_name": "İclal HARMANCI",
+    "iclal_title": "Gerente Administrativa Kocaeli",
+    "mehmet_name": "Mehmet Ziya KÖK",
+    "mehmet_title": "Gerente Administrativo Antalya",
+    "muslum_name": "Müslüm YENİKAN",
+    "muslum_title": "Gerente Administrativo Cevizlibag",
+    "gaye_name": "Gaye MERÇAN",
+    "gaye_title": "Gerente Administrativa Bursa",
+    "ibrahim_name": "İbrahim YÜCEL",
+    "ibrahim_title": "Gerente Administrativo Gokturk"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "yes": "Sí",
+    "no": "No",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
+    "address": "Dirección",
+    "website": "Sitio web",
+    "followUs": "Síguenos",
+    "contactInfo": "Información de contacto"
+  }
+} 

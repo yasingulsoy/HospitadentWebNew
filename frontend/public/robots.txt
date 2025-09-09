@@ -1,0 +1,82 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hospitadent.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow important pages
+Allow: /hakkimizda
+Allow: /tedaviler
+Allow: /subelerimiz
+Allow: /idari-kadro
+Allow: /hasta-memnuniyet-videolari
+Allow: /hasta-yorumlari
+Allow: /blog
+Allow: /iletisim
+Allow: /akademi
+Allow: /anlasmali-kurumlar
+Allow: /odullerimiz
+Allow: /kurumsal-kimlik
+
+# Allow language versions
+Allow: /en/
+Allow: /fr/
+Allow: /de/
+Allow: /ru/
+Allow: /es/
+Allow: /sa/
+
+# Allow assets
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
+Allow: /*.pdf
+
+# Disallow temporary and cache files
+Disallow: /temp/
+Disallow: /cache/
+Disallow: /tmp/
+Disallow: /*.tmp
+Disallow: /*.cache
+
+# Host directive
+Host: https://hospitadent.com 

@@ -1,0 +1,589 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "process": "Processus",
+    "clients": "Clients",
+    "contact": "Contact",
+    "language": "Langue",
+    "search": "Rechercher",
+    "searchPlaceholder": "Rechercher...",
+    "viewAllResults": "Voir tous les résultats",
+    "contactUs": "Contact",
+    "aiAssistant": "Assistant IA",
+    "onlineAppointment": "Rendez-vous en ligne",
+    "phoneAppointment": "Rendez-vous par téléphone",
+    "corporate": "Entreprise",
+    "administrativeStaff": "Personnel administratif",
+    "patientSatisfactionVideos": "Vidéos de satisfaction des patients",
+    "patientReviews": "Avis des patients",
+    "contractedInstitutions": "Institutions contractées",
+    "hrJobApplicationForm": "Formulaire de candidature RH",
+    "franchisePartnershipApplication": "Demande de franchise - partenariat",
+    "adverseEventNotificationForm": "Formulaire de notification d'événement indésirable",
+    "hospitadentAcademy": "Académie Hospitadent",
+    "hospitadentSocialResponsibility": "Responsabilité sociale Hospitadent",
+    "ourAwards": "Récompenses",
+    "corporateIdentity": "Identité d'entreprise",
+    "ourBranches": "Succursales",
+    "istanbul": "Istanbul",
+    "mecidiyekoy": "Mecidiyekoy",
+    "bagcilar": "Bagcilar",
+    "bakirkoy": "Bakirkoy",
+    "fatih": "Fatih",
+    "camlica": "Camlica",
+    "pendik": "Pendik",
+    "serifali": "Serifali",
+    "cevizlibag": "Cevizlibag",
+    "gokturk": "Gokturk",
+    "kayseri": "Kayseri",
+    "bodrum": "Bodrum",
+    "alanya": "Alanya",
+    "antalya": "Antalya",
+    "ankara": "Ankara",
+    "denizli": "Denizli",
+    "kocaeli": "Kocaeli",
+    "bursa": "Bursa",
+    "germany": "Allemagne",
+    "netherlands": "Pays-Bas",
+    "ourTreatments": "Traitements",
+    "cosmeticDentistry": "Dentisterie esthétique",
+    "hollywoodSmile": "Qu'est-ce que le Hollywood Smile (Design du sourire)?",
+    "smileDesign": "Qu'est-ce que le Design du sourire (Esthétique)? Comment est-ce fait?",
+    "teethWhitening": "Qu'est-ce que le blanchiment des dents? Quelles sont les méthodes?",
+    "pinkAesthetics": "Comment se fait l'esthétique rose (Esthétique des gencives)?",
+    "laminateVeneer": "Qu'est-ce que la facette en stratifié? Comment est-ce fait?",
+    "zirconiumCrown": "Comment se fait la couronne en zircone?",
+    "porcelainCrown": "Qu'est-ce que la couronne en porcelaine? Comment est-ce fait?",
+    "lumineersVeneer": "Qu'est-ce que la facette Lumineers? Comment est-ce fait?",
+    "emaxCrown": "Comment se fait la couronne Emax? Combien de temps dure-t-elle?",
+    "aestheticFilling": "Qu'est-ce que l'obturation esthétique? Comment est-ce fait?",
+    "bisectomy": "Qu'est-ce que la bisectomie (Esthétique des joues)?",
+    "laserDentalTreatment": "Traitement dentaire au laser",
+    "inlayFilling": "Qu'est-ce que l'obturation inlay? Comment est-elle appliquée?",
+    "onlayFilling": "Qu'est-ce que l'obturation onlay? Comment est-elle appliquée?",
+    "dentalDiamond": "Qu'est-ce que le diamant dentaire (Cristal dentaire)?",
+    "dentalTattoo": "Qu'est-ce que le tatouage dentaire? Comment est-il appliqué?",
+    "dentalJewelry": "Qu'est-ce que la bijouterie dentaire / Grillz? Comment est-ce fait?",
+    "bondingTreatment": "Qu'est-ce que le traitement de collage? Comment est-il appliqué?",
+    "missingTeeth": "Dents manquantes",
+    "dentalBridge": "Qu'est-ce que le bridge dentaire? Comment est-il appliqué?",
+    "denture": "Qu'est-ce que la prothèse dentaire?",
+    "fixedProsthesis": "Qu'est-ce que la prothèse fixe? Comment est-elle appliquée?",
+    "snapOnDenture": "Qu'est-ce que la prothèse à clip? Comment est-elle appliquée?",
+    "fullMouthTreatment": "Qu'est-ce que le traitement dentaire complet?",
+    "implant": "Implant",
+    "singleToothImplant": "Qu'est-ce que le traitement d'implant à une seule dent?",
+    "fullMouthImplant": "Traitement d'implant buccal complet",
+    "multipleToothImplant": "Traitement d'implant à dents multiples",
+    "oneDayImplant": "Qu'est-ce que l'implant en un jour?",
+    "allOnFour": "Qu'est-ce que All on Four?",
+    "allOnSix": "Qu'est-ce que All on Six?",
+    "boxTechnique": "Qu'est-ce que la technique Box?",
+    "generalDentalTreatments": "Traitements dentaires généraux",
+    "dentalExamination": "Consultation dentaire",
+    "crownVeneer": "Qu'est-ce qu'une couronne dentaire? Comment est-elle faite?",
+    "dentalFilling": "Comment se fait un plombage? Quels sont ses types?",
+    "rootCanalTreatment": "Comment se fait le traitement des racines? Est-ce que ça fait mal?",
+    "toothExtraction": "Qu'est-ce que l'extraction dentaire? Comment est-elle faite?",
+    "impactedToothExtraction": "Qu'est-ce que l'extraction de dents incluses?",
+    "wisdomToothExtraction": "Extraction des dents de sagesse",
+    "brokenToothTreatment": "Qu'est-ce que le traitement des dents fissurées?",
+    "preventiveDentalTreatments": "Traitements dentaires protecteurs",
+    "badBreath": "Qu'est-ce que la mauvaise haleine? Comment est-elle traitée?",
+    "toothSensitivity": "Qu'est-ce que la sensibilité dentaire? Comment est-elle traitée?",
+    "teethGrinding": "Qu'est-ce que le grincement des dents? Comment est-il traité?",
+    "teethGrindingTreatment": "Qu'est-ce que le traitement des grincements? Comment est-il fait?",
+    "snoringTreatment": "Qu'est-ce que le traitement du ronflement? Comment est-il appliqué?",
+    "orthodontics": "Orthodontie",
+    "bracesTreatment": "Qu'est-ce que le traitement des accolades? Comment est-il appliqué?",
+    "clearBracketTreatment": "Traitement des bretelles transparentes",
+    "invisalignTreatment": "Traitement İnvisalign",
+    "invisibleBracesTreatment": "Traitement des fils invisibles",
+    "pedodontics": "Pédodontie / Dentisterie pédiatrique",
+    "fluorideApplication": "Application de fluorure",
+    "fissureSealant": "Scellant de fissures",
+    "pediatricOrthodonticTreatment": "Qu'est-ce que l'orthodontie pédiatrique?",
+    "babyBottleToothDecay": "Qu'est-ce que la carie du biberon?",
+    "spaceMaintainerTreatment": "Qu'est-ce que le traitement d'espace réservé?",
+    "periodontology": "Parodontologie",
+    "gumTreatment": "Traitement des gencives",
+    "curettageTreatment": "Qu'est-ce que le curetage dentaire?",
+    "flapTreatment": "Qu'est-ce que le traitement des lambeaux?",
+    "gingivitis": "Gingivite",
+    "dentalCalculusCleaning": "Qu'est-ce que le nettoyage des dents? Comment est-il fait?",
+    "specialDentalTreatments": "Traitements dentaires spéciaux",
+    "digitalDentistry": "Dentisterie numérique et conception dentaire",
+    "needleFreeAnesthesia": "Application d'anesthésie sans aiguille",
+    "sedationAndGeneralAnesthesia": "Sédation et anesthésie générale",
+    "rubberDamApplication": "Application de gomme en caoutchouc",
+    "jawTumor": "Tumeur de la mâchoire",
+    "jawFractureTreatment": "Traitement de fracture de mâchoire",
+    "dentalSpa": "Spa dentaire",
+    "tenByTenExamination": "Examen 10 x 10",
+    "ourDoctors": "Médecins",
+    "blog": "Blog"
+  },
+  "home": {
+    "title": "Une nouvelle ère en dentisterie numérique",
+    "subtitle": "Prenez rendez-vous maintenant pour des sourires sains et esthétiques avec les technologies 3D.",
+    "desc": "Clinique moderne, personnel expert, solutions numériques.",
+    "button": "Prendre rendez-vous",
+    "heroSlides": {
+      "slide1": {
+        "title": "Leader en tourisme dentaire",
+        "subtitle": "4 années consécutives de première place, traitement de classe mondiale."
+      },
+      "slide2": {
+        "title": "99% de satisfaction des patients",
+        "subtitle": "Des milliers de patients heureux, service fiable et de qualité."
+      },
+      "slide3": {
+        "title": "Une nouvelle ère en dentisterie numérique",
+        "subtitle": "Prenez rendez-vous maintenant pour des sourires sains et esthétiques avec les technologies 3D."
+      },
+      "slide4": {
+        "title": "Clinique moderne, personnel expert",
+        "subtitle": "Traitement rapide, confortable et sûr avec des solutions numériques."
+      }
+    },
+    "typewriterWords": [
+      "Blanchiment des dents",
+      "Implant",
+      "Orthodontie",
+      "Appareil dentaire",
+      "Couronne en zircone",
+      "Facette en stratifié",
+      "Dents en porcelaine",
+      "Extraction dentaire",
+      "Traitement des gencives",
+      "Dentisterie pédiatrique",
+      "Obturation dentaire",
+      "Traitement de canal",
+      "Nettoyage des dents",
+      "Design du sourire",
+      "Prothèse dentaire",
+      "Radiographie dentaire"
+    ],
+    "stats": {
+      "years": "Années d'expérience",
+      "patients": "Patients heureux",
+      "employees": "Employés heureux",
+      "branches": "Succursales",
+      "countries": "Pays",
+      "dentists": "Dentistes"
+    },
+    "contactButton": "Contact",
+    "whatsappContact": "Contact via WhatsApp",
+    "aiAssistantTitle": "Assistant IA",
+    "onlineAppointmentTitle": "Rendez-vous en ligne",
+    "phoneAppointmentTitle": "Rendez-vous par téléphone"
+  },
+  "services": {
+    "title": "Services",
+    "viewAll": "Voir tout",
+    "prev": "Précédent",
+    "next": "Suivant"
+  },
+  "footer": {
+    "copyright": "Tous droits réservés."
+  },
+  "instagram": {
+    "title": "Nos Contenus Sociaux",
+    "subtitle": "Suivez nos derniers traitements, la satisfaction des patients et la vie de la clinique sur Instagram !",
+    "loading": "Chargement des publications Instagram...",
+    "error": "Une erreur s'est produite lors du chargement des publications Instagram.",
+    "followUs": "Suivez-nous",
+    "viewPost": "Voir la publication"
+  },
+  "about": {
+    "title": "À propos de nous",
+    "subtitle": "Avec plus de 20 ans d'expérience, nous servons comme l'une des principales organisations de santé dentaire de Turquie.",
+    "mission": {
+      "title": "Mission",
+      "text": "Nous travaillons pour fournir à nos patients les services de santé dentaire de la plus haute qualité et restaurer leurs sourires avec une technologie moderne et un personnel expert.",
+      "point1": "Technologie moderne",
+      "point2": "Personnel expert",
+      "point3": "Satisfaction des patients"
+    },
+    "stats": {
+      "title": "Nous en chiffres",
+      "years": "Années d'expérience",
+      "patients": "Patients heureux",
+      "branches": "Succursales",
+      "doctors": "Médecins experts"
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "Être l'organisation de santé dentaire la plus fiable et préférée de Turquie, continuant à être un leader dans le secteur avec des normes de qualité de service internationales."
+    },
+    "values": {
+      "quality": "Qualité",
+      "quality.desc": "Fournir le service de la plus haute qualité",
+      "care": "Soin",
+      "care.desc": "Approcher nos patients avec soin",
+      "innovation": "Innovation",
+      "innovation.desc": "Développement continu et innovation"
+    },
+    "cta": {
+      "title": "Nous sommes là pour des sourires sains",
+      "subtitle": "Nous sommes heureux de vous servir avec notre personnel expert et notre technologie moderne.",
+      "button": "Prendre rendez-vous"
+    },
+    "history": {
+      "title": "Histoire",
+      "text1": "Fondé en 2007, Hospitadent sert comme l'une des principales organisations de santé dentaire de Turquie.",
+      "text2": "Depuis notre création, nous avons servi des milliers de patients avec une technologie moderne et un personnel expert.",
+      "text3": "Avec notre approche centrée sur le patient et notre compréhension du service de qualité, nous maintenons une position de leader dans le secteur."
+    },
+    "technology": {
+      "title": "Technologie",
+      "text1": "Nous suivons les derniers développements technologiques et offrons à nos patients les meilleures options de traitement.",
+      "text2": "Nous utilisons des méthodes modernes telles que le scan numérique 3D, la technologie CAD/CAM et les traitements laser."
+    },
+    "team": {
+      "title": "Équipe",
+      "text1": "Nos dentistes expérimentés et experts reçoivent une formation continue et appliquent les méthodes de traitement les plus actuelles.",
+      "text2": "Avec notre approche centrée sur le patient et notre compréhension du service fiable, nous continuons à vous fournir le meilleur service de santé dentaire."
+    },
+    "facilities": {
+      "title": "Installations",
+      "text1": "Dans nos cliniques modernes et hygiéniques, nous fournissons à nos patients l'environnement de traitement le plus confortable.",
+      "text2": "Nous servons avec un équipement aux normes de stérilisation et des protocoles de traitement sûrs."
+    },
+    "quality": {
+      "title": "Politique de qualité",
+      "text1": "Fournir un service conforme aux normes de qualité internationales est notre principe fondamental.",
+      "text2": "Avec notre approche d'amélioration continue et centrée sur la satisfaction des patients, nous fournissons le service de santé dentaire de la plus haute qualité."
+    },
+    "future": {
+      "title": "Vision future",
+      "text1": "Nous continuerons à offrir à nos patients les méthodes de traitement les plus actuelles en suivant de près les développements technologiques.",
+      "text2": "Nous avançons sur la voie du développement continu et de l'innovation avec notre objectif de devenir l'organisation de santé dentaire leader de Turquie et du monde."
+    },
+    "vision": {
+      "title": "NOTRE VISION",
+      "text": "Être la marque de santé bucco-dentaire la plus proche et la plus innovante des patients du monde."
+    },
+    "mission": {
+      "title": "NOTRE MISSION",
+      "text": "Ajouter de la valeur aux personnes, à la société et à l'environnement avec une qualité de service élevée ; donner confiance en traitant chacun de nos patients comme nos propres proches de manière éthique, sincère et empathique, atteindre plus de personnes avec une croissance physique équilibrée, suivre les développements technologiques et scientifiques et les appliquer de manière pionnière, rendre les gens heureux en concevant des sourires esthétiques avec des architectes du sourire."
+    },
+    "values": {
+      "title": "NOS VALEURS",
+      "value1": {
+        "title": "Nous Valorisons :",
+        "text": "Nous sommes conscients de la valeur des êtres humains, de la vie et du monde."
+      },
+      "value2": {
+        "title": "Nous Prenons Soin :",
+        "text": "Nous prenons soin de nos patients comme de nos proches et invités que nous accueillons à la maison."
+      },
+      "value3": {
+        "title": "Nous Donnons Confiance :",
+        "text": "Tous ceux qui entrent en contact avec nous (nos patients, fournisseurs, environnement, etc.) sont sûrs que nous essayons de faire de notre mieux et la bonne chose, et que nous sommes liés par des règles éthiques. Nous ne faisons que ce que nous disons et ne disons que ce que nous ferons."
+      },
+      "value4": {
+        "title": "Nous Sommes Sincères et Proches :",
+        "text": "Nous montrons une sincérité et une proximité équilibrées envers tous."
+      },
+      "value5": {
+        "title": "Nous Nous Sentons Responsables :",
+        "text": "Nous nous sentons responsables envers les personnes, la société, l'environnement, c'est-à-dire tout l'univers."
+      },
+      "value6": {
+        "title": "Nous Sommes Innovants :",
+        "text": "Nous sommes toujours curieux et désireux d'innovations et de développements."
+      },
+      "value7": {
+        "title": "Nous Valorisons la Qualité :",
+        "text": "Les meilleurs matériaux, la technologie la plus récente et une hygiène élevée sont indispensables pour nous."
+      },
+      "value8": {
+        "title": "Nous Collaborons :",
+        "text": "Nous veillons aux intérêts de nos patients et fournisseurs en collaborant avec eux, et dans l'équipe, nous pensons que si l'un de nous manque, nous sommes tous manquants."
+      },
+      "value9": {
+        "title": "Nous Voulons Donner du Bonheur :",
+        "text": "Nous pensons que le vrai bonheur est le bonheur des autres et nous nous efforçons pour cela."
+      }
+    },
+    "history": {
+      "text1": "Fondé en 2006, Hospitadent continue de servir avec le slogan \"Dès le premier jour, tout notre métier est les dents\". Avec ses 22 succursales établies nationalement et internationalement, ses appareils médicaux modernes, son personnel médical distingué et son personnel expert, Hospitadent élève les standards en santé bucco-dentaire."
+    },
+    "branches": {
+      "title": "Haute Qualité de Service dans Chaque Succursale",
+      "text1": "Suite au premier centre ouvert à Bağcılar, Hospitadent, qui s'est étendu à Fatih en 2008, Çamlıca en 2009, Pendik et Mecidiyeköy en 2011, a ouvert sa première succursale internationale à Francfort, Allemagne en 2012. Le groupe hospitalier, qui a augmenté le nombre de succursales avec un nouveau centre ouvert à Bakırköy, a ouvert la succursale d'Ankara, la succursale de Kocaeli, la succursale d'Antalya, la succursale de Cevizlibağ à Istanbul et enfin la succursale de Bursa en 2014 à Kayseri, 2015 à La Haye, Pays-Bas, 2018 à Şerifali, 2021 à Alanya et Bodrum et 2022. Hospitadent continue de croître avec des pas confiants avec de nombreuses succursales dans 4 pays différents.",
+      "text2": "En plus du nombre rapidement croissant de succursales, l'Académie Hospitadent a été établie en 2008 pour l'éducation continue des médecins experts et du personnel technique sur le développement professionnel et les innovations technologiques.",
+      "text3": "Hospitadent est un nom pionnier qui établit des standards dans le secteur de la santé avec ses projets innovants. L'hôpital, qui a commencé le programme de fidélité Dent Guard en 2016, a créé un système de traitement dentaire garanti avec des cartes personnalisées et des avantages. Dans le département de Design Dentaire établi en 2017, la conception de sourire numérique a été commencée. Hospitadent, qui offre une infrastructure technologique supérieure dans chacune de ses succursales, sert ses patients avec une approche de traitement dentaire individuelle et durable."
+    },
+    "innovations": {
+      "title": "Hospitadent, Adresse des Premiers",
+      "text": "Hospitadent, qui a commencé le tourisme de santé dentaire pour la première fois en Turquie en 2007, est devenu l'adresse recherchée pour le traitement dentaire par les patients du monde entier. Hospitadent, qui a réalisé une première dans le secteur de la santé et établi le Département d'Expérience Patient pour la première fois en Turquie, attache une grande importance à l'expérience et à la satisfaction des patients. Avec cette compréhension, l'hôpital, qui a créé un concept spécial appelé Dental Spa en 2016, vise à mettre fin à la peur des dentistes avec son concept VIP qui fournit aux patients un environnement relaxant et un soutien psychologique."
+    },
+    "awards": {
+      "title": "Histoire de Succès Couronnée de Prix",
+      "text1": "La vision de classe mondiale d'Hospitadent, son personnel expert, son travail innovant et axé sur la satisfaction client ont été certifiés par des prix. Hospitadent, qui a prouvé qu'il était le choix du peuple en servant plus d'un million de patients d'ici 2010, a remporté le Certificat de Qualité Internationale TEMOS en 2013.",
+      "text2": "En 2015, il a été jugé digne du prix de l'Institution de Santé de l'Année à la suite de l'Enquête des Étoiles de l'Année 14e du Magazine Ekovitrin.",
+      "text3": "Hospitadent est devenu le premier hôpital de Turquie à remporter un prix Stevie en remportant le Prix du Service Client le Plus Innovant de l'Année aux Stevie Awards, où les entreprises les plus performantes du monde sont récompensées en 2018.",
+      "text4": "Hospitadent, qui s'est classé premier dans la catégorie Services de Traitement Dentaire dans la recherche des 500 Exportateurs de Services de Turquie de l'Assemblée des Exportateurs de Turquie en 2018, a prouvé son succès et sa compétence dans le secteur de la santé une fois de plus.",
+      "text5": "Hospitadent, qui a qualifié pour entrer dans le \"Programme de Soutien de Marque Turquality\" créé en 2020 dans le but de marquer les produits turcs à l'étranger, d'établir et de soutenir l'image des marchandises turques, qui est en vigueur depuis 16 ans, continue de créer une image positive en prenant une étape importante dans le marquage. Être le premier groupe de santé dentaire à participer au programme de soutien de marque Turquality, dans lequel seulement cinq hôpitaux sont impliqués dans le domaine de la santé, démontre des standards élevés ainsi que créer une image de qualité.",
+      "text6": "Hospitadent, qui a qualifié pour être appelé une entreprise \"Great Place To Work® Certified\" à la suite de l'évaluation et de l'analyse menées par GPTW Turquie dans la dernière période de 2021, vit la fierté légitime d'être le premier groupe dentaire à avoir le certificat de culture d'entreprise le plus élevé."
+    },
+    "conclusion": "Hospitadent, qui suit continuellement les technologies médicales en développement et fait progresser continuellement les méthodes de diagnostic et de traitement avec les technologies les plus actuelles, continue de fournir un service de santé sûr et de qualité avec son personnel expert."
+  },
+  "appointment": {
+    "title": "Rendez-vous en ligne",
+    "selectCity": "Sélectionner la ville",
+    "selectBranch": "Sélectionner la succursale",
+    "selectDoctor": "Sélectionner le médecin",
+    "selectDate": "Sélectionner la date",
+    "selectTime": "Sélectionner l'heure",
+    "dentalClinic": "Clinique dentaire",
+    "contactInfo": "Informations de contact",
+    "selectedAppointment": "Rendez-vous sélectionné",
+    "name": "Nom complet",
+    "phone": "Numéro de téléphone",
+    "namePlaceholder": "Entrez votre nom complet",
+    "phonePlaceholder": "Entrez votre numéro de téléphone",
+    "phoneFormat": "Commençant par 0, ex: 05XXXXXXXXX",
+    "appointmentInfo": "Votre demande de rendez-vous sera reçue et vous serez appelé dès que possible.",
+    "completeAppointment": "Compléter le rendez-vous",
+    "closed": "Fermé",
+    "next": "Continuer",
+    "previous": "Retour",
+    "book": "Prendre rendez-vous",
+    "submit": "Soumettre le rendez-vous",
+    "submitting": "Soumission...",
+    "success": "Votre demande de rendez-vous a été reçue avec succès!",
+    "error": "Une erreur s'est produite. Veuillez réessayer."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Informations actuelles sur la santé dentaire et les méthodes de traitement",
+    "pageTitle": "Blog - Hospitadent",
+    "pageDescription": "Santé dentaire, méthodes de traitement et informations actuelles sur la dentisterie. Conseils et recommandations de nos dentistes experts.",
+    "pageKeywords": "blog santé dentaire, informations traitement dentaire, articles dentisterie, santé bucco-dentaire, soins dentaires",
+    "by": "Par:",
+    "readMore": "Lire la suite",
+    "loadMore": "Charger plus",
+    "categories": {
+      "dentalHealth": "Santé dentaire",
+      "orthodontics": "Orthodontie",
+      "implant": "Implant",
+      "cosmetic": "Dentisterie esthétique",
+      "pediatric": "Dentisterie pédiatrique",
+      "technology": "Technologie"
+    },
+    "post1": {
+      "title": "Importance des soins dentaires quotidiens",
+      "excerpt": "Apprenez comment votre routine de soins quotidiens devrait être pour des dents saines.",
+      "content": "Les soins dentaires quotidiens sont la base de la santé bucco-dentaire. Vous pouvez prévenir les problèmes dentaires avec des techniques de brossage appropriées, l'utilisation de fil dentaire et des contrôles réguliers.",
+      "author": "Dr. Ahmet Yılmaz"
+    },
+    "post2": {
+      "title": "Processus de traitement orthodontique",
+      "excerpt": "Que se passe-t-il pendant le traitement orthodontique et quel chemin est suivi?",
+      "content": "Le traitement orthodontique est un processus à long terme appliqué pour aligner correctement les dents. La conformité du patient est très importante dans ce processus.",
+      "author": "Dr. Ayşe Demir"
+    },
+    "post3": {
+      "title": "Ce que vous devez savoir sur le traitement d'implant",
+      "excerpt": "Comment le traitement d'implant est-il effectué et à qui peut-il être appliqué?",
+      "content": "Le traitement d'implant est une méthode de traitement moderne qui offre des solutions permanentes pour remplacer les dents manquantes. Informations détaillées sur le processus chirurgical et ses conséquences.",
+      "author": "Dr. Mehmet Kaya"
+    },
+    "post4": {
+      "title": "Conception de sourire et dentisterie esthétique",
+      "excerpt": "Solutions de dentisterie esthétique pour un sourire parfait.",
+      "content": "La conception de sourire est un plan de traitement complet qui améliore l'apparence esthétique des dents selon la structure faciale de la personne.",
+      "author": "Dr. Fatma Özkan"
+    },
+    "post5": {
+      "title": "Santé dentaire chez les enfants",
+      "excerpt": "Ce que les parents doivent savoir pour la santé dentaire de leurs enfants.",
+      "content": "La santé dentaire chez les enfants est assurée par des soins réguliers et des contrôles dès le plus jeune âge. Le rôle des parents est très important.",
+      "author": "Dr. Ali Çelik"
+    },
+    "post6": {
+      "title": "Technologies de dentisterie numérique",
+      "excerpt": "Technologies numériques utilisées dans la dentisterie moderne.",
+      "content": "La dentisterie numérique offre des technologies innovantes qui accélèrent les processus de traitement et augmentent le confort du patient.",
+      "author": "Dr. Zeynep Arslan"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "about": "À propos",
+    "treatments": "Traitements",
+    "branches": "Succursales",
+    "staff": "Personnel administratif",
+    "patientVideos": "Vidéos de satisfaction des patients",
+    "patientReviews": "Avis des patients",
+    "blog": "Blog",
+    "contact": "Contact",
+    "academy": "Académie",
+    "partnerInstitutions": "Institutions partenaires",
+    "awards": "Prix",
+    "corporateIdentity": "Identité corporative",
+    "socialResponsibility": "Responsabilité sociale",
+    "search": "Recherche"
+  },
+  "staff": {
+    "title": "Personnel administratif",
+    "ahmet_name": "Dentiste Ahmet SELVİ",
+    "ahmet_title": "Président du conseil d'administration",
+    "recep_name": "Dentiste Recep EŞKAR",
+    "recep_title": "PDG Directeur Général",
+    "halit_name": "Halit Burak ALTINKAYA",
+    "halit_title": "Directeur des systèmes d'information",
+    "abdullah_name": "Abdullah DEMİRCAN",
+    "abdullah_title": "Directeur des ventes et du marketing",
+    "caner_name": "Caner ÇOBAN",
+    "caner_title": "Directeur du développement commercial et des opérations",
+    "bayram_name": "Bayram SAYMAN",
+    "bayram_title": "Directeur comptable",
+    "zeynep_name": "Zeynep Aydın SOYDANER",
+    "zeynep_title": "Avocate",
+    "neslihan_name": "Neslihan DEMİR",
+    "neslihan_title": "Directrice des affaires administratives Bağcılar",
+    "tugba_name": "Tuğba KAVALCI",
+    "tugba_title": "Directrice des affaires administratives Fatih",
+    "veysel_name": "Veysel YILMAZ",
+    "veysel_title": "Directeur des affaires administratives Çamlıca",
+    "ercument_name": "Ercüment MERT",
+    "ercument_title": "Directeur des affaires administratives Pendik",
+    "nursah_name": "Nurşah IŞIK",
+    "nursah_title": "Directrice des affaires administratives Mecidiyeköy",
+    "kadriye_name": "Kadriye SOYSAL",
+    "kadriye_title": "Directrice des affaires administratives Kayseri",
+    "sena_name": "Sena KELEŞ",
+    "sena_title": "Directrice des affaires administratives Şerifali",
+    "berra_name": "Berra Sinanoğlu GÖRGÜLÜ",
+    "berra_title": "Directrice des affaires administratives Alanya",
+    "selin_name": "Selin HOŞCEYLAN",
+    "selin_title": "Directrice des affaires administratives Bodrum",
+    "iclal_name": "İclal HARMANCI",
+    "iclal_title": "Directrice des affaires administratives Kocaeli",
+    "mehmet_name": "Mehmet Ziya KÖK",
+    "mehmet_title": "Directeur des affaires administratives Antalya",
+    "muslum_name": "Müslüm YENİKAN",
+    "muslum_title": "Directeur des affaires administratives Cevizlibağ",
+    "gaye_name": "Gaye MERCAN",
+    "gaye_title": "Directrice des affaires administratives Bursa",
+    "ibrahim_name": "İbrahim YÜCEL",
+    "ibrahim_title": "Directeur des affaires administratives Göktürk"
+  },
+  "branches": {
+    "title": "Nos succursales",
+    "description": "Trouvez la succursale Hospitadent la plus proche de vous",
+    "keywords": "succursales hospitadent, cliniques dentaires, branches, localisation",
+    "viewDetails": "Voir les détails"
+  },
+  "branchPage": {
+    "title": "Succursale",
+    "description": "Informations détaillées sur notre succursale",
+    "keywords": "succursale, clinique dentaire, informations contact",
+    "notFound": "Succursale non trouvée",
+    "backToBranches": "Retour aux succursales",
+    "branch": "Succursale",
+    "contactInfo": "Informations de contact",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "services": "Services",
+    "service1": "Traitement d'implant",
+    "service2": "Orthodontie",
+    "service3": "Dentisterie esthétique",
+    "service4": "Traitement de canal",
+    "service5": "Nettoyage des dents",
+    "workingHours": "Heures d'ouverture",
+    "weekdays": "Jours de semaine",
+    "saturday": "Samedi"
+  },
+  "searchResults": {
+    "title": "Résultats de recherche",
+    "description": "Résultats de votre recherche sur Hospitadent",
+    "keywords": "recherche, résultats, hospitadent",
+    "loading": "Recherche en cours...",
+    "query": "Recherche pour",
+    "noResults": "Aucun résultat trouvé",
+    "noResultsDesc": "Désolé, nous n'avons trouvé aucun résultat pour votre recherche.",
+    "suggestions": "Suggestions",
+    "suggestion1": "Vérifiez l'orthographe des mots-clés",
+    "suggestion2": "Essayez des mots-clés plus généraux",
+    "suggestion3": "Essayez moins de mots-clés",
+    "found": "Trouvé",
+    "results": "résultats",
+    "readMore": "Lire la suite"
+  },
+  "patientSatisfaction": {
+    "title": "Vidéos de satisfaction des patients",
+    "description": "Écoutez les expériences de nos patients satisfaits",
+    "keywords": "satisfaction patient, témoignages, vidéos patient",
+    "videoNotSupported": "Votre navigateur ne supporte pas la lecture vidéo",
+    "whyChooseUs": "Pourquoi nous choisir?",
+    "experience": "Expérience",
+    "experienceDesc": "Plus de 20 ans d'expérience dans le secteur",
+    "quality": "Qualité",
+    "qualityDesc": "Services de la plus haute qualité",
+    "care": "Soin",
+    "careDesc": "Approche centrée sur le patient"
+  },
+  "patientReviews": {
+    "title": "Avis des patients",
+    "description": "Lisez les avis de nos patients satisfaits",
+    "keywords": "avis patient, témoignages, satisfaction",
+    "verifiedPatient": "Patient vérifié",
+    "overallRating": "Note globale",
+    "basedOnReviews": "Basé sur",
+    "reviews": "avis",
+    "shareExperience": "Partagez votre expérience",
+    "shareExperienceDesc": "Aidez d'autres patients en partageant votre expérience avec nous",
+    "writeReview": "Écrire un avis"
+  },
+  "academy": {
+    "title": "Académie Hospitadent",
+    "description": "Centre d'éducation et de recherche en dentisterie",
+    "keywords": "académie, éducation, recherche, dentisterie",
+    "education": {
+      "title": "Éducation",
+      "description": "Programmes de formation continue pour les professionnels de la santé dentaire",
+      "item1": "Formation continue",
+      "item2": "Séminaires spécialisés",
+      "item3": "Certifications internationales"
+    },
+    "research": {
+      "title": "Recherche",
+      "description": "Recherche innovante en dentisterie et développement de nouvelles méthodes",
+      "item1": "Recherche clinique",
+      "item2": "Développement de technologies",
+      "item3": "Publications scientifiques"
+    },
+    "joinUs": {
+      "title": "Rejoignez-nous",
+      "description": "Faites partie de notre académie et contribuez au développement de la dentisterie",
+      "button": "Postuler maintenant"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "yes": "Oui",
+    "no": "Non",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "address": "Adresse",
+    "website": "Site web",
+    "followUs": "Suivez-nous",
+    "contactInfo": "Informations de contact"
+  }
+} 

@@ -1,0 +1,526 @@
+{
+  "navbar": {
+    "home": "Anasayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "process": "Süreç",
+    "clients": "Referanslar",
+    "contact": "İletişim",
+    "language": "Dil",
+    "search": "Ara",
+    "searchPlaceholder": "Arayın...",
+    "viewAllResults": "Tüm sonuçları görüntüle",
+    "contactUs": "İletişim",
+    "aiAssistant": "Yapay Zeka Asistanı",
+    "onlineAppointment": "Online Randevu",
+    "phoneAppointment": "Telefonla Randevu",
+    "corporate": "Kurumsal",
+    "administrativeStaff": "İdari Kadro",
+    "patientSatisfactionVideos": "Hasta Memnuniyet Videoları",
+    "patientReviews": "Hasta Yorumları",
+    "contractedInstitutions": "Anlaşmalı Kurumlar",
+    "hrJobApplicationForm": "İK İş Başvuru Formu",
+    "franchisePartnershipApplication": "Franchise – Ortaklık Başvurusu",
+    "adverseEventNotificationForm": "İstenmeyen Olay Bildirim Formu",
+    "hospitadentAcademy": "Hospitadent Akademi",
+    "hospitadentSocialResponsibility": "Hospitadent Sosyal Sorumluluk",
+    "ourAwards": "Ödüllerimiz",
+    "corporateIdentity": "Kurumsal Kimlik",
+    "ourBranches": "Şubelerimiz",
+    "istanbul": "İstanbul",
+    "mecidiyekoy": "Mecidiyeköy",
+    "bagcilar": "Bağcılar",
+    "bakirkoy": "Bakırköy",
+    "fatih": "Fatih",
+    "camlica": "Çamlıca",
+    "pendik": "Pendik",
+    "serifali": "Şerifali",
+    "cevizlibag": "Cevizlibağ",
+    "gokturk": "Göktürk",
+    "kayseri": "Kayseri",
+    "bodrum": "Bodrum",
+    "alanya": "Alanya",
+    "antalya": "Antalya",
+    "ankara": "Ankara",
+    "denizli": "Denizli",
+    "kocaeli": "Kocaeli",
+    "bursa": "Bursa",
+    "germany": "Almanya",
+    "netherlands": "Hollanda",
+    "ourTreatments": "Tedavilerimiz",
+    "cosmeticDentistry": "Kozmetik Diş Hekimliği",
+    "hollywoodSmile": "Hollywood Smile (Gülüş Tasarımı) Nedir?",
+    "smileDesign": "Gülüş Tasarımı (Estetiği) Nedir? Nasıl Yapılır?",
+    "teethWhitening": "Diş Beyazlatma Nedir? Yöntemleri Nelerdir?",
+    "pinkAesthetics": "Pembe Estetik (Diş Eti Estetiği) Nasıl Yapılır?",
+    "laminateVeneer": "Lamine Diş Kaplama Nedir? Nasıl Yapılır?",
+    "zirconiumCrown": "Zirkonyum Kaplama Diş Nasıl Yapılır?",
+    "porcelainCrown": "Porselen Kaplama Diş Nedir? Nasıl Yapılır?",
+    "lumineersVeneer": "Lumineers Kaplama Nedir? Nasıl Yapılır?",
+    "emaxCrown": "Emax Kaplama Nasıl Yapılır? Ömrü Ne Kadar?",
+    "aestheticFilling": "Estetik Diş Dolgusu Nedir? Nasıl Yapılır?",
+    "bisectomy": "Bişektomi (Yanak Estetiği) Nedir?",
+    "laserDentalTreatment": "Lazerli Diş Tedavisi",
+    "inlayFilling": "Inley Dolgu Nedir? Nasıl Uygulanır?",
+    "onlayFilling": "Onley Dolgu Nedir? Nasıl Uygulanır?",
+    "dentalDiamond": "Diş Pırlantası (Diş Kristali) Nedir?",
+    "dentalTattoo": "Diş Dövmesi Nedir? Nasıl Uygulanır?",
+    "dentalJewelry": "Diş Mücevheri / Grillz Nedir? Nasıl Yapılır?",
+    "bondingTreatment": "Bonding Tedavisi Nedir? Nasıl Uygulanır?",
+    "missingTeeth": "Eksik Diş",
+    "dentalBridge": "Köprü Diş Nedir? Nasıl Uygulanır?",
+    "denture": "Takma Diş (Diş Protezi) Nedir?",
+    "fixedProsthesis": "Sabit Protez Nedir? Nasıl Uygulanır?",
+    "snapOnDenture": "Çıtçıtlı Protez Nedir? Nasıl Uygulanır?",
+    "fullMouthTreatment": "Full Ağız Diş Tedavisi Nedir?",
+    "implant": "İmplant",
+    "singleToothImplant": "Tek Diş İmplant Tedavisi Nedir?",
+    "fullMouthImplant": "Full Ağız İmplant Tedavisi",
+    "multipleToothImplant": "Çoklu Diş İmplant Tedavisi",
+    "oneDayImplant": "1 Günde İmplant Nedir?",
+    "allOnFour": "All on Four Nedir?",
+    "allOnSix": "All on Six Nedir?",
+    "boxTechnique": "Box Teknik Nedir?",
+    "generalDentalTreatments": "Genel Diş Tedavileri",
+    "dentalExamination": "Diş Muayenesi",
+    "crownVeneer": "Kuron Kaplama Nedir? Nasıl Yapılır?",
+    "dentalFilling": "Diş Dolgusu Nasıl Yapılır? Çeşitleri Nelerdir?",
+    "rootCanalTreatment": "Kanal Tedavisi Nasıl Yapılır? Acıtır mı?",
+    "toothExtraction": "Diş Çekimi Nedir? Nasıl Yapılır?",
+    "impactedToothExtraction": "Gömülü Diş Çekimi Nedir?",
+    "wisdomToothExtraction": "20'lik Diş Çekimi",
+    "brokenToothTreatment": "Kırık Diş Tedavisi Nedir?",
+    "preventiveDentalTreatments": "Koruyucu Diş Tedavileri",
+    "badBreath": "Ağız Kokusu Nedir? Tedavisi Nasıl Yapılır?",
+    "toothSensitivity": "Diş Hassasiyeti Nedir? Nasıl Tedavi Edilir?",
+    "teethGrinding": "Diş Sıkma (Bruksizm) Nedir? Nasıl Tedavi Edilir?",
+    "teethGrindingTreatment": "Diş Gıcırdatma Tedavisi Nedir? Nasıl Yapılır?",
+    "snoringTreatment": "Horlama Tedavisi Nedir? Nasıl Uygulanır?",
+    "orthodontics": "Ortodonti",
+    "bracesTreatment": "Diş Teli Tedavisi Nedir? Nasıl Uygulanır?",
+    "clearBracketTreatment": "Şeffaf Braketli Tedavi",
+    "invisalignTreatment": "Invisalign (Şeffaf Plak) Tedavisi",
+    "invisibleBracesTreatment": "Görünmez Tel Tedavisi",
+    "pedodontics": "Pedodonti / Çocuk Diş Hekimliği",
+    "fluorideApplication": "Fluorid Uygulaması",
+    "fissureSealant": "Fissür Örtücü",
+    "pediatricOrthodonticTreatment": "Çocuk Ortodonti Tedavisi Nedir?",
+    "babyBottleToothDecay": "Biberon Çürüğü Nedir?",
+    "spaceMaintainerTreatment": "Yer Tutucu Tedavisi Nedir?",
+    "periodontology": "Periodontoloji",
+    "gumTreatment": "Diş Eti Tedavisi",
+    "curettageTreatment": "Küretaj Tedavisi Nedir?",
+    "flapTreatment": "Flap Tedavisi",
+    "gingivitis": "Diş Eti İltihabı | Gingivitis",
+    "dentalCalculusCleaning": "Diş Taşı Temizliği Nedir? Nasıl Yapılır?",
+    "specialDentalTreatments": "Özel Diş Tedavileri",
+    "digitalDentistry": "Dijital Diş Hekimliği ve Diş Tasarımı",
+    "needleFreeAnesthesia": "İğnesiz Anestezi Uygulaması",
+    "sedationAndGeneralAnesthesia": "Sedasyon ve Genel Anestezi",
+    "rubberDamApplication": "Rubber Dum Uygulaması",
+    "jawTumor": "Çene Tümörü",
+    "jawFractureTreatment": "Çene Kırığı Tedavisi",
+    "dentalSpa": "Dental Spa",
+    "tenByTenExamination": "10 X 10 Muayene",
+    "ourDoctors": "Hekimlerimiz",
+    "blog": "Blog"
+  },
+  "home": {
+    "title": "Dijital Diş Hekimliğinde Yeni Dönem",
+    "subtitle": "3D teknolojilerle, sağlıklı ve estetik gülüşler için hemen randevu alın.",
+    "desc": "Modern klinik, uzman kadro, dijital çözümler.",
+    "button": "Randevu Al",
+    "heroSlides": {
+      "slide1": {
+        "title": "Dental Sağlık Turizminde Lideriz",
+        "subtitle": "Üst üste 4 yıl birincilik, dünya standartlarında tedavi."
+      },
+      "slide2": {
+        "title": "%99 Hasta Memnuniyeti",
+        "subtitle": "Binlerce mutlu hasta, güvenilir ve kaliteli hizmet."
+      },
+      "slide3": {
+        "title": "Dijital Diş Hekimliğinde Yeni Dönem",
+        "subtitle": "3D teknolojilerle, sağlıklı ve estetik gülüşler için hemen randevu alın."
+      },
+      "slide4": {
+        "title": "Modern Klinik, Uzman Kadro",
+        "subtitle": "Dijital çözümlerle hızlı, konforlu ve güvenli tedavi."
+      }
+    },
+    "typewriterWords": [
+      "Diş beyazlatma",
+      "İmplant",
+      "Ortodonti",
+      "Diş teli",
+      "Zirkonyum kaplama",
+      "Lamina kaplama",
+      "Porselen diş",
+      "Diş çekimi",
+      "Diş eti tedavisi",
+      "Çocuk diş hekimliği",
+      "Diş dolgusu",
+      "Kanal tedavisi",
+      "Diş temizliği",
+      "Gülüş tasarımı",
+      "Diş protezi",
+      "Diş röntgeni"
+    ],
+    "stats": {
+      "years": "Yıllık Tecrübe",
+      "patients": "Mutlu Hasta",
+      "employees": "Mutlu Çalışanlar",
+      "branches": "Şube",
+      "countries": "Ülke",
+      "dentists": "Diş Hekimi"
+    },
+    "contactButton": "İletişim",
+    "whatsappContact": "WhatsApp ile iletişim",
+    "aiAssistantTitle": "Yapay Zeka Asistanı",
+    "onlineAppointmentTitle": "Online Randevu",
+    "phoneAppointmentTitle": "Telefonla Randevu"
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "viewAll": "Tümünü Gör",
+    "prev": "Önceki",
+    "next": "Sonraki"
+  },
+  "footer": {
+    "copyright": "Tüm hakları saklıdır."
+  },
+  "instagram": {
+    "title": "Sosyal İçeriklerimiz",
+    "subtitle": "Güncel tedavilerimizi, hasta memnuniyetlerini ve klinik hayatımızdan kareleri Instagram'da takip edin!",
+    "loading": "Instagram gönderileri yükleniyor...",
+    "error": "Instagram gönderileri yüklenirken bir hata oluştu.",
+    "followUs": "Bizi Takip Edin",
+    "viewPost": "Gönderiyi Görüntüle"
+  },
+  "awards": {
+    "title": "Ödüllerimiz",
+    "subtitle": "Ödüllerimiz",
+    "comingSoon": "Bu sayfa yakında içerik ile doldurulacak."
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "20 yılı aşkın deneyimimizle, Türkiye'nin önde gelen diş sağlığı kuruluşlarından biri olarak hizmet veriyoruz.",
+    "mission": {
+      "title": "Misyonumuz",
+      "text": "Hastalarımıza en yüksek kalitede diş sağlığı hizmeti sunmak, modern teknoloji ve uzman kadromuzla gülümsemelerini yeniden kazandırmak için çalışıyoruz.",
+      "point1": "Modern Teknoloji",
+      "point2": "Uzman Kadro",
+      "point3": "Hasta Memnuniyeti"
+    },
+    "stats": {
+      "title": "Rakamlarla Biz",
+      "years": "Yıllık Deneyim",
+      "patients": "Mutlu Hasta",
+      "branches": "Şube",
+      "doctors": "Uzman Hekim"
+    },
+    "vision": {
+      "title": "Vizyonumuz",
+      "text": "Türkiye'nin en güvenilir ve tercih edilen diş sağlığı kuruluşu olmak, uluslararası standartlarda hizmet kalitesi ile sektörde öncü olmaya devam etmek."
+    },
+    "values": {
+      "quality": "Kalite",
+      "quality.desc": "En yüksek kalitede hizmet sunmak",
+      "care": "Özen",
+      "care.desc": "Hastalarımıza özenle yaklaşmak",
+      "innovation": "İnovasyon",
+      "innovation.desc": "Sürekli gelişim ve yenilik"
+    },
+    "cta": {
+      "title": "Sağlıklı Gülüşler İçin Biz Buradayız",
+      "subtitle": "Uzman kadromuz ve modern teknolojimizle sizlere hizmet vermekten mutluluk duyuyoruz.",
+      "button": "Randevu Al"
+    },
+    "history": {
+      "title": "Tarihçemiz",
+      "text1": "2006 yılında kurulan Hospitadent, \"İlk günden beri, bütün işimiz diş\" sloganıyla hizmet vermeye devam ediyor. Yurt içi ve yurt dışında yapılanan 22 şubesi, modern tıbbi cihazları, seçkin hekim kadrosu ve uzman personeliyle Hospitadent, ağız ve diş sağlığında standartları yükseltiyor.",
+      "text2": "Kurulduğumuz günden bu yana, modern teknoloji ve uzman kadromuzla binlerce hastaya hizmet verdik.",
+      "text3": "Hasta memnuniyeti odaklı yaklaşımımız ve kaliteli hizmet anlayışımızla sektörde öncü konumda yer almaktayız."
+    },
+    "technology": {
+      "title": "Teknolojimiz",
+      "text1": "En son teknolojik gelişmeleri takip ederek, hastalarımıza en iyi tedavi seçeneklerini sunuyoruz.",
+      "text2": "3D dijital tarama, CAD/CAM teknolojisi ve lazer tedavileri gibi modern yöntemler kullanıyoruz."
+    },
+    "team": {
+      "title": "Ekibimiz",
+      "text1": "Deneyimli ve uzman diş hekimlerimiz, sürekli eğitim alarak en güncel tedavi yöntemlerini uygulamaktadır.",
+      "text2": "Hasta odaklı yaklaşımımız ve güvenilir hizmet anlayışımızla, sizlere en iyi diş sağlığı hizmetini sunmaya devam ediyoruz."
+    },
+    "facilities": {
+      "title": "Tesislerimiz",
+      "text1": "Modern ve hijyenik kliniklerimizde, hastalarımıza en konforlu tedavi ortamını sunuyoruz.",
+      "text2": "Sterilizasyon standartlarına uygun ekipmanlarımız ve güvenli tedavi protokollerimizle hizmet veriyoruz."
+    },
+    "quality": {
+      "title": "Kalite Politikamız",
+      "text1": "Uluslararası kalite standartlarına uygun hizmet sunmak temel prensibimizdir.",
+      "text2": "Sürekli iyileştirme ve hasta memnuniyeti odaklı yaklaşımımızla, en yüksek kalitede diş sağlığı hizmeti sunuyoruz."
+    },
+    "future": {
+      "title": "Gelecek Vizyonumuz",
+      "text1": "Teknolojik gelişmeleri yakından takip ederek, hastalarımıza en güncel tedavi yöntemlerini sunmaya devam edeceğiz.",
+      "text2": "Türkiye'nin ve dünyanın önde gelen diş sağlığı kuruluşu olma hedefimizle, sürekli gelişim ve yenilikçilik yolunda ilerliyoruz."
+    },
+    "visionExtended": {
+      "title": "VİZYONUMUZ",
+      "text": "Dünyanın hastasına en yakın ve en yenilikçi ağız ve diş sağlığı markası olmak."
+    },
+    "missionExtended": {
+      "title": "MİSYONUMUZ",
+      "text": "Yüksek hizmet kalitesiyle insanlara, topluma ve çevreye değer katmak; etik, samimi ve empatik bir şekilde her hastamıza kendi yakınımız gibi davranarak güven vermek, dengeli bir fiziksel büyümeyle daha fazla insana ulaşmak, teknolojik ve bilimsel gelişmeleri takip ederek öncül şekilde uygulamak, gülüş mimarları ile estetik gülüşler tasarlayarak insanları mutlu etmek."
+    },
+    "valuesExtended": {
+      "title": "DEĞERLERİMİZ",
+      "value1": {
+        "title": "Değer Veririz:",
+        "text": "İnsanın, yaşamın ve dünyanın değerinin farkındayız."
+      },
+      "value2": {
+        "title": "İlgi Gösteririz:",
+        "text": "Hastalarımız ile evimizde ağırladığımız yakınlarımız, misafirlerimiz gibi ilgileniriz."
+      },
+      "value3": {
+        "title": "Güven Veririz:",
+        "text": "Bizimle temas eden herkes (hastalarımız, tedarikçilerimiz, çevremiz vs.) elimizden gelenin en iyisini ve doğrusunu yapmaya çalıştığımızdan, etik kurallara bağlı olduğumuzdan emindir. Sadece söylediğimizi yapar ve sadece yapacağımızı söyleriz."
+      },
+      "value4": {
+        "title": "Samimi ve Yakınız:",
+        "text": "Herkese karşı dengeli bir samimiyet ve yakınlık gösteririz."
+      },
+      "value5": {
+        "title": "Sorumluluk Duyarız:",
+        "text": "İnsanlara, topluma, çevreye yani tüm evrene karşı sorumluluk duyarız."
+      },
+      "value6": {
+        "title": "Yenilikçiyiz:",
+        "text": "Yenilik ve gelişimlere daima meraklı ve istekliyiz."
+      },
+      "value7": {
+        "title": "Kaliteyi Önemseriz:",
+        "text": "En iyi malzeme, en yeni teknoloji ve yüksek hijyen olmazsa olmazımızdır."
+      },
+      "value8": {
+        "title": "İş birliği Yaparız:",
+        "text": "Hastalarımızın ve tedarikçilerimizin menfaatlerini onlarla karşılıklı iş birliği yaparak gözetir, ekip içinde de birimiz eksik olursa hepimiz eksik oluruz diye düşünürüz."
+      },
+      "value9": {
+        "title": "Mutluluk Vermek İsteriz:",
+        "text": "Gerçek mutluluk başkalarının mutluluğudur diye düşünür ve bunun için çabalarız."
+      }
+    },
+    "branches": {
+      "title": "Her Şubede Yüksek Hizmet Kalitesi",
+      "text1": "Bağcılar'da açılan ilk merkezin ardından 2008'de Fatih'te, 2009'da Çamlıca'da, 2011'de Pendik ve Mecidiyeköy'de şubeleşen Hospitadent, 2012'de Almanya Frankfurt'ta ilk yurt dışı şubesinin açılışını yaptı. Ardından Bakırköy'de açılan yeni bir merkez ile şube sayısını artıran hastane grubu, 2014'te Kayseri'de, 2015'te Hollanda Den Haag'da, 2018'de Şerifali'de, 2021'de Alanya ve Bodrum'da ve 2022 yılında ise Ankara şubesini, Kocaeli şubesini, Antalya şubesini, İstanbul'da Cevizlibağ şubesini ve en son olarak Bursa şubesini hizmete açtı. Hospitadent 4 farklı ülkede birçok şubesiyle emin adımlarla büyümeye devam ediyor.",
+      "text2": "Sayıları hızla artan şubelere ek olarak 2008 yılında uzman hekimlerle teknik personelin mesleki gelişimi ve teknolojik yenilikler konusunda sürekli eğitimi için Hospitadent Akademi kuruldu.",
+      "text3": "Hospitadent, yenilikçi projeleriyle sağlık sektöründe standartları belirleyen öncü bir isim konumunda. 2016 yılında Dent Guard isimli sadakat programını başlatan hastane, kişiye özel kart ve avantajlarla garantili diş tedavi sistemini oluşturdu. 2017 yılında kurulan Dental Design departmanında ise dijital gülüş tasarımına başlandı. Her şubesinde üstün teknolojik altyapı sunan Hospitadent, bireysel ve uzun ömürlü diş tedavisi yaklaşımıyla hastalarına hizmet ediyor."
+    },
+    "innovations": {
+      "title": "İlklerin Adresi Hospitadent",
+      "text": "2007 yılında Türkiye'de ilk kez dental sağlık turizmine başlayan Hospitadent, dünyanın dört bir yanında hastalar tarafından diş tedavisinde aranan adres haline geldi. Sağlık sektöründe bir ilki gerçekleştiren ve Türkiye'de ilk kez Hasta Deneyimi Departmanı'nı kuran Hospitadent, hasta deneyimine ve memnuniyetine çok önem veriyor. Bu anlayışla 2016 yılında Dental Spa adında özel bir konsept oluşturan hastane, hastalara dinlenme ortamı ve psikolojik destek sunan VIP konseptiyle diş hekimi korkusuna son vermeyi hedefliyor."
+    },
+    "awards": {
+      "title": "Ödüllerle Taçlanan Başarı Hikayesi",
+      "text1": "Hospitadent'in dünya standartlarındaki vizyonu, uzman personeli, yenilikçi ve müşteri memnuniyeti odaklı çalışmaları ödüllerle tescillendi. 2010 yılına kadar 1 milyonu aşkın hastaya hizmet vererek halkın da tercihi olduğunu ispatlayan Hospitadent, 2013 yılında TEMOS Uluslararası Kalite Sertifikası'na hak kazandı.",
+      "text2": "2015 yılında Ekovitrin Dergisi 14. Yılın Starları Anketi sonucunda Yılın Sağlık Kuruluşu ödülüne layık görüldü.",
+      "text3": "Hospitadent, 2018'de dünyanın en başarılı şirketlerinin ödüllendirildiği Stevie Awards'ta Yılın En Yenilikçi Müşteri Hizmetleri Ödülü'nü alarak Türkiye'de Stevie Awards kazanan ilk hastane oldu.",
+      "text4": "2018 yılında Türkiye İhracatçılar Meclisi'nin Türkiye'nin 500 Hizmet İhracatçısı araştırmasında Diş Tedavi Hizmetleri kategorisinde birinci olan Hospitadent sağlık sektöründeki başarısını ve yetkinliğini bir kere daha ispatladı.",
+      "text5": "2020 yılında 16 yıldır yürürlükte olan Türk ürünlerinin yurtdışında markalaşması, Türk malı imajının yerleştirilmesi ve desteklenmesi amacıyla oluşturulan \"Turquality Marka Destek Programı\"na girmeye hak kazanan Hospitadent, markalaşma yolunda önemli bir adım atarak olumlu bir imaj oluşturmaya devam ediyor. Sağlık alanında sadece beş hastanenin yer aldığı Turquality marka destek programına katılan ilk dental sağlık grubu olmak, kaliteli bir imaj yaratmanın yanı sıra yüksek standartları da ortaya koymaktadır.",
+      "text6": "2021 yılının son döneminde GPTW Türkiye tarafından yapılan değerlendirme ve analiz sonucu \"Great Place To Work® Certified\" şirketi olarak anılmaya hak kazanan Hospitadent, en iyi kurum kültürü sertifikasına sahip ilk dental grup olmanın da haklı gururunu yaşıyor."
+    },
+    "conclusion": "Gelişen medikal teknolojileri sürekli takip eden, tanı ve tedavi yöntemlerini en güncel teknolojilerle sürekli ileriye taşıyan Hospitadent, uzman kadrosuyla güvenli ve kaliteli sağlık hizmeti vermeye devam ediyor."
+  },
+  "appointment": {
+    "title": "Online Randevu",
+    "selectCity": "Şehir Seçin",
+    "selectBranch": "Şube Seçin",
+    "selectDoctor": "Doktor Seçin",
+    "selectDate": "Tarih Seçin",
+    "selectTime": "Saat Seçin",
+    "dentalClinic": "Diş Kliniği",
+    "contactInfo": "İletişim Bilgileri",
+    "selectedAppointment": "Seçilen Randevu",
+    "name": "Ad Soyad",
+    "phone": "Telefon Numarası",
+    "namePlaceholder": "Adınızı ve soyadınızı girin",
+    "phonePlaceholder": "Telefon numaranızı girin",
+    "phoneFormat": "Başında 0 olacak şekilde, örn: 05XXXXXXXXX",
+    "appointmentInfo": "Randevu talebiniz alınacak, en kısa sürede aranacaksınız.",
+    "completeAppointment": "Randevuyu Tamamla",
+    "closed": "Kapalı",
+    "next": "Devam Et",
+    "previous": "Geri",
+    "book": "Randevu Al",
+    "submit": "Randevu Gönder",
+    "submitting": "Gönderiliyor...",
+    "success": "Randevu talebiniz başarıyla alındı!",
+    "error": "Bir hata oluştu. Lütfen tekrar deneyin."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Diş sağlığı ve tedavi yöntemleri hakkında güncel bilgiler",
+    "pageTitle": "Blog - Hospitadent",
+    "pageDescription": "Diş sağlığı, tedavi yöntemleri ve güncel diş hekimliği bilgileri. Uzman diş hekimlerimizden öneriler ve ipuçları.",
+    "pageKeywords": "diş sağlığı blog, diş tedavisi bilgileri, diş hekimliği makaleleri, ağız sağlığı, diş bakımı",
+    "by": "Yazar:",
+    "readMore": "Devamını Oku",
+    "loadMore": "Daha Fazla Yükle",
+    "categories": {
+      "dentalHealth": "Diş Sağlığı",
+      "orthodontics": "Ortodonti",
+      "implant": "İmplant",
+      "cosmetic": "Estetik Diş Hekimliği",
+      "pediatric": "Çocuk Diş Hekimliği",
+      "technology": "Teknoloji"
+    },
+    "post1": {
+      "title": "Günlük Diş Bakımının Önemi",
+      "excerpt": "Sağlıklı dişler için günlük bakım rutininin nasıl olması gerektiğini öğrenin.",
+      "content": "Günlük diş bakımı, ağız sağlığının temelidir. Doğru fırçalama teknikleri, diş ipi kullanımı ve düzenli kontroller ile diş problemlerini önleyebilirsiniz.",
+      "author": "Dr. Ahmet Yılmaz"
+    },
+    "post2": {
+      "title": "Ortodontik Tedavi Süreci",
+      "excerpt": "Ortodontik tedavi sürecinde neler yaşanır ve nasıl bir yol izlenir?",
+      "content": "Ortodontik tedavi, dişlerin düzgün hizalanması için uygulanan uzun vadeli bir süreçtir. Bu süreçte hasta uyumu çok önemlidir.",
+      "author": "Dr. Ayşe Demir"
+    },
+    "post3": {
+      "title": "İmplant Tedavisi Hakkında Bilmeniz Gerekenler",
+      "excerpt": "İmplant tedavisi nasıl yapılır ve kimlere uygulanabilir?",
+      "content": "İmplant tedavisi, eksik dişlerin yerine kalıcı çözümler sunan modern bir tedavi yöntemidir. Cerrahi süreç ve sonrası hakkında detaylı bilgi.",
+      "author": "Dr. Mehmet Kaya"
+    },
+    "post4": {
+      "title": "Gülüş Tasarımı ve Estetik Diş Hekimliği",
+      "excerpt": "Mükemmel gülümseme için estetik diş hekimliği çözümleri.",
+      "content": "Gülüş tasarımı, kişinin yüz yapısına uygun olarak dişlerin estetik görünümünü iyileştiren kapsamlı bir tedavi planıdır.",
+      "author": "Dr. Fatma Özkan"
+    },
+    "post5": {
+      "title": "Çocuklarda Diş Sağlığı",
+      "excerpt": "Çocukların diş sağlığı için ebeveynlerin bilmesi gerekenler.",
+      "content": "Çocuklarda diş sağlığı, erken yaşlardan itibaren düzenli bakım ve kontroller ile sağlanır. Ebeveynlerin rolü çok önemlidir.",
+      "author": "Dr. Ali Çelik"
+    },
+    "post6": {
+      "title": "Dijital Diş Hekimliği Teknolojileri",
+      "excerpt": "Modern diş hekimliğinde kullanılan dijital teknolojiler.",
+      "content": "Dijital diş hekimliği, tedavi süreçlerini hızlandıran ve hasta konforunu artıran yenilikçi teknolojiler sunar.",
+      "author": "Dr. Zeynep Arslan"
+    }
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "edit": "Düzenle",
+    "delete": "Sil",
+    "close": "Kapat",
+    "open": "Aç",
+    "yes": "Evet",
+    "no": "Hayır",
+    "phone": "Telefon",
+    "email": "E-posta",
+    "address": "Adres",
+    "website": "Web Sitesi",
+    "followUs": "Bizi Takip Edin",
+    "contactInfo": "İletişim Bilgileri"
+  },
+  "breadcrumbs": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "treatments": "Tedavilerimiz",
+    "branches": "Şubelerimiz",
+    "staff": "İdari Kadro",
+    "patientVideos": "Hasta Memnuniyet Videoları",
+    "patientReviews": "Hasta Yorumları",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "academy": "Akademi",
+    "partnerInstitutions": "Anlaşmalı Kurumlar",
+    "awards": "Ödüllerimiz",
+    "corporateIdentity": "Kurumsal Kimlik",
+    "socialResponsibility": "Sosyal Sorumluluk",
+    "search": "Arama"
+  },
+  "doctors": {
+    "title": "Hekimlerimiz",
+    "subtitle": "Uzman diş hekimlerimiz ile tanışın",
+    "noDoctors": "Henüz hekim bulunmuyor",
+    "noDoctorsMessage": "Yakında hekimlerimiz burada listelenecek",
+    "branch": "Şube",
+    "languages": "Diller",
+    "specialization": "Uzmanlık",
+    "experience": "Deneyim",
+    "education": "Eğitim"
+  },
+  "branch": {
+    "title": "Şube Bilgileri",
+    "branchInfo": "Şube Bilgileri",
+    "workingHours": "Çalışma Saatleri",
+    "aboutBranch": "Şube Hakkında",
+    "branchNotFound": "Şube bulunamadı",
+    "days": {
+      "monday": "Pazartesi",
+      "tuesday": "Salı",
+      "wednesday": "Çarşamba",
+      "thursday": "Perşembe",
+      "friday": "Cuma",
+      "saturday": "Cumartesi",
+      "sunday": "Pazar"
+    }
+  },
+  "staff": {
+    "title": "İdari Kadro",
+    "ahmet_name": "Diş Hekimi Ahmet SELVİ",
+    "ahmet_title": "Yönetim Kurulu Başkanı",
+    "recep_name": "Diş Hekimi Recep EŞKAR",
+    "recep_title": "CEO Genel Müdür",
+    "halit_name": "Halit Burak ALTINKAYA",
+    "halit_title": "Bilgi Yönetim Sistemleri Müdürü",
+    "abdullah_name": "Abdullah DEMİRCAN",
+    "abdullah_title": "Satış Ve Pazarlama Müdürü",
+    "caner_name": "Caner ÇOBAN",
+    "caner_title": "İş Geliştirme ve Operasyon Müdürü",
+    "bayram_name": "Bayram SAYMAN",
+    "bayram_title": "Muhasebe Müdürü",
+    "zeynep_name": "Zeynep Aydın SOYDANER",
+    "zeynep_title": "Avukat",
+    "neslihan_name": "Neslihan DEMİR",
+    "neslihan_title": "Bağcılar İdari İşler Müdürü",
+    "tugba_name": "Tuğba KAVALCI",
+    "tugba_title": "Fatih İdari İşler Müdürü",
+    "veysel_name": "Veysel YILMAZ",
+    "veysel_title": "Çamlıca İdari İşler Müdürü",
+    "ercument_name": "Ercüment MERT",
+    "ercument_title": "Pendik İdari İşler Müdürü",
+    "nursah_name": "Nurşah IŞIK",
+    "nursah_title": "Mecidiyeköy İdari İşler Müdürü",
+    "kadriye_name": "Kadriye SOYSAL",
+    "kadriye_title": "Kayseri İdari İşler Müdürü",
+    "sena_name": "Sena KELEŞ",
+    "sena_title": "Şerifali İdari İşler Müdürü",
+    "berra_name": "Berra Sinanoğlu GÖRGÜLÜ",
+    "berra_title": "Alanya İdari İşler Müdürü",
+    "selin_name": "Selin HOŞCEYLAN",
+    "selin_title": "Bodrum İdari İşler Müdürü",
+    "iclal_name": "İclal HARMANCI",
+    "iclal_title": "Kocaeli İdari İşler Müdürü",
+    "mehmet_name": "Mehmet Ziya KÖK",
+    "mehmet_title": "Antalya İdari İşler Müdürü",
+    "muslum_name": "Müslüm YENİKAN",
+    "muslum_title": "Cevizlibağ İdari İşler Müdürü",
+    "gaye_name": "Gaye MERCAN",
+    "gaye_title": "Bursa İdari İşler Müdürü",
+    "ibrahim_name": "İbrahim YÜCEL",
+    "ibrahim_title": "Göktürk İdari İşler Müdürü"
+  }
+} 
