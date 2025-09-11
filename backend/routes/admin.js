@@ -6,6 +6,8 @@ const fs = require('fs');
 const Doctor = require('../models/Doctor');
 const Blog = require('../models/Blog');
 const Branch = require('../models/Branch');
+const Role = require('../models/Role');
+const Specialty = require('../models/Specialty');
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -121,7 +123,12 @@ router.get('/branches/active', adminMiddleware, async (req, res) => {
       order: [['name', 'ASC']],
       attributes: ['id', 'name', 'slug']
     });
-    res.json(branches);
+    // Ayrıca role ve specialty seçeneklerini de dönelim
+    const [roles, specialties] = await Promise.all([
+      Role.findAll({ attributes: ['id', 'name'], order: [['name', 'ASC']] }),
+      Specialty.findAll({ attributes: ['id', 'name'], order: [['name', 'ASC']] })
+    ]);
+    res.json({ branches, roles, specialties });
   } catch (error) {
     console.error('Active branches fetch error:', error);
     res.status(500).json({ 
@@ -135,7 +142,11 @@ router.get('/branches/active', adminMiddleware, async (req, res) => {
 router.get('/doctors', adminMiddleware, async (req, res) => {
   try {
     const doctors = await Doctor.findAll({
-      include: [{ model: Branch, as: 'branch' }],
+      include: [
+        { model: Branch, as: 'branches', through: { attributes: [] } },
+        { model: Role, as: 'role' },
+        { model: Specialty, as: 'specialty' }
+      ],
       order: [['order', 'ASC']]
     });
     res.json(doctors);
@@ -149,6 +160,7 @@ router.get('/doctors', adminMiddleware, async (req, res) => {
 });
 
 // Doktor ekle
+// Doktor ekle (diskte görsel + opsiyonel webp dönüştürme ileride)
 router.post('/doctors', adminMiddleware, upload.single('image'), async (req, res) => {
   try {
     const doctorData = {
@@ -159,7 +171,8 @@ router.post('/doctors', adminMiddleware, upload.single('image'), async (req, res
       education: JSON.parse(req.body.education || '[]'),
       experience: JSON.parse(req.body.experience || '[]'),
       languages: JSON.parse(req.body.languages || '[]'),
-      branchId: parseInt(req.body.branchId),
+      roleId: req.body.roleId ? parseInt(req.body.roleId) : null,
+      specialtyId: req.body.specialtyId ? parseInt(req.body.specialtyId) : null,
       order: parseInt(req.body.order) || 0,
       isActive: req.body.isActive === 'true'
     };
@@ -168,7 +181,12 @@ router.post('/doctors', adminMiddleware, upload.single('image'), async (req, res
       doctorData.image = `/uploads/${req.file.filename}`;
     }
 
+    const branches = req.body.branches ? JSON.parse(req.body.branches) : [];
+
     const doctor = await Doctor.create(doctorData);
+    if (Array.isArray(branches) && branches.length > 0) {
+      await doctor.setBranches(branches);
+    }
     res.status(201).json(doctor);
   } catch (error) {
     console.error('Doctor creation error:', error);
@@ -192,7 +210,8 @@ router.put('/doctors/:id', adminMiddleware, upload.single('image'), async (req, 
       education: JSON.parse(req.body.education || '[]'),
       experience: JSON.parse(req.body.experience || '[]'),
       languages: JSON.parse(req.body.languages || '[]'),
-      branchId: parseInt(req.body.branchId),
+      roleId: req.body.roleId ? parseInt(req.body.roleId) : null,
+      specialtyId: req.body.specialtyId ? parseInt(req.body.specialtyId) : null,
       order: parseInt(req.body.order) || 0,
       isActive: req.body.isActive === 'true'
     };
@@ -209,7 +228,12 @@ router.put('/doctors/:id', adminMiddleware, upload.single('image'), async (req, 
       });
     }
 
+    const branches = req.body.branches ? JSON.parse(req.body.branches) : null;
+
     await doctor.update(doctorData);
+    if (Array.isArray(branches)) {
+      await doctor.setBranches(branches);
+    }
     res.json(doctor);
   } catch (error) {
     console.error('Doctor update error:', error);
@@ -524,5 +548,21 @@ router.delete('/branches/:id', adminMiddleware, async (req, res) => {
 
 // Uploads klasörü için statik dosya servisi
 router.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
+// DB'de tutulan avatarı servis et (Content-Type ile)
+router.get('/doctors/:id/image', async (req, res) => {
+  try {
+    const doctor = await Doctor.findByPk(req.params.id, { attributes: ['imageWebp', 'imageMime'] });
+    if (!doctor || !doctor.imageWebp) {
+      return res.status(404).json({ error: 'Görsel bulunamadı' });
+    }
+    res.set('Content-Type', doctor.imageMime || 'image/webp');
+    res.set('Cache-Control', 'public, max-age=31536000, immutable');
+    return res.send(doctor.imageWebp);
+  } catch (e) {
+    console.error('Avatar serve error:', e);
+    res.status(500).json({ error: 'Görsel sunulamadı' });
+  }
+});
 
 module.exports = router; 

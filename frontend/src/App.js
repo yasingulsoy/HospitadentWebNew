@@ -25,6 +25,7 @@ import BlogPost from './pages/BlogPost';
 import AdminPanel from './pages/AdminPanel';
 import Treatments from './pages/Treatments';
 import Doctors from './pages/Doctors';
+import DoctorProfile from './pages/DoctorProfile';
 
 // Dil sayfaları - İngilizce
 import EnAbout from './pages/en/About';
@@ -115,6 +116,7 @@ function App() {
         <Route path="/hasta-yorumlari" element={<HastaYorumlari />} />
         <Route path="/tedavilerimiz" element={<Treatments />} />
         <Route path="/hekimlerimiz" element={<Doctors />} />
+        <Route path="/hekimlerimiz/:id" element={<DoctorProfile />} />
         <Route path="/hospitadent-sosyal-sorumluluk" element={<HospitadentSosyalSorumluluk />} />
         <Route path="/anlasmali-kurumlar" element={<AnlasmaliKurumlar />} />
         <Route path="/search" element={<SearchResults />} />
@@ -126,7 +128,7 @@ function App() {
         } />
         
         {/* Admin Panel */}
-        <Route path="/admin-panel" element={<AdminPanel />} />
+        <Route path="/admin" element={<AdminPanel />} />
         
         {/* İngilizce Sayfalar */}
         <Route path="/en" element={
@@ -155,6 +157,7 @@ function App() {
         <Route path="/en/patient-reviews" element={<EnHastaYorumlari />} />
         <Route path="/en/treatments" element={<EnTreatments />} />
         <Route path="/en/doctors" element={<Doctors />} />
+        <Route path="/en/doctors/:id" element={<DoctorProfile />} />
         <Route path="/en/hospitadent-social-responsibility" element={<HospitadentSosyalSorumluluk />} />
         <Route path="/en/partner-institutions" element={<AnlasmaliKurumlar />} />
         <Route path="/en/search" element={<EnSearchResults />} />
@@ -192,6 +195,7 @@ function App() {
         <Route path="/fr/avis-patients" element={<FrHastaYorumlari />} />
         <Route path="/fr/traitements" element={<FrTreatments />} />
         <Route path="/fr/medecins" element={<Doctors />} />
+        <Route path="/fr/medecins/:id" element={<DoctorProfile />} />
         <Route path="/fr/responsabilite-sociale-hospitadent" element={<HospitadentSosyalSorumluluk />} />
         <Route path="/fr/institutions-partenaires" element={<AnlasmaliKurumlar />} />
         <Route path="/fr/recherche" element={<FrSearchResults />} />
@@ -229,6 +233,7 @@ function App() {
         <Route path="/de/patientenbewertungen" element={<HastaYorumlari />} />
         <Route path="/de/unsere-behandlungen" element={<DeTreatments />} />
         <Route path="/de/aerzte" element={<Doctors />} />
+        <Route path="/de/aerzte/:id" element={<DoctorProfile />} />
         <Route path="/de/hospitadent-soziale-verantwortung" element={<HospitadentSosyalSorumluluk />} />
         <Route path="/de/partnerinstitutionen" element={<AnlasmaliKurumlar />} />
         <Route path="/de/suche" element={<SearchResults />} />
@@ -266,6 +271,7 @@ function App() {
         <Route path="/ru/otzyvy-patsientov" element={<HastaYorumlari />} />
         <Route path="/ru/наши-процедуры" element={<RuTreatments />} />
         <Route path="/ru/vrachi" element={<Doctors />} />
+        <Route path="/ru/vrachi/:id" element={<DoctorProfile />} />
         <Route path="/ru/sotsialnaya-otvetstvennost-hospitadent" element={<HospitadentSosyalSorumluluk />} />
         <Route path="/ru/partnerstkie-uchrezhdeniya" element={<AnlasmaliKurumlar />} />
         <Route path="/ru/poisk" element={<SearchResults />} />
@@ -302,6 +308,7 @@ function App() {
         <Route path="/es/resenas-pacientes" element={<HastaYorumlari />} />
         <Route path="/es/nuestros-tratamientos" element={<EsTreatments />} />
         <Route path="/es/medicos" element={<Doctors />} />
+        <Route path="/es/medicos/:id" element={<DoctorProfile />} />
         <Route path="/es/responsabilidad-social-hospitadent" element={<HospitadentSosyalSorumluluk />} />
         <Route path="/es/instituciones-socias" element={<AnlasmaliKurumlar />} />
         <Route path="/es/busqueda" element={<SearchResults />} />
@@ -338,6 +345,7 @@ function App() {
         <Route path="/ar/ara-al-mardha" element={<HastaYorumlari />} />
         <Route path="/ar/elajatuna" element={<ArTreatments />} />
         <Route path="/ar/atibba" element={<Doctors />} />
+        <Route path="/ar/atibba/:id" element={<DoctorProfile />} />
         <Route path="/ar/al-masuliyya-al-ijtimaiyya-hospitadent" element={<HospitadentSosyalSorumluluk />} />
         <Route path="/ar/al-muassasat-al-sharika" element={<AnlasmaliKurumlar />} />
         <Route path="/ar/al-bahth" element={<SearchResults />} />

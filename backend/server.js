@@ -13,6 +13,9 @@ const fs = require('fs');
 require('./models/User');
 require('./models/Branch');
 require('./models/Blog');
+require('./models/Role');
+require('./models/Specialty');
+require('./models/DoctorBranch');
 require('./models/Doctor');
 
 const app = express();

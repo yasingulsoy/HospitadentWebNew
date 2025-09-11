@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Footer } from '../components';
 import { useTranslation } from 'react-i18next';
 
 const Doctors = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -88,7 +90,11 @@ const Doctors = () => {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {doctors.map((doctor) => (
-                <div key={doctor.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div 
+                  key={doctor.id} 
+                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  onClick={() => navigate(`/hekimlerimiz/${doctor.id}`)}
+                >
                   {doctor.image ? (
                     <img 
                       src={doctor.image} 

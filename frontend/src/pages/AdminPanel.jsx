@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
   FaUserMd, 
@@ -9,7 +9,9 @@ import {
   FaEdit, 
   FaTrash,
   FaSave,
-  FaTimes
+  FaTimes,
+  FaEye,
+  FaEyeSlash
 } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 
@@ -34,8 +36,18 @@ const AdminPanel = () => {
     email: '',
     password: ''
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const formRef = useRef(null);
 
   useEffect(() => {
+    // Remembered email
+    const rememberedEmail = localStorage.getItem('adminEmail');
+    if (rememberedEmail) {
+      setLoginData(prev => ({ ...prev, email: rememberedEmail }));
+      setRememberMe(true);
+    }
+
     const token = localStorage.getItem('adminToken');
     if (token) {
       setIsAuthenticated(true);
@@ -59,8 +71,18 @@ const AdminPanel = () => {
       const data = await response.json();
 
       if (response.ok) {
-        localStorage.setItem('adminToken', data.token);
+        // Backend accessToken alanı döndürüyor
+        const token = data.accessToken || data.token;
+        if (!token) {
+          throw new Error('Token alınamadı');
+        }
+        localStorage.setItem('adminToken', token);
         setUser(data.user);
+        if (rememberMe) {
+          localStorage.setItem('adminEmail', loginData.email);
+        } else {
+          localStorage.removeItem('adminEmail');
+        }
         setIsAuthenticated(true);
         toast.success('Başarıyla giriş yapıldı!');
         fetchData();
@@ -184,6 +206,12 @@ const AdminPanel = () => {
     setEditingItem(item);
     setFormData(item);
     setShowForm(true);
+  };
+
+  const handleView = (item) => {
+    if (activeTab === 'doctors') {
+      window.open(`/hekimlerimiz/${item.id}`, '_blank');
+    }
   };
 
   const handleFileChange = (e) => {
@@ -483,15 +511,26 @@ const AdminPanel = () => {
                 )}
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <div className="flex space-x-2">
+                    {activeTab === 'doctors' && (
+                      <button
+                        onClick={() => handleView(item)}
+                        className="text-green-600 hover:text-green-900"
+                        title="Hekim sayfasını görüntüle"
+                      >
+                        <FaEye />
+                      </button>
+                    )}
                     <button
                       onClick={() => handleEdit(item)}
                       className="text-blue-600 hover:text-blue-900"
+                      title="Düzenle"
                     >
                       <FaEdit />
                     </button>
                     <button
                       onClick={() => handleDelete(item.id)}
                       className="text-red-600 hover:text-red-900"
+                      title="Sil"
                     >
                       <FaTrash />
                     </button>
@@ -507,48 +546,70 @@ const AdminPanel = () => {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="max-w-md w-full bg-white rounded-lg shadow-md p-6">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 flex items-center justify-center px-4">
+        <div className="max-w-md w-full bg-white/90 backdrop-blur rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8">
           <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">Admin Girişi</h2>
-            <p className="text-gray-600">Hospitadent Yönetim Paneli</p>
+            <div className="mx-auto mb-3 h-10 w-10 rounded-xl bg-[#004876] flex items-center justify-center text-white font-bold">H</div>
+            <h2 className="text-2xl font-bold text-[#004876]">Admin Girişi</h2>
+            <p className="text-gray-900 text-sm">Hospitadent Yönetim Paneli</p>
           </div>
-          
-          <form onSubmit={login} className="space-y-4">
+          <form ref={formRef} onSubmit={login} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                E-posta
-              </label>
+              <label className="block text-sm font-medium text-gray-900 mb-1">E-posta</label>
               <input
                 type="email"
                 value={loginData.email}
                 onChange={(e) => setLoginData(prev => ({ ...prev, email: e.target.value }))}
+                placeholder="ornek@hospitadent.com"
+                autoComplete="username"
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#004876]"
               />
             </div>
-            
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Şifre
-              </label>
-              <input
-                type="password"
-                value={loginData.password}
-                onChange={(e) => setLoginData(prev => ({ ...prev, password: e.target.value }))}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <label className="block text-sm font-medium text-gray-900 mb-1">Şifre</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={loginData.password}
+                  onChange={(e) => setLoginData(prev => ({ ...prev, password: e.target.value }))}
+                  placeholder="••••••••"
+                  autoComplete="current-password"
+                  required
+                  className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#004876]"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(prev => !prev)}
+                  className="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-700"
+                  aria-label={showPassword ? 'Şifreyi gizle' : 'Şifreyi göster'}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
             </div>
-            
+            <div className="flex items-center justify-between">
+              <label className="inline-flex items-center text-sm text-gray-900">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="mr-2"
+                />
+                Beni hatırla
+              </label>
+              <a href="#" className="text-sm text-[#004876] hover:underline">Şifremi unuttum</a>
+            </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
+              className="w-full bg-[#004876] text-white py-2.5 px-4 rounded-md hover:opacity-90 disabled:opacity-50 transition-colors"
             >
               {loading ? 'Giriş yapılıyor...' : 'Giriş Yap'}
             </button>
+            <p className="text-xs text-gray-700 text-center">Yetkisiz erişimler kaydedilir ve izlenir.</p>
           </form>
+          
         </div>
       </div>
     );
