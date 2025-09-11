@@ -158,7 +158,6 @@ router.get('/doctors', adminMiddleware, async (req, res) => {
     const doctors = await Doctor.findAll({
       include: [
         { model: Branch, as: 'branches', through: { attributes: [] } },
-        { model: Role, as: 'role' },
         { model: Specialty, as: 'specialty' }
       ],
       order: [['order', 'ASC']]
@@ -179,13 +178,12 @@ router.post('/doctors', adminMiddleware, upload.single('image'), async (req, res
   try {
     const doctorData = {
       name: req.body.name,
-      title: req.body.title,
-      specialization: req.body.specialization,
       bio: req.body.bio,
+      summary: req.body.summary,
+      phone: req.body.phone,
       education: JSON.parse(req.body.education || '[]'),
       experience: JSON.parse(req.body.experience || '[]'),
       languages: JSON.parse(req.body.languages || '[]'),
-      roleId: req.body.roleId ? parseInt(req.body.roleId) : null,
       specialtyId: req.body.specialtyId ? parseInt(req.body.specialtyId) : null,
       order: parseInt(req.body.order) || 0,
       isActive: req.body.isActive === 'true'
@@ -218,13 +216,12 @@ router.put('/doctors/:id', adminMiddleware, upload.single('image'), async (req, 
     const { id } = req.params;
     const doctorData = {
       name: req.body.name,
-      title: req.body.title,
-      specialization: req.body.specialization,
       bio: req.body.bio,
+      summary: req.body.summary,
+      phone: req.body.phone,
       education: JSON.parse(req.body.education || '[]'),
       experience: JSON.parse(req.body.experience || '[]'),
       languages: JSON.parse(req.body.languages || '[]'),
-      roleId: req.body.roleId ? parseInt(req.body.roleId) : null,
       specialtyId: req.body.specialtyId ? parseInt(req.body.specialtyId) : null,
       order: parseInt(req.body.order) || 0,
       isActive: req.body.isActive === 'true'

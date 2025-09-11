@@ -129,6 +129,18 @@ const DoctorProfile = () => {
                 {doctor.specialty?.name || ''}
               </p>
               
+              {doctor.phone && (
+                <div className="flex items-center justify-center md:justify-start text-blue-100 mb-2">
+                  <FaPhone className="mr-2" />
+                  <a 
+                    href={`tel:${doctor.phone}`}
+                    className="hover:text-blue-200 transition-colors"
+                  >
+                    {doctor.phone}
+                  </a>
+                </div>
+              )}
+              
               {doctor.branches && doctor.branches.length > 0 && (
                 <div className="flex items-center justify-center md:justify-start text-blue-100">
                   <FaMapMarkerAlt className="mr-2" />
@@ -144,6 +156,19 @@ const DoctorProfile = () => {
       <div className="container mx-auto px-4 py-8 pb-32">
         <div className="max-w-4xl mx-auto">
           
+          {/* Özet */}
+          {doctor.summary && (
+            <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
+              <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
+                <FaUserMd className="mr-3 text-[#004876]" />
+                Özet
+              </h2>
+              <p className="text-gray-700 leading-relaxed">
+                {doctor.summary}
+              </p>
+            </div>
+          )}
+
           {/* Biyografi */}
           {doctor.bio && (
             <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">

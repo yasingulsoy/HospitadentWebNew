@@ -93,7 +93,7 @@ const Doctors = () => {
                 <div 
                   key={doctor.id} 
                   className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                  onClick={() => navigate(`/hekimlerimiz/${doctor.id}`)}
+                  onClick={() => navigate(`/hekimlerimiz/${doctor.slug}`)}
                 >
                   {(() => {
                     const base = 'http://localhost:5000';

@@ -151,6 +151,18 @@ const AdminPanel = () => {
         formDataToSend.append(key, formData[key]);
       } else if (key === 'branches' && Array.isArray(formData[key])) {
         formDataToSend.append('branches', JSON.stringify(formData[key]));
+      } else if (['education', 'experience', 'languages'].includes(key)) {
+        // JSON alanları için string'i array'e çevir
+        const value = formData[key];
+        if (typeof value === 'string' && value.trim()) {
+          try {
+            formDataToSend.append(key, JSON.stringify(value.split('\n').filter(line => line.trim())));
+          } catch (e) {
+            formDataToSend.append(key, JSON.stringify([]));
+          }
+        } else {
+          formDataToSend.append(key, JSON.stringify([]));
+        }
       } else if (typeof formData[key] === 'object') {
         formDataToSend.append(key, JSON.stringify(formData[key]));
       } else {
@@ -178,7 +190,7 @@ const AdminPanel = () => {
           try {
             const fd = new FormData();
             fd.append('image', formData.image);
-            const avatarRes = await fetch(`${API_BASE_URL}/admin/doctors/${editingItem?.id || saved.id}/avatar`, {
+            const avatarRes = await fetch(`${API_BASE_URL}/doctors/${editingItem?.id || saved.id}/avatar`, {
               method: 'POST',
               headers: { 'Authorization': `Bearer ${token}` },
               body: fd
@@ -236,14 +248,17 @@ const AdminPanel = () => {
     setFormData({
       ...item,
       branches: Array.isArray(item.branches) ? item.branches.map(b => b.id) : [],
-      specialtyId: item.specialty?.id || item.specialtyId || ''
+      specialtyId: item.specialty?.id || item.specialtyId || '',
+      education: Array.isArray(item.education) ? item.education.join('\n') : '',
+      experience: Array.isArray(item.experience) ? item.experience.join('\n') : '',
+      languages: Array.isArray(item.languages) ? item.languages.join('\n') : ''
     });
     setShowForm(true);
   };
 
   const handleView = (item) => {
     if (activeTab === 'doctors') {
-      window.open(`/hekimlerimiz/${item.id}`, '_blank');
+      window.open(`/hekimlerimiz/${item.slug}`, '_blank');
     }
   };
 
@@ -259,13 +274,18 @@ const AdminPanel = () => {
       case 'doctors':
         return [
           { name: 'name', label: 'Ad Soyad', type: 'text', required: true },
-          { name: 'specialtyId', label: 'Uzmanlık', type: 'select', options: specialties, optionLabel: 'name', required: true },
+          { name: 'specialtyId', label: 'Uzmanlık', type: 'select', options: specialties, optionLabel: 'name', required: false },
+          { name: 'phone', label: 'Telefon', type: 'text', required: false },
           { name: 'bio', label: 'Biyografi', type: 'textarea', required: false },
+          { name: 'summary', label: 'Özet', type: 'textarea', required: false },
+          { name: 'education', label: 'Eğitim', type: 'textarea', required: false },
+          { name: 'experience', label: 'Deneyim', type: 'textarea', required: false },
+          { name: 'languages', label: 'Diller', type: 'textarea', required: false },
           { name: 'branches', label: 'Şubeler', type: 'multiselect', options: branches, optionLabel: 'name', required: true },
           { name: 'order', label: 'Sıra', type: 'number', required: false },
           { name: 'isActive', label: 'Aktif', type: 'checkbox', required: false },
           { name: 'image', label: 'Fotoğraf', type: 'file', required: false },
-          { name: 'saveToDb', label: 'Avatarı DB’ye kaydet (WebP önerilir)', type: 'checkbox', required: false }
+          { name: 'saveToDb', label: 'Avatarı DB\'ye kaydet (WebP önerilir)', type: 'checkbox', required: false }
         ];
       case 'blogs':
         return [
@@ -482,8 +502,9 @@ const AdminPanel = () => {
                 <>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fotoğraf</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ad Soyad</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telefon</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Uzmanlık</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Şube</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Şubeler</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durum</th>
                 </>
               )}
@@ -526,8 +547,9 @@ const AdminPanel = () => {
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.phone || ''}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.specialty?.name || ''}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.branch?.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.branches?.map(b => b.name).join(', ') || ''}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         item.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
