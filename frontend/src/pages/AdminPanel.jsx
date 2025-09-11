@@ -26,10 +26,15 @@ const AdminPanel = () => {
   const [doctors, setDoctors] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [branches, setBranches] = useState([]);
+  const [roles, setRoles] = useState([]);
+  const [specialties, setSpecialties] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
   const [formData, setFormData] = useState({});
+  const [searchText, setSearchText] = useState('');
+  const [filterBranchId, setFilterBranchId] = useState('');
+  const [filterSpecialtyId, setFilterSpecialtyId] = useState('');
 
   // Login form state
   const [loginData, setLoginData] = useState({
@@ -114,15 +119,20 @@ const AdminPanel = () => {
         'Content-Type': 'application/json',
       };
 
-      const [doctorsRes, blogsRes, branchesRes] = await Promise.all([
+      const [doctorsRes, blogsRes, activesRes] = await Promise.all([
         fetch(`${API_BASE_URL}/admin/doctors`, { headers }),
         fetch(`${API_BASE_URL}/admin/blogs`, { headers }),
-        fetch(`${API_BASE_URL}/admin/branches`, { headers })
+        fetch(`${API_BASE_URL}/admin/branches/active`, { headers })
       ]);
 
       if (doctorsRes.ok) setDoctors(await doctorsRes.json());
       if (blogsRes.ok) setBlogs(await blogsRes.json());
-      if (branchesRes.ok) setBranches(await branchesRes.json());
+      if (activesRes.ok) {
+        const data = await activesRes.json();
+        setBranches(data.branches || []);
+        setRoles(data.roles || []);
+        setSpecialties(data.specialties || []);
+      }
     } catch (error) {
       toast.error('Veri yüklenirken hata oluştu');
     } finally {
@@ -141,6 +151,8 @@ const AdminPanel = () => {
     Object.keys(formData).forEach(key => {
       if (key === 'image' && formData[key] instanceof File) {
         formDataToSend.append(key, formData[key]);
+      } else if (key === 'branches' && Array.isArray(formData[key])) {
+        formDataToSend.append('branches', JSON.stringify(formData[key]));
       } else if (typeof formData[key] === 'object') {
         formDataToSend.append(key, JSON.stringify(formData[key]));
       } else {
@@ -162,6 +174,25 @@ const AdminPanel = () => {
       });
 
       if (response.ok) {
+        const saved = await response.json();
+        // Doktor için DB avatar seçildiyse ikinci isteği yap
+        if (activeTab === 'doctors' && formData.saveToDb && formData.image instanceof File) {
+          try {
+            const fd = new FormData();
+            fd.append('image', formData.image);
+            const avatarRes = await fetch(`${API_BASE_URL}/admin/doctors/${editingItem?.id || saved.id}/avatar`, {
+              method: 'POST',
+              headers: { 'Authorization': `Bearer ${token}` },
+              body: fd
+            });
+            if (!avatarRes.ok) {
+              const err = await avatarRes.json().catch(() => ({}));
+              toast.error(err.error || 'Avatar DB’ye yüklenemedi');
+            }
+          } catch (_) {
+            // avatar hatasını kullanıcıya bildirdik; devam
+          }
+        }
         toast.success(editingItem ? 'Güncellendi!' : 'Eklendi!');
         setShowForm(false);
         setEditingItem(null);
@@ -227,12 +258,14 @@ const AdminPanel = () => {
         return [
           { name: 'name', label: 'Ad Soyad', type: 'text', required: true },
           { name: 'title', label: 'Ünvan', type: 'text', required: true },
-          { name: 'specialization', label: 'Uzmanlık', type: 'text', required: true },
+          { name: 'roleId', label: 'Rol', type: 'select', options: roles, optionLabel: 'name', required: false },
+          { name: 'specialtyId', label: 'Uzmanlık', type: 'select', options: specialties, optionLabel: 'name', required: false },
           { name: 'bio', label: 'Biyografi', type: 'textarea', required: false },
-          { name: 'branchId', label: 'Şube', type: 'select', options: branches, required: true },
+          { name: 'branches', label: 'Şubeler', type: 'multiselect', options: branches, optionLabel: 'name', required: true },
           { name: 'order', label: 'Sıra', type: 'number', required: false },
           { name: 'isActive', label: 'Aktif', type: 'checkbox', required: false },
-          { name: 'image', label: 'Fotoğraf', type: 'file', required: false }
+          { name: 'image', label: 'Fotoğraf', type: 'file', required: false },
+          { name: 'saveToDb', label: 'Avatarı DB’ye kaydet (WebP önerilir)', type: 'checkbox', required: false }
         ];
       case 'blogs':
         return [
@@ -307,7 +340,25 @@ const AdminPanel = () => {
                     <option value="">Seçiniz</option>
                     {field.options?.map(option => (
                       <option key={option.id} value={option.id}>
-                        {option.name}
+                        {field.optionLabel ? option[field.optionLabel] : option.name}
+                      </option>
+                    ))}
+                  </select>
+                ) : field.type === 'multiselect' ? (
+                  <select
+                    multiple
+                    name={field.name}
+                    value={formData[field.name] || []}
+                    onChange={(e) => {
+                      const selected = Array.from(e.target.selectedOptions).map(o => Number(o.value));
+                      setFormData(prev => ({ ...prev, [field.name]: selected }));
+                    }}
+                    required={field.required}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+                  >
+                    {field.options?.map(option => (
+                      <option key={option.id} value={option.id}>
+                        {field.optionLabel ? option[field.optionLabel] : option.name}
                       </option>
                     ))}
                   </select>
@@ -372,7 +423,19 @@ const AdminPanel = () => {
   };
 
   const renderTable = () => {
-    const data = activeTab === 'doctors' ? doctors : activeTab === 'blogs' ? blogs : branches;
+    let data = activeTab === 'doctors' ? doctors : activeTab === 'blogs' ? blogs : branches;
+    if (activeTab === 'doctors') {
+      if (searchText) {
+        const q = searchText.toLowerCase();
+        data = data.filter(d => (d.name || '').toLowerCase().includes(q) || (d.title || '').toLowerCase().includes(q));
+      }
+      if (filterBranchId) {
+        data = data.filter(d => Array.isArray(d.branches) && d.branches.some(b => String(b.id) === String(filterBranchId)));
+      }
+      if (filterSpecialtyId) {
+        data = data.filter(d => d.specialty && String(d.specialty.id) === String(filterSpecialtyId));
+      }
+    }
     
     if (loading) {
       return (
@@ -616,85 +679,79 @@ const AdminPanel = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Hospitadent Admin Panel</h1>
-              <p className="text-sm text-gray-600">Hoş geldiniz, {user?.email}</p>
-            </div>
-            <button
-              onClick={logout}
-              className="flex items-center px-4 py-2 text-red-600 hover:text-red-800"
-            >
-              <FaSignOutAlt className="mr-2" />
-              Çıkış Yap
-            </button>
-          </div>
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+      <aside className="hidden md:flex w-64 bg-white border-r flex-col">
+        <div className="h-16 px-6 flex items-center border-b">
+          <span className="text-xl font-bold text-[#004876]">Hospitadent</span>
         </div>
-      </div>
+        <nav className="p-4 space-y-2">
+          <button onClick={()=>setActiveTab('doctors')} className={`w-full flex items-center px-3 py-2 rounded-md text-sm ${activeTab==='doctors'?'bg-[#004876] text-white':'hover:bg-gray-100 text-gray-800'}`}>
+            <FaUserMd className="mr-2"/> Doktorlar
+          </button>
+          <button onClick={()=>setActiveTab('blogs')} className={`w-full flex items-center px-3 py-2 rounded-md text-sm ${activeTab==='blogs'?'bg-[#004876] text-white':'hover:bg-gray-100 text-gray-800'}`}>
+            <FaBlog className="mr-2"/> Blog Yazıları
+          </button>
+          <button onClick={()=>setActiveTab('branches')} className={`w-full flex items-center px-3 py-2 rounded-md text-sm ${activeTab==='branches'?'bg-[#004876] text-white':'hover:bg-gray-100 text-gray-800'}`}>
+            <FaBuilding className="mr-2"/> Şubeler
+          </button>
+        </nav>
+        <div className="mt-auto p-4">
+          <button onClick={logout} className="w-full flex items-center justify-center px-4 py-2 border rounded-md text-red-600 hover:bg-red-50">
+            <FaSignOutAlt className="mr-2"/> Çıkış Yap
+          </button>
+        </div>
+      </aside>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Tabs */}
-        <div className="flex space-x-1 bg-white rounded-lg shadow-sm p-1 mb-6">
-          <button
-            onClick={() => setActiveTab('doctors')}
-            className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
-              activeTab === 'doctors'
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            <FaUserMd className="mr-2" />
-            Doktorlar
+      {/* Main */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Topbar */}
+        <header className="h-16 bg-white border-b flex items-center px-4 md:px-8 justify-between sticky top-0 z-10">
+          <div className="md:hidden font-semibold">Hospitadent</div>
+          <div className="text-sm text-gray-600 truncate">Hoş geldiniz, {user?.email}</div>
+          <button onClick={()=>setShowForm(true)} className="flex items-center px-3 py-2 bg-[#004876] text-white rounded-md">
+            <FaPlus className="mr-2"/> Yeni Ekle
           </button>
-          <button
-            onClick={() => setActiveTab('blogs')}
-            className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
-              activeTab === 'blogs'
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            <FaBlog className="mr-2" />
-            Blog Yazıları
-          </button>
-          <button
-            onClick={() => setActiveTab('branches')}
-            className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
-              activeTab === 'branches'
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-600 hover:text-gray-900'
-            }`}
-          >
-            <FaBuilding className="mr-2" />
-            Şubeler
-          </button>
-        </div>
+        </header>
 
         {/* Content */}
-        <div className="bg-white rounded-lg shadow-sm">
-          <div className="px-6 py-4 border-b border-gray-200">
-            <div className="flex justify-between items-center">
-              <h2 className="text-lg font-medium text-gray-900">
-                {activeTab === 'doctors' ? 'Doktorlar' : activeTab === 'blogs' ? 'Blog Yazıları' : 'Şubeler'}
-              </h2>
-              <button
-                onClick={() => setShowForm(true)}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-              >
-                <FaPlus className="mr-2" />
-                Yeni Ekle
-              </button>
+        <main className="p-4 md:p-8">
+          <div className="bg-white rounded-xl shadow-sm border">
+            <div className="px-6 py-4 border-b flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-gray-900">{activeTab === 'doctors' ? 'Doktorlar' : activeTab === 'blogs' ? 'Blog Yazıları' : 'Şubeler'}</h2>
+            </div>
+            <div className="p-6">
+              {activeTab === 'doctors' && (
+                <div className="mb-4 flex flex-wrap gap-3 items-end">
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Ara</label>
+                    <input value={searchText} onChange={(e)=>setSearchText(e.target.value)} placeholder="Ad/ünvan"
+                      className="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#004876]" />
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Şube</label>
+                    <select value={filterBranchId} onChange={e=>setFilterBranchId(e.target.value)}
+                      className="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#004876]">
+                      <option value="">Tümü</option>
+                      {branches.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs text-gray-500 mb-1">Uzmanlık</label>
+                    <select value={filterSpecialtyId} onChange={e=>setFilterSpecialtyId(e.target.value)}
+                      className="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#004876]">
+                      <option value="">Tümü</option>
+                      {specialties.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                    </select>
+                  </div>
+                  <button onClick={()=>{setSearchText('');setFilterBranchId('');setFilterSpecialtyId('');}}
+                    className="px-3 py-2 border rounded-md">Sıfırla</button>
+                </div>
+              )}
+              {renderTable()}
             </div>
           </div>
-          
-          <div className="p-6">
-            {renderTable()}
-          </div>
-        </div>
+        </main>
       </div>
 
       {showForm && renderForm()}

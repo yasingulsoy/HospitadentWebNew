@@ -67,14 +67,6 @@ const Doctor = sequelize.define('Doctor', {
     type: DataTypes.INTEGER,
     defaultValue: 0
   },
-  branchId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'branches',
-      key: 'id'
-    }
-  },
   roleId: {
     type: DataTypes.INTEGER,
     allowNull: true,
@@ -92,12 +84,44 @@ const Doctor = sequelize.define('Doctor', {
   }
 }, {
   tableName: 'doctors',
-  timestamps: true
+  timestamps: true,
+  hooks: {
+    beforeCreate: (doctor) => {
+      if (!doctor.slug && doctor.name) {
+        doctor.slug = doctor.name
+          .toLowerCase()
+          .replace(/ç/g, 'c')
+          .replace(/ğ/g, 'g')
+          .replace(/ı/g, 'i')
+          .replace(/ö/g, 'o')
+          .replace(/ş/g, 's')
+          .replace(/ü/g, 'u')
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .trim('-');
+      }
+    },
+    beforeUpdate: (doctor) => {
+      if (doctor.changed('name') && !doctor.changed('slug') && doctor.name) {
+        doctor.slug = doctor.name
+          .toLowerCase()
+          .replace(/ç/g, 'c')
+          .replace(/ğ/g, 'g')
+          .replace(/ı/g, 'i')
+          .replace(/ö/g, 'o')
+          .replace(/ş/g, 's')
+          .replace(/ü/g, 'u')
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .trim('-');
+      }
+    }
+  }
 });
 
 // İlişkiler
-Doctor.belongsTo(Branch, { foreignKey: 'branchId', as: 'branch' });
-Branch.hasMany(Doctor, { foreignKey: 'branchId', as: 'doctors' });
 Doctor.belongsToMany(Branch, { through: DoctorBranch, foreignKey: 'doctorId', otherKey: 'branchId', as: 'branches' });
 Branch.belongsToMany(Doctor, { through: DoctorBranch, foreignKey: 'branchId', otherKey: 'doctorId', as: 'doctorsMany' });
 Doctor.belongsTo(Role, { foreignKey: 'roleId', as: 'role' });

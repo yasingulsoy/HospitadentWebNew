@@ -25,14 +25,14 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Tek hekim getir (ID ile)
-router.get('/:id', async (req, res) => {
+// Tek hekim getir (id veya slug)
+router.get('/:idOrSlug', async (req, res) => {
   try {
-    const { id } = req.params;
+    const { idOrSlug } = req.params;
+    const where = isNaN(idOrSlug) ? { slug: idOrSlug, isActive: true } : { id: idOrSlug, isActive: true };
     const doctor = await Doctor.findOne({
       where: { 
-        id: id,
-        isActive: true 
+        ...where 
       },
       include: [
         { model: Branch, as: 'branches', through: { attributes: [] }, required: false },
@@ -137,3 +137,19 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router; 
+
+// DB avatarını herkese açık servis et (public)
+router.get('/:id/image', async (req, res) => {
+  try {
+    const doctor = await Doctor.findByPk(req.params.id, { attributes: ['imageWebp', 'imageMime'] });
+    if (!doctor || !doctor.imageWebp) {
+      return res.status(404).json({ error: 'Görsel bulunamadı' });
+    }
+    res.set('Content-Type', doctor.imageMime || 'image/webp');
+    res.set('Cache-Control', 'public, max-age=31536000, immutable');
+    return res.send(doctor.imageWebp);
+  } catch (e) {
+    console.error('Public doctor image error:', e);
+    res.status(500).json({ error: 'Görsel sunulamadı' });
+  }
+});

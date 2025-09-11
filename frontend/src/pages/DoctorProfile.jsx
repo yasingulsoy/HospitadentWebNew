@@ -6,7 +6,7 @@ import { FaUserMd, FaMapMarkerAlt, FaPhone, FaEnvelope, FaGraduationCap, FaBrief
 
 const DoctorProfile = () => {
   const { t } = useTranslation();
-  const { id } = useParams();
+  const { idOrSlug } = useParams();
   const navigate = useNavigate();
   const [doctor, setDoctor] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ const DoctorProfile = () => {
     const fetchDoctor = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/api/doctors/${id}`);
+        const response = await fetch(`http://localhost:5000/api/doctors/${idOrSlug}`);
         
         if (!response.ok) {
           if (response.status === 404) {
@@ -34,10 +34,10 @@ const DoctorProfile = () => {
       }
     };
 
-    if (id) {
+    if (idOrSlug) {
       fetchDoctor();
     }
-  }, [id]);
+  }, [idOrSlug]);
 
   if (loading) {
     return (
@@ -95,7 +95,7 @@ const DoctorProfile = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8">
+      <div className="bg-gradient-to-r from-[#004876] to-[#0a5e8f] text-white py-8">
         <div className="container mx-auto px-4">
           <button
             onClick={() => navigate('/hekimlerimiz')}
@@ -107,34 +107,35 @@ const DoctorProfile = () => {
           
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:mr-8 mb-6 md:mb-0">
-              {doctor.image ? (
-                <img 
-                  src={doctor.image} 
-                  alt={doctor.name}
-                  className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
-                />
-              ) : (
-                <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-lg">
-                  <FaUserMd className="text-4xl text-blue-600" />
-                </div>
-              )}
+              {(() => {
+                const base = 'http://localhost:5000';
+                const img = doctor.image ? (doctor.image.startsWith('/uploads') ? `${base}${doctor.image}` : doctor.image) : `${base}/api/doctors/${doctor.id}/image`;
+                return (
+                  <img
+                    src={img}
+                    alt={doctor.name}
+                    className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                    onError={(e)=>{ e.currentTarget.onerror=null; e.currentTarget.replaceWith(document.createElement('div')); }}
+                  />
+                );
+              })()}
             </div>
             
             <div className="text-center md:text-left">
               <h1 className="text-4xl md:text-5xl font-bold mb-2">
                 {doctor.name}
               </h1>
-              <p className="text-xl md:text-2xl text-blue-200 mb-2">
+              <p className="text-xl md:text-2xl text-blue-100/90 mb-2">
                 {doctor.title}
               </p>
               <p className="text-lg text-blue-100 mb-4">
                 {doctor.specialization}
               </p>
               
-              {doctor.branch && (
+              {doctor.branches && doctor.branches.length > 0 && (
                 <div className="flex items-center justify-center md:justify-start text-blue-100">
                   <FaMapMarkerAlt className="mr-2" />
-                  <span>{doctor.branch.name}</span>
+                  <span>{doctor.branches[0].name}</span>
                 </div>
               )}
             </div>
@@ -148,12 +149,12 @@ const DoctorProfile = () => {
           
           {/* Biyografi */}
           {doctor.bio && (
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <FaUserMd className="mr-3 text-blue-600" />
+            <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
+              <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
+                <FaUserMd className="mr-3 text-[#004876]" />
                 Biyografi
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 {doctor.bio}
               </p>
             </div>
@@ -161,16 +162,16 @@ const DoctorProfile = () => {
 
           {/* Eğitim */}
           {doctor.education && doctor.education.length > 0 && (
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <FaGraduationCap className="mr-3 text-blue-600" />
+            <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
+              <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
+                <FaGraduationCap className="mr-3 text-[#004876]" />
                 Eğitim
               </h2>
               <ul className="space-y-3">
                 {doctor.education.map((edu, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-600">{edu}</span>
+                    <div className="w-2 h-2 bg-[#004876] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700">{edu}</span>
                   </li>
                 ))}
               </ul>
@@ -179,16 +180,16 @@ const DoctorProfile = () => {
 
           {/* Deneyim */}
           {doctor.experience && doctor.experience.length > 0 && (
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <FaBriefcase className="mr-3 text-blue-600" />
+            <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
+              <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
+                <FaBriefcase className="mr-3 text-[#004876]" />
                 Deneyim
               </h2>
               <ul className="space-y-3">
                 {doctor.experience.map((exp, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-600">{exp}</span>
+                    <div className="w-2 h-2 bg-[#004876] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700">{exp}</span>
                   </li>
                 ))}
               </ul>
@@ -197,16 +198,16 @@ const DoctorProfile = () => {
 
           {/* Diller */}
           {doctor.languages && doctor.languages.length > 0 && (
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <FaLanguage className="mr-3 text-blue-600" />
+            <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
+              <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
+                <FaLanguage className="mr-3 text-[#004876]" />
                 Konuştuğu Diller
               </h2>
               <div className="flex flex-wrap gap-2">
                 {doctor.languages.map((lang, index) => (
                   <span 
                     key={index}
-                    className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-medium"
+                    className="px-4 py-2 bg-[#e6f0f6] text-[#004876] rounded-full font-medium"
                   >
                     {lang}
                   </span>
@@ -216,54 +217,54 @@ const DoctorProfile = () => {
           )}
 
           {/* Şube Bilgileri */}
-          {doctor.branch && (
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
-                <FaMapMarkerAlt className="mr-3 text-blue-600" />
+          {doctor.branches && doctor.branches.length > 0 && (
+            <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
+              <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
+                <FaMapMarkerAlt className="mr-3 text-[#004876]" />
                 Çalıştığı Şube
               </h2>
               <div className="space-y-3">
                 <div>
-                  <h3 className="font-semibold text-gray-800 text-lg">
-                    {doctor.branch.name}
+                  <h3 className="font-semibold text-[#004876] text-lg">
+                    {doctor.branches[0].name}
                   </h3>
                 </div>
                 
-                {doctor.branch.address && (
+                {doctor.branches[0].address && (
                   <div className="flex items-start">
                     <FaMapMarkerAlt className="mr-3 text-gray-500 mt-1 flex-shrink-0" />
-                    <span className="text-gray-600">{doctor.branch.address}</span>
+                    <span className="text-gray-600">{doctor.branches[0].address}</span>
                   </div>
                 )}
                 
-                {doctor.branch.phone && (
+                {doctor.branches[0].phone && (
                   <div className="flex items-center">
                     <FaPhone className="mr-3 text-gray-500 flex-shrink-0" />
                     <a 
-                      href={`tel:${doctor.branch.phone}`}
+                      href={`tel:${doctor.branches[0].phone}`}
                       className="text-blue-600 hover:text-blue-800 transition-colors"
                     >
-                      {doctor.branch.phone}
+                      {doctor.branches[0].phone}
                     </a>
                   </div>
                 )}
                 
-                {doctor.branch.email && (
+                {doctor.branches[0].email && (
                   <div className="flex items-center">
                     <FaEnvelope className="mr-3 text-gray-500 flex-shrink-0" />
                     <a 
-                      href={`mailto:${doctor.branch.email}`}
+                      href={`mailto:${doctor.branches[0].email}`}
                       className="text-blue-600 hover:text-blue-800 transition-colors"
                     >
-                      {doctor.branch.email}
+                      {doctor.branches[0].email}
                     </a>
                   </div>
                 )}
                 
-                {doctor.branch.workingHours && (
+                {doctor.branches[0].workingHours && (
                   <div className="mt-4 p-3 bg-gray-50 rounded-md">
                     <p className="text-sm text-gray-600">
-                      <span className="font-medium">Çalışma Saatleri:</span> {doctor.branch.workingHours}
+                      <span className="font-medium">Çalışma Saatleri:</span> {doctor.branches[0].workingHours}
                     </p>
                   </div>
                 )}

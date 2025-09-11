@@ -45,6 +45,17 @@ const upload = multer({
   }
 });
 
+// Memory upload for DB avatar (accept webp primarily)
+const memoryUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: parseInt(process.env.MAX_FILE_SIZE) || 2 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    const allowed = /webp|jpeg|jpg|png/;
+    if (allowed.test(file.mimetype)) return cb(null, true);
+    cb(new Error('Sadece webp/jpg/png kabul edilir'));
+  }
+});
+
 // Auth middleware import
 const { adminMiddleware } = require('../middleware/auth');
 
@@ -97,7 +108,10 @@ router.post('/login', async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES_IN || '24h' }
     );
 
-    console.log('Generated token for user:', user.email, 'with payload:', { userId: user.id, email: user.email, role: user.role });
+    // Optional verbose log
+    if (process.env.VERBOSE_AUTH === 'true') {
+      console.log('Generated token for user:', user.email, 'with payload:', { userId: user.id, email: user.email, role: user.role });
+    }
 
     res.json({ 
       accessToken: token, 
@@ -399,13 +413,15 @@ router.get('/branches', adminMiddleware, async (req, res) => {
 // Şube ekle
 router.post('/branches', adminMiddleware, upload.none(), async (req, res) => {
   try {
-    // Debug: Request body'yi kontrol et
-    console.log('🔍 Request Body:', req.body);
-    console.log('🔍 Request Headers:', req.headers);
+    // Debug: İsteğe bağlı verbose
+    if (process.env.VERBOSE_ADMIN === 'true') {
+      console.log('🔍 Request Body:', req.body);
+      console.log('🔍 Request Headers:', req.headers);
+    }
     
     // Input validation
     if (!req.body.name || typeof req.body.name !== 'string' || req.body.name.trim() === '') {
-      console.log('❌ Validation failed - name:', req.body.name);
+      if (process.env.VERBOSE_ADMIN === 'true') console.log('❌ Validation failed - name:', req.body.name);
       return res.status(400).json({ 
         error: 'Şube adı gerekli ve geçerli olmalı',
         code: 'MISSING_NAME'
@@ -438,10 +454,10 @@ router.post('/branches', adminMiddleware, upload.none(), async (req, res) => {
       isActive: req.body.isActive === 'true' || req.body.isActive === true
     };
 
-    console.log('✅ Creating branch with data:', branchData);
+    if (process.env.VERBOSE_ADMIN === 'true') console.log('✅ Creating branch with data:', branchData);
 
     const branch = await Branch.create(branchData);
-    console.log('✅ Branch created successfully:', branch.toJSON());
+    if (process.env.VERBOSE_ADMIN === 'true') console.log('✅ Branch created successfully:', branch.toJSON());
     
     res.status(201).json(branch);
   } catch (error) {
@@ -460,11 +476,11 @@ router.put('/branches/:id', adminMiddleware, upload.none(), async (req, res) => 
     const { id } = req.params;
     
     // Debug: Request body'yi kontrol et
-    console.log('🔍 Update Request Body:', req.body);
+    if (process.env.VERBOSE_ADMIN === 'true') console.log('🔍 Update Request Body:', req.body);
     
     // Input validation
     if (!req.body.name || typeof req.body.name !== 'string' || req.body.name.trim() === '') {
-      console.log('❌ Update validation failed - name:', req.body.name);
+      if (process.env.VERBOSE_ADMIN === 'true') console.log('❌ Update validation failed - name:', req.body.name);
       return res.status(400).json({ 
         error: 'Şube adı gerekli ve geçerli olmalı',
         code: 'MISSING_NAME'
@@ -497,7 +513,7 @@ router.put('/branches/:id', adminMiddleware, upload.none(), async (req, res) => 
       isActive: req.body.isActive === 'true' || req.body.isActive === true
     };
 
-    console.log('✅ Updating branch with data:', branchData);
+    if (process.env.VERBOSE_ADMIN === 'true') console.log('✅ Updating branch with data:', branchData);
 
     const branch = await Branch.findByPk(id);
     if (!branch) {
@@ -508,7 +524,7 @@ router.put('/branches/:id', adminMiddleware, upload.none(), async (req, res) => 
     }
 
     await branch.update(branchData);
-    console.log('✅ Branch updated successfully:', branch.toJSON());
+    if (process.env.VERBOSE_ADMIN === 'true') console.log('✅ Branch updated successfully:', branch.toJSON());
     
     res.json(branch);
   } catch (error) {
@@ -562,6 +578,25 @@ router.get('/doctors/:id/image', async (req, res) => {
   } catch (e) {
     console.error('Avatar serve error:', e);
     res.status(500).json({ error: 'Görsel sunulamadı' });
+  }
+});
+
+// DB avatar yükle (WebP önerilir)
+router.post('/doctors/:id/avatar', adminMiddleware, memoryUpload.single('image'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!req.file) {
+      return res.status(400).json({ error: 'Görsel gerekli' });
+    }
+    const doctor = await Doctor.findByPk(id);
+    if (!doctor) {
+      return res.status(404).json({ error: 'Doktor bulunamadı' });
+    }
+    await doctor.update({ imageWebp: req.file.buffer, imageMime: req.file.mimetype || 'image/webp' });
+    res.json({ message: 'Avatar kaydedildi', id: doctor.id });
+  } catch (e) {
+    console.error('Avatar upload error:', e);
+    res.status(500).json({ error: 'Avatar kaydedilemedi' });
   }
 });
 

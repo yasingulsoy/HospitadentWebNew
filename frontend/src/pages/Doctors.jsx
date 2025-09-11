@@ -65,10 +65,10 @@ const Doctors = () => {
       <div className="bg-white py-8">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center text-[#004876]">
-            {t('ourDoctors')}
+            {t('ourDoctors') || 'Hekimlerimiz'}
           </h1>
-          <p className="text-lg text-gray-600 text-center mt-4">
-            {t('doctorsSubtitle')}
+          <p className="text-lg text-[#4b6475] text-center mt-4">
+            {t('doctorsSubtitle') || 'Alanında uzman hekimlerimiz ile tanışın.'}
           </p>
         </div>
       </div>
@@ -95,41 +95,49 @@ const Doctors = () => {
                   className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                   onClick={() => navigate(`/hekimlerimiz/${doctor.id}`)}
                 >
-                  {doctor.image ? (
-                    <img 
-                      src={doctor.image} 
-                      alt={doctor.name}
-                      className="w-full h-64 object-cover"
-                    />
-                  ) : (
+                  {(() => {
+                    const base = 'http://localhost:5000';
+                    const imageSrc = doctor.image
+                      ? (doctor.image.startsWith('/uploads') ? `${base}${doctor.image}` : doctor.image)
+                      : `${base}/api/doctors/${doctor.id}/image`;
+                    return (
+                      <img 
+                        src={imageSrc}
+                        alt={doctor.name}
+                        className="w-full h-64 object-cover"
+                        onError={(e)=>{ e.currentTarget.onerror=null; e.currentTarget.src=''; }}
+                      />
+                    );
+                  })()}
+                  {!doctor.image && (
                     <div className="w-full h-64 bg-gray-200 flex items-center justify-center">
                       <div className="text-6xl text-gray-400">👨‍⚕️</div>
                     </div>
                   )}
                   
                   <div className="p-6">
-                    <h3 className="font-bold text-xl text-gray-800 mb-2">
+                    <h3 className="font-bold text-xl text-[#0a3a58] mb-2">
                       {doctor.name}
                     </h3>
                     
-                    <p className="text-blue-600 font-semibold mb-2">
+                    <p className="text-[#004876] font-semibold mb-1">
                       {doctor.title}
                     </p>
                     
-                    <p className="text-gray-600 text-sm mb-3">
-                      {doctor.specialization}
+                    <p className="text-[#4b6475] text-sm mb-3">
+                      {doctor.specialty?.name || doctor.specialization || ''}
                     </p>
                     
                     {doctor.bio && (
-                      <p className="text-gray-500 text-sm mb-4 line-clamp-3">
+                      <p className="text-[#6b7f8a] text-sm mb-4 line-clamp-3">
                         {doctor.bio}
                       </p>
                     )}
                     
-                    {doctor.branch && (
+                    {doctor.branches && doctor.branches.length > 0 && (
                       <div className="border-t pt-3">
-                        <p className="text-sm text-gray-500">
-                          <span className="font-medium">{t('branch')}:</span> {doctor.branch.name}
+                        <p className="text-sm text-[#4b6475]">
+                          <span className="font-medium">{t('branch') || 'Şube'}:</span> {doctor.branches.map(b=>b.name).join(', ')}
                         </p>
                       </div>
                     )}

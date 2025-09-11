@@ -153,10 +153,12 @@ const startServer = async () => {
     
     const server = app.listen(PORT, () => {
       logger.info(`🚀 Hospitadent Backend Server running on port ${PORT}`);
-      logger.info(`📊 Admin Panel: http://localhost:3000/admin`);
-      logger.info(`🔗 API: http://localhost:${PORT}/api`);
-      logger.info(`🌍 Environment: ${process.env.NODE_ENV}`);
-      logger.info(`📊 Health Check: http://localhost:${PORT}/api/health`);
+      if (process.env.VERBOSE_START !== 'false') {
+        logger.info(`📊 Admin Panel: http://localhost:3000/admin`);
+        logger.info(`🔗 API: http://localhost:${PORT}/api`);
+        logger.info(`🌍 Environment: ${process.env.NODE_ENV}`);
+        logger.info(`📊 Health Check: http://localhost:${PORT}/api/health`);
+      }
     });
 
     // Handle server errors
