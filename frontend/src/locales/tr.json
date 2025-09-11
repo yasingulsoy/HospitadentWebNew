@@ -460,7 +460,15 @@
     "languages": "Diller",
     "specialization": "Uzmanlık",
     "experience": "Deneyim",
-    "education": "Eğitim"
+    "education": "Eğitim",
+    "pageTitle": "Hekimlerimiz - Hospitadent",
+    "pageDescription": "Alanında uzman hekimlerimiz ve deneyimleri hakkında bilgi alın.",
+    "filters": {
+      "search": "Ara",
+      "branch": "Şube",
+      "specialty": "Uzmanlık",
+      "reset": "Sıfırla"
+    }
   },
   "branch": {
     "title": "Şube Bilgileri",

@@ -330,4 +330,24 @@
     "followUs": "تابعنا",
     "contactInfo": "معلومات الاتصال"
   }
+  ,
+  "doctors": {
+    "title": "أطباؤنا",
+    "subtitle": "تعرّف على أطبائنا الخبراء",
+    "noDoctors": "لا يوجد أطباء بعد",
+    "noDoctorsMessage": "سيتم عرض أطبائنا هنا قريبًا",
+    "branch": "الفرع",
+    "languages": "اللغات",
+    "specialization": "التخصص",
+    "experience": "الخبرة",
+    "education": "التعليم",
+    "pageTitle": "أطباؤنا - هوسبيتادنت",
+    "pageDescription": "تعرّف على أطبائنا الخبراء وخبراتهم.",
+    "filters": {
+      "search": "بحث",
+      "branch": "الفرع",
+      "specialty": "التخصص",
+      "reset": "إعادة تعيين"
+    }
+  }
 } 

@@ -285,4 +285,24 @@
     "ibrahim_name": "Ибрагим ЮДЖЕЛ",
     "ibrahim_title": "Менеджер по административным делам Гёктюрк"
   }
+  ,
+  "doctors": {
+    "title": "Наши Врачи",
+    "subtitle": "Познакомьтесь с нашими опытными стоматологами",
+    "noDoctors": "Пока нет врачей",
+    "noDoctorsMessage": "Наши врачи скоро будут здесь",
+    "branch": "Филиал",
+    "languages": "Языки",
+    "specialization": "Специализация",
+    "experience": "Опыт",
+    "education": "Образование",
+    "pageTitle": "Наши Врачи - Hospitadent",
+    "pageDescription": "Узнайте о наших врачах и их опыте.",
+    "filters": {
+      "search": "Поиск",
+      "branch": "Филиал",
+      "specialty": "Специализация",
+      "reset": "Сбросить"
+    }
+  }
 } 

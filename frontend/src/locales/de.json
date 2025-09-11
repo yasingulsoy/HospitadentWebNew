@@ -338,4 +338,24 @@
     "ibrahim_name": "İbrahim YÜCEL",
     "ibrahim_title": "Verwaltungsmanager Göktürk"
   }
+  ,
+  "doctors": {
+    "title": "Unsere Ärzte",
+    "subtitle": "Lernen Sie unsere erfahrenen Zahnärzte kennen",
+    "noDoctors": "Noch keine Ärzte",
+    "noDoctorsMessage": "Unsere Ärzte werden hier bald gelistet",
+    "branch": "Filiale",
+    "languages": "Sprachen",
+    "specialization": "Fachgebiet",
+    "experience": "Erfahrung",
+    "education": "Ausbildung",
+    "pageTitle": "Unsere Ärzte - Hospitadent",
+    "pageDescription": "Informationen über unsere Ärzte und ihre Erfahrung.",
+    "filters": {
+      "search": "Suchen",
+      "branch": "Filiale",
+      "specialty": "Fachgebiet",
+      "reset": "Zurücksetzen"
+    }
+  }
 } 

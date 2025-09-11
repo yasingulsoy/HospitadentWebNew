@@ -125,6 +125,25 @@
     "ourDoctors": "Doctors",
     "blog": "Blog"
   },
+  "doctors": {
+    "title": "Our Doctors",
+    "subtitle": "Meet our expert dentists",
+    "noDoctors": "No doctors yet",
+    "noDoctorsMessage": "Our doctors will be listed here soon",
+    "branch": "Branch",
+    "languages": "Languages",
+    "specialization": "Specialty",
+    "experience": "Experience",
+    "education": "Education",
+    "pageTitle": "Our Doctors - Hospitadent",
+    "pageDescription": "Learn about our expert doctors and their experience.",
+    "filters": {
+      "search": "Search",
+      "branch": "Branch",
+      "specialty": "Specialty",
+      "reset": "Reset"
+    }
+  },
   "home": {
     "title": "A New Era in Digital Dentistry",
     "subtitle": "Get an appointment now for healthy and aesthetic smiles with 3D technologies.",

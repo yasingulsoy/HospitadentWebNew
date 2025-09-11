@@ -65,10 +65,10 @@ const Doctors = () => {
       <div className="bg-white py-8">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center text-[#004876]">
-            {t('ourDoctors') || 'Hekimlerimiz'}
+            {t('doctors.title') || 'Hekimlerimiz'}
           </h1>
           <p className="text-lg text-[#4b6475] text-center mt-4">
-            {t('doctorsSubtitle') || 'Alanında uzman hekimlerimiz ile tanışın.'}
+            {t('doctors.subtitle') || 'Alanında uzman hekimlerimiz ile tanışın.'}
           </p>
         </div>
       </div>
@@ -137,7 +137,7 @@ const Doctors = () => {
                     {doctor.branches && doctor.branches.length > 0 && (
                       <div className="border-t pt-3">
                         <p className="text-sm text-[#4b6475]">
-                          <span className="font-medium">{t('branch') || 'Şube'}:</span> {doctor.branches.map(b=>b.name).join(', ')}
+                          <span className="font-medium">{t('doctors.branch') || 'Şube'}:</span> {doctor.branches.map(b=>b.name).join(', ')}
                         </p>
                       </div>
                     )}

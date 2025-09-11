@@ -384,4 +384,24 @@
     "followUs": "Síguenos",
     "contactInfo": "Información de contacto"
   }
+  ,
+  "doctors": {
+    "title": "Nuestros Médicos",
+    "subtitle": "Conozca a nuestros dentistas expertos",
+    "noDoctors": "Aún no hay médicos",
+    "noDoctorsMessage": "Nuestros médicos se listarán aquí pronto",
+    "branch": "Sucursal",
+    "languages": "Idiomas",
+    "specialization": "Especialidad",
+    "experience": "Experiencia",
+    "education": "Educación",
+    "pageTitle": "Nuestros Médicos - Hospitadent",
+    "pageDescription": "Conozca a nuestros médicos expertos y su experiencia.",
+    "filters": {
+      "search": "Buscar",
+      "branch": "Sucursal",
+      "specialty": "Especialidad",
+      "reset": "Reiniciar"
+    }
+  }
 } 
