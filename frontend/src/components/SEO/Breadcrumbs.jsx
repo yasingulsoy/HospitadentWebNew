@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Breadcrumbs = ({ customBreadcrumbs = null }) => {
   const { t } = useTranslation();
   const location = useLocation();
+  const [resolvedLastName, setResolvedLastName] = useState(null);
+
+  // Eğer rota /hekimlerimiz/:idOrSlug ise doktor adını çek
+  useEffect(() => {
+    const segments = location.pathname.split('/').filter(Boolean);
+    if (segments.length >= 2 && segments[0] === 'hekimlerimiz' && segments[1]) {
+      const idOrSlug = segments[1];
+      fetch(`http://localhost:5000/api/doctors/${idOrSlug}`)
+        .then(res => (res.ok ? res.json() : null))
+        .then(data => setResolvedLastName(data?.name || null))
+        .catch(() => setResolvedLastName(null));
+    } else {
+      setResolvedLastName(null);
+    }
+  }, [location.pathname]);
   
   // Generate breadcrumbs from URL path
   const generateBreadcrumbs = () => {
@@ -18,7 +33,11 @@ const Breadcrumbs = ({ customBreadcrumbs = null }) => {
       currentPath += `/${segment}`;
       
       // Map URL segments to readable names
-      const segmentName = getSegmentName(segment, t);
+      let segmentName = getSegmentName(segment, t);
+      // Doktor profili son segmenti için adı kullan
+      if (pathSegments[0] === 'hekimlerimiz' && index === pathSegments.length - 1 && resolvedLastName) {
+        segmentName = resolvedLastName;
+      }
       
       breadcrumbs.push({
         name: segmentName,

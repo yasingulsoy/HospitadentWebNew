@@ -101,7 +101,7 @@ const Doctors = () => {
                       ? (doctor.image.startsWith('/uploads') ? `${base}${doctor.image}` : doctor.image)
                       : `${base}/api/doctors/${doctor.id}/image`;
                     return (
-                      <img 
+                      <img
                         src={imageSrc}
                         alt={doctor.name}
                         className="w-full h-64 object-cover"
@@ -109,52 +109,14 @@ const Doctors = () => {
                       />
                     );
                   })()}
-                  {!doctor.image && (
-                    <div className="w-full h-64 bg-gray-200 flex items-center justify-center">
-                      <div className="text-6xl text-gray-400">👨‍⚕️</div>
-                    </div>
-                  )}
-                  
+
                   <div className="p-6">
-                    <h3 className="font-bold text-xl text-[#0a3a58] mb-2">
+                    <h3 className="font-bold text-xl text-[#0a3a58] mb-1">
                       {doctor.name}
                     </h3>
-                    
-                    <p className="text-[#4b6475] text-sm mb-3 font-semibold">
+                    <p className="text-[#4b6475] text-sm font-semibold">
                       {doctor.specialty?.name || ''}
                     </p>
-                    
-                    {doctor.bio && (
-                      <p className="text-[#6b7f8a] text-sm mb-4 line-clamp-3">
-                        {doctor.bio}
-                      </p>
-                    )}
-                    
-                    {doctor.branches && doctor.branches.length > 0 && (
-                      <div className="border-t pt-3">
-                        <p className="text-sm text-[#4b6475]">
-                          <span className="font-medium">{t('doctors.branch') || 'Şube'}:</span> {doctor.branches.map(b=>b.name).join(', ')}
-                        </p>
-                      </div>
-                    )}
-                    
-                    {doctor.languages && doctor.languages.length > 0 && (
-                      <div className="mt-3">
-                        <p className="text-sm text-gray-500 mb-1">
-                          <span className="font-medium">{t('languages')}:</span>
-                        </p>
-                        <div className="flex flex-wrap gap-1">
-                          {doctor.languages.map((lang, index) => (
-                            <span 
-                              key={index}
-                              className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
-                            >
-                              {lang}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               ))}
