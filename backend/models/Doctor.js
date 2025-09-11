@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 const Branch = require('./Branch');
-const Role = require('./Role');
 const Specialty = require('./Specialty');
 const DoctorBranch = require('./DoctorBranch');
 
@@ -12,14 +11,6 @@ const Doctor = sequelize.define('Doctor', {
     autoIncrement: true
   },
   name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  title: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  specialization: {
     type: DataTypes.STRING,
     allowNull: false
   },
@@ -66,11 +57,6 @@ const Doctor = sequelize.define('Doctor', {
   order: {
     type: DataTypes.INTEGER,
     defaultValue: 0
-  },
-  roleId: {
-    type: DataTypes.INTEGER,
-    allowNull: true,
-    references: { model: 'roles', key: 'id' }
   },
   specialtyId: {
     type: DataTypes.INTEGER,
@@ -124,7 +110,6 @@ const Doctor = sequelize.define('Doctor', {
 // İlişkiler
 Doctor.belongsToMany(Branch, { through: DoctorBranch, foreignKey: 'doctorId', otherKey: 'branchId', as: 'branches' });
 Branch.belongsToMany(Doctor, { through: DoctorBranch, foreignKey: 'branchId', otherKey: 'doctorId', as: 'doctorsMany' });
-Doctor.belongsTo(Role, { foreignKey: 'roleId', as: 'role' });
 Doctor.belongsTo(Specialty, { foreignKey: 'specialtyId', as: 'specialty' });
 
 module.exports = Doctor; 

@@ -120,12 +120,8 @@ const Doctors = () => {
                       {doctor.name}
                     </h3>
                     
-                    <p className="text-[#004876] font-semibold mb-1">
-                      {doctor.title}
-                    </p>
-                    
-                    <p className="text-[#4b6475] text-sm mb-3">
-                      {doctor.specialty?.name || doctor.specialization || ''}
+                    <p className="text-[#4b6475] text-sm mb-3 font-semibold">
+                      {doctor.specialty?.name || ''}
                     </p>
                     
                     {doctor.bio && (

@@ -168,12 +168,8 @@ const BranchPage = () => {
                       {doctor.name}
                     </h3>
                     
-                    <p className="text-blue-600 font-medium mb-2">
-                      {doctor.title}
-                    </p>
-                    
-                    <p className="text-gray-600 text-sm mb-3">
-                      {doctor.specialization}
+                    <p className="text-gray-600 text-sm mb-3 font-medium">
+                      {doctor.specialty?.name || ''}
                     </p>
                     
                     {doctor.bio && (

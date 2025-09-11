@@ -125,11 +125,8 @@ const DoctorProfile = () => {
               <h1 className="text-4xl md:text-5xl font-bold mb-2">
                 {doctor.name}
               </h1>
-              <p className="text-xl md:text-2xl text-blue-100/90 mb-2">
-                {doctor.title}
-              </p>
-              <p className="text-lg text-blue-100 mb-4">
-                {doctor.specialization}
+              <p className="text-xl md:text-2xl text-blue-100 mb-4">
+                {doctor.specialty?.name || ''}
               </p>
               
               {doctor.branches && doctor.branches.length > 0 && (

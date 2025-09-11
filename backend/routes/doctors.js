@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Doctor = require('../models/Doctor');
 const Branch = require('../models/Branch');
-const Role = require('../models/Role');
 const Specialty = require('../models/Specialty');
 
 // Tüm hekimleri getir
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
       where: { isActive: true },
       include: [
         { model: Branch, as: 'branches', through: { attributes: [] }, where: { isActive: true }, required: false },
-        { model: Role, as: 'role' },
         { model: Specialty, as: 'specialty' }
       ],
       order: [['order', 'ASC']]
@@ -36,7 +34,6 @@ router.get('/:idOrSlug', async (req, res) => {
       },
       include: [
         { model: Branch, as: 'branches', through: { attributes: [] }, required: false },
-        { model: Role, as: 'role' },
         { model: Specialty, as: 'specialty' }
       ]
     });
@@ -64,7 +61,6 @@ router.get('/branch/:branchId', async (req, res) => {
           through: { attributes: [] },
           where: { id: branchId, isActive: true }
         },
-        { model: Role, as: 'role' },
         { model: Specialty, as: 'specialty' }
       ],
       order: [['order', 'ASC']]

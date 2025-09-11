@@ -26,7 +26,6 @@ const AdminPanel = () => {
   const [doctors, setDoctors] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [branches, setBranches] = useState([]);
-  const [roles, setRoles] = useState([]);
   const [specialties, setSpecialties] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -130,7 +129,6 @@ const AdminPanel = () => {
       if (activesRes.ok) {
         const data = await activesRes.json();
         setBranches(data.branches || []);
-        setRoles(data.roles || []);
         setSpecialties(data.specialties || []);
       }
     } catch (error) {
@@ -235,7 +233,11 @@ const AdminPanel = () => {
 
   const handleEdit = (item) => {
     setEditingItem(item);
-    setFormData(item);
+    setFormData({
+      ...item,
+      branches: Array.isArray(item.branches) ? item.branches.map(b => b.id) : [],
+      specialtyId: item.specialty?.id || item.specialtyId || ''
+    });
     setShowForm(true);
   };
 
@@ -257,9 +259,7 @@ const AdminPanel = () => {
       case 'doctors':
         return [
           { name: 'name', label: 'Ad Soyad', type: 'text', required: true },
-          { name: 'title', label: 'Ünvan', type: 'text', required: true },
-          { name: 'roleId', label: 'Rol', type: 'select', options: roles, optionLabel: 'name', required: false },
-          { name: 'specialtyId', label: 'Uzmanlık', type: 'select', options: specialties, optionLabel: 'name', required: false },
+          { name: 'specialtyId', label: 'Uzmanlık', type: 'select', options: specialties, optionLabel: 'name', required: true },
           { name: 'bio', label: 'Biyografi', type: 'textarea', required: false },
           { name: 'branches', label: 'Şubeler', type: 'multiselect', options: branches, optionLabel: 'name', required: true },
           { name: 'order', label: 'Sıra', type: 'number', required: false },
@@ -313,7 +313,7 @@ const AdminPanel = () => {
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 pb-20">
             {fields.map((field) => (
               <div key={field.name}>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -345,23 +345,43 @@ const AdminPanel = () => {
                     ))}
                   </select>
                 ) : field.type === 'multiselect' ? (
-                  <select
-                    multiple
-                    name={field.name}
-                    value={formData[field.name] || []}
-                    onChange={(e) => {
-                      const selected = Array.from(e.target.selectedOptions).map(o => Number(o.value));
-                      setFormData(prev => ({ ...prev, [field.name]: selected }));
-                    }}
-                    required={field.required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
-                  >
-                    {field.options?.map(option => (
-                      <option key={option.id} value={option.id}>
-                        {field.optionLabel ? option[field.optionLabel] : option.name}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="border border-gray-300 rounded-md p-3 max-h-48 overflow-auto">
+                    <div className="flex items-center mb-2">
+                      <input
+                        type="checkbox"
+                        className="mr-2"
+                        checked={Array.isArray(formData[field.name]) && formData[field.name].length === (field.options?.length || 0)}
+                        onChange={(e)=>{
+                          if (e.target.checked) {
+                            setFormData(prev => ({ ...prev, [field.name]: field.options.map(o=>o.id) }));
+                          } else {
+                            setFormData(prev => ({ ...prev, [field.name]: [] }));
+                          }
+                        }}
+                      />
+                      <span>Tümünü Seç</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {field.options?.map(option => {
+                        const checked = (formData[field.name] || []).includes(option.id);
+                        return (
+                          <label key={option.id} className="flex items-center">
+                            <input
+                              type="checkbox"
+                              className="mr-2"
+                              checked={checked}
+                              onChange={(e)=>{
+                                const current = new Set(formData[field.name] || []);
+                                if (e.target.checked) current.add(option.id); else current.delete(option.id);
+                                setFormData(prev => ({ ...prev, [field.name]: Array.from(current) }));
+                              }}
+                            />
+                            <span>{field.optionLabel ? option[field.optionLabel] : option.name}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
                 ) : field.type === 'checkbox' ? (
                   <input
                     type="checkbox"
@@ -391,7 +411,7 @@ const AdminPanel = () => {
               </div>
             ))}
 
-            <div className="flex justify-end space-x-3 pt-4">
+            <div className="flex justify-end space-x-3 pt-4 sticky bottom-0 bg-white pb-2">
               <button
                 type="button"
                 onClick={() => {
@@ -462,7 +482,6 @@ const AdminPanel = () => {
                 <>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fotoğraf</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ad Soyad</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ünvan</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Uzmanlık</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Şube</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durum</th>
@@ -507,8 +526,7 @@ const AdminPanel = () => {
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.name}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.title}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.specialization}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.specialty?.name || ''}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.branch?.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
@@ -725,7 +743,7 @@ const AdminPanel = () => {
                 <div className="mb-4 flex flex-wrap gap-3 items-end">
                   <div>
                     <label className="block text-xs text-gray-500 mb-1">Ara</label>
-                    <input value={searchText} onChange={(e)=>setSearchText(e.target.value)} placeholder="Ad/ünvan"
+                    <input value={searchText} onChange={(e)=>setSearchText(e.target.value)} placeholder="Ad"
                       className="px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#004876]" />
                   </div>
                   <div>
