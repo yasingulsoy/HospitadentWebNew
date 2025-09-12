@@ -106,42 +106,59 @@ const BranchCard = ({ branch, image }) => {
 };
 
 const Branches = () => {
-  // Şube verileri
-  const branches = [
-    {
-      city: 'İstanbul',
-      branches: [
-        { name: 'Mecidiyeköy', slug: 'mecidiyekoy', address: 'Mecidiyeköy Mahallesi', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Mecidiyek%C3%B6y+Di%C5%9F+Hastanesi/@41.0659603,28.9950881,17z/data=!3m1!4b1!4m5!3m4!1s0x14ab7521dea3407:0x14f4d925be85dce7!8m2!3d41.0659603!4d28.9972768?shorturl=1' },
-        { name: 'Bağcılar', slug: 'bagcilar', address: 'Bağcılar Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Ba%C4%9Fc%C4%B1lar+Di%C5%9F+Hastanesi/@41.0450571,28.8281354,17z/data=!3m1!4b1!4m6!3m5!1s0x14caa5174b05851d:0x8a2ef0d5d52511d0!8m2!3d41.0450531!4d28.8307103!16s%2Fg%2F1tczmpkn?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D' },
-        { name: 'Bakırköy', slug: 'bakirkoy', address: 'Bakırköy Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Bak%C4%B1rk%C3%B6y+Di%C5%9F+Hastanesi/@40.9955222,28.8671339,17z/data=!3m1!4b1!4m6!3m5!1s0x14cabb503d60594d:0x21aba3056dc48001!8m2!3d40.9955182!4d28.8697088!16s%2Fg%2F11_tb71wz?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D' },
-        { name: 'Fatih', slug: 'fatih', address: 'Fatih Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Fatih+Di%C5%9F+Hastanesi/@41.0191732,28.9440271,17z/data=!3m1!4b1!4m5!3m4!1s0x14cabac32cd64d25:0xeacf065d53dc5b4b!8m2!3d41.0191732!4d28.9462158?shorturl=1' },
-        { name: 'Çamlıca', slug: 'camlica', address: 'Çamlıca Mahallesi', mapUrl: 'https://www.google.com/maps/place/Hospitadent+%C3%87aml%C4%B1ca+Di%C5%9F+Hastanesi/@41.0227881,29.0717873,17z/data=!3m1!4b1!4m6!3m5!1s0x14cac91bf232062f:0xdec1183a9c72a92d!8m2!3d41.0227841!4d29.0743622!16s%2Fg%2F11fst1lh55?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D' },
-        { name: 'Pendik', slug: 'pendik', address: 'Pendik Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Pendik+Di%C5%9F+Hastanesi/@40.8817795,29.2350368,17z/data=!3m1!4b1!4m6!3m5!1s0x14cadd84741c798b:0x158719bd9d7985c0!8m2!3d40.8817755!4d29.2376117!16s%2Fg%2F11j32ygp9l?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D' },
-        { name: 'Şerifali', slug: 'serifali', address: 'Şerifali Mahallesi', mapUrl: 'https://www.google.com/maps/place/Hospitadent+%C5%9Eerifali+Di%C5%9F+Hastanesi/@41.0021235,28.5323988,10z/data=!4m10!1m2!2m1!1sHospitadent!3m6!1s0x14cac1fce603516d:0xc0411c2d0a014a18!8m2!3d41.0021235!4d29.142141!15sCgtIb3NwaXRhZGVudCIDiAEBkgEIaG9zcGl0YWQ!16s%2Fg%2F11c5w7n2l2?entry=ttu' },
-        { name: 'Cevizlibağ', slug: 'cevizlibag', address: 'Cevizlibağ Mahallesi', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Cevizliba%C4%9F+Poliklini%C4%9Fi/@41.0125325,28.907552,17z/data=!3m1!4b1!4m5!3m4!1s0x14caba3019e35db5:0x44e86294cf703bb!8m2!3d41.0125325!4d28.9097407?shorturl=1' },
-        { name: 'Göktürk', slug: 'gokturk', address: 'Göktürk Mahallesi', mapUrl: 'https://www.google.com/maps/place/Hospitadent+%C5%9Eube+G%C3%B6kt%C3%BCrk/@41.0021235,28.5323988,10z/data=!4m10!1m2!2m1!1sHospitadent!3m6!1s0x14cab5bc421651b0:0x68ba43a225d122d!8m2!3d41.0021235!4d28.8769931!15sCgtIb3NwaXRhZGVudCIDiAEBkgEIaG9zcGl0YWQ!16s%2Fg%2F11c5w7n2l2?entry=ttu' },
-      ]
-    },
-    {
-      city: 'Diğer Şehirler',
-      branches: [
-        { name: 'Kayseri', slug: 'kayseri', address: 'Kayseri Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Kayseri+Di%C5%9F+Klinik/@38.7342685,35.4871309,17z/data=!3m1!4b1!4m5!3m4!1s0x152f1b0f0c5f3e7b:0x7bb13f1d1c9a77bb!8m2!3d38.7342685!4d35.4893196?entry=ttu' },
-        { name: 'Bodrum', slug: 'bodrum', address: 'Bodrum Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Bodrum+Di%C5%9F+Klinik/@37.1026883,27.3109493,17z/data=!3m1!4b1!4m5!3m4!1s0x14bede4d5836c03:0x5bb7e7166ae713f!8m2!3d37.1026883!4d27.3131531?entry=ttu' },
-        { name: 'Alanya', slug: 'alanya', address: 'Alanya Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Alanya+Di%C5%9F+Klinik/@36.543159,32.003457,17z/data=!3m1!4b1!4m5!3m4!1s0x14ddc5a7e2f1f0c5:0x7e3f3c7d9?entry=ttu' },
-        { name: 'Antalya', slug: 'antalya', address: 'Antalya Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Antalya+Di%C5%9F+Klinik/@36.8814596,30.7157624,17z/data=!3m1!4b1!4m5!3m4!1s0x14c391b2e2a6ab79:0x1b1d1a9c3a7b3e7b!8m2!3d36.8814596!4d30.7179511?entry=ttu' },
-        { name: 'Ankara', slug: 'ankara', address: 'Ankara Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Ankara+Di%C5%9F+Klinik/@39.925533,32.836495,17z/data=!3m1!4b1!4m5!3m4!1s0x14d34f5a8a344359:0x929dafc3fcae72f!8m2!3d39.925533!4d32.8386837?entry=ttu' },
-        { name: 'Kocaeli', slug: 'kocaeli', address: 'Kocaeli Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Kocaeli+Di%C5%9F+Klinik/@40.7686802,29.9217657,17z/data=!3m1!4b1!4m5!3m4!1s0x14cad16b31c5d0b7:0x5b1c0a7d6b1a5b0b!8m2!3d40.7686802!4d29.9239544?entry=ttu' },
-        { name: 'Bursa', slug: 'bursa', address: 'Bursa Merkez', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Bursa+Di%C5%9F+Klinik/@40.2167447,28.976507,17z/data=!3m1!4b1!4m5!3m4!1s0x14ca158e3a844359:0x929dafc3fcae72f!8m2!3d40.2167447!4d28.9790957?entry=ttu' },
-      ]
-    },
-    {
-      city: 'Yurtdışı',
-      branches: [
-        { name: 'Almanya', slug: 'almanya', address: 'Frankfurt', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Frankfurt+Main/@50.108568,8.670287,17z/data=!3m1!4b1!4m5!3m4!1s0x47c5b75c6848100f:0x2a583b218157045!8m2!3d50.108568!4d8.672475?entry=ttu' },
-        { name: 'Hollanda', slug: 'hollanda', address: 'Den Haag', mapUrl: 'https://www.google.com/maps/place/Hospitadent+Den+Haag/@52.0674547,4.2937522,17z/data=!3m1!4b1!4m5!3m4!1s0x47c5b75c6848100f:0x2a583b218157045!8m2!3d52.0674547!4d4.2963271!16s%2Fg%2F11flfw7h46?entry=ttu' },
-      ]
-    }
-  ];
+  const [branches, setBranches] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchBranches = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/api/branches`);
+        
+        if (!response.ok) {
+          throw new Error('Şubeler yüklenirken hata oluştu');
+        }
+
+        const data = await response.json();
+        
+        // Şubeleri şehirlere göre grupla
+        const groupedBranches = data.reduce((acc, branch) => {
+          let city = 'Diğer Şehirler';
+          
+          // İstanbul şubeleri
+          if (['mecidiyekoy', 'bagcilar', 'bakirkoy', 'fatih', 'camlica', 'pendik', 'serifali', 'cevizlibag', 'gokturk'].includes(branch.slug)) {
+            city = 'İstanbul';
+          }
+          // Yurtdışı şubeleri
+          else if (['almanya', 'hollanda'].includes(branch.slug)) {
+            city = 'Yurtdışı';
+          }
+          
+          if (!acc[city]) {
+            acc[city] = [];
+          }
+          acc[city].push(branch);
+          return acc;
+        }, {});
+
+        // Array'e çevir
+        const branchesArray = Object.entries(groupedBranches).map(([city, cityBranches]) => ({
+          city,
+          branches: cityBranches
+        }));
+
+        setBranches(branchesArray);
+      } catch (err) {
+        console.error('Şubeler yükleme hatası:', err);
+        setError('Şubeler yüklenirken hata oluştu');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBranches();
+  }, []);
 
   // Sayfa yüklendiğinde scroll'u aktif hale getir
   useEffect(() => {
@@ -150,6 +167,34 @@ const Branches = () => {
       document.documentElement.style.overflow = 'auto';
     }, 100);
   }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#0f4f78] mx-auto"></div>
+          <p className="mt-4 text-lg text-gray-600">Şubeler yükleniyor...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Hata</h1>
+          <p className="text-lg text-gray-600 mb-8">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-[#0f4f78] text-white px-6 py-3 rounded-lg hover:bg-[#2bb3ea] transition-colors"
+          >
+            Tekrar Dene
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white">
@@ -176,7 +221,7 @@ const Branches = () => {
                   <BranchCard
                     key={branchIndex}
                     branch={branch}
-                    image={branchImages[branch.name] || defaultImage}
+                    image={branch.image ? `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}${branch.image}` : (branchImages[branch.name] || defaultImage)}
                   />
                 ))}
               </div>

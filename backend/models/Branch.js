@@ -16,6 +16,22 @@ const Branch = sequelize.define('Branch', {
     allowNull: false,
     unique: true
   },
+  address: {
+    type: DataTypes.TEXT,
+    defaultValue: ''
+  },
+  mapUrl: {
+    type: DataTypes.TEXT,
+    defaultValue: ''
+  },
+  phone: {
+    type: DataTypes.STRING,
+    defaultValue: ''
+  },
+  image: {
+    type: DataTypes.STRING,
+    defaultValue: ''
+  },
   isActive: {
     type: DataTypes.BOOLEAN,
     defaultValue: true

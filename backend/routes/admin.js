@@ -408,7 +408,7 @@ router.get('/branches', adminMiddleware, async (req, res) => {
 });
 
 // Şube ekle
-router.post('/branches', adminMiddleware, upload.none(), async (req, res) => {
+router.post('/branches', adminMiddleware, upload.single('image'), async (req, res) => {
   try {
     // Debug: İsteğe bağlı verbose
     if (process.env.VERBOSE_ADMIN === 'true') {
@@ -448,8 +448,16 @@ router.post('/branches', adminMiddleware, upload.none(), async (req, res) => {
     const branchData = {
       name: req.body.name.trim(),
       slug: createSlug(req.body.name),
+      address: req.body.address || '',
+      mapUrl: req.body.mapUrl || '',
+      phone: req.body.phone || '',
       isActive: req.body.isActive === 'true' || req.body.isActive === true
     };
+
+    // Resim yüklendiyse ekle
+    if (req.file) {
+      branchData.image = `/uploads/${req.file.filename}`;
+    }
 
     if (process.env.VERBOSE_ADMIN === 'true') console.log('✅ Creating branch with data:', branchData);
 
@@ -468,7 +476,7 @@ router.post('/branches', adminMiddleware, upload.none(), async (req, res) => {
 });
 
 // Şube güncelle
-router.put('/branches/:id', adminMiddleware, upload.none(), async (req, res) => {
+router.put('/branches/:id', adminMiddleware, upload.single('image'), async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -507,8 +515,16 @@ router.put('/branches/:id', adminMiddleware, upload.none(), async (req, res) => 
     const branchData = {
       name: req.body.name.trim(),
       slug: createSlug(req.body.name),
+      address: req.body.address || '',
+      mapUrl: req.body.mapUrl || '',
+      phone: req.body.phone || '',
       isActive: req.body.isActive === 'true' || req.body.isActive === true
     };
+
+    // Resim yüklendiyse ekle
+    if (req.file) {
+      branchData.image = `/uploads/${req.file.filename}`;
+    }
 
     if (process.env.VERBOSE_ADMIN === 'true') console.log('✅ Updating branch with data:', branchData);
 

@@ -106,7 +106,7 @@ function App() {
         <Route path="/hakkimizda" element={<AboutPage />} />
         <Route path="/idari-kadro" element={<Staff />} />
         <Route path="/subelerimiz" element={<Branches />} />
-        <Route path="/subelerimiz/:branchId" element={<BranchPage />} />
+        <Route path="/subelerimiz/:slug" element={<BranchPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/akademi" element={<Academy />} />
@@ -147,7 +147,7 @@ function App() {
         <Route path="/en/services" element={<EnServices />} />
         <Route path="/en/administrative-staff" element={<EnStaff />} />
         <Route path="/en/branches" element={<EnBranches />} />
-        <Route path="/en/branches/:branchId" element={<EnBranchPage />} />
+        <Route path="/en/branches/:slug" element={<EnBranchPage />} />
         <Route path="/en/blog" element={<EnBlog />} />
         <Route path="/en/blog/:slug" element={<BlogPost />} />
         <Route path="/en/academy" element={<EnAcademy />} />
@@ -185,7 +185,7 @@ function App() {
         <Route path="/fr/services" element={<FrServices />} />
         <Route path="/fr/equipe-administrative" element={<FrStaff />} />
         <Route path="/fr/succursales" element={<FrBranches />} />
-        <Route path="/fr/succursales/:branchId" element={<FrBranchPage />} />
+        <Route path="/fr/succursales/:slug" element={<FrBranchPage />} />
         <Route path="/fr/blog" element={<FrBlog />} />
         <Route path="/fr/blog/:slug" element={<BlogPost />} />
         <Route path="/fr/academie" element={<FrAcademy />} />
@@ -223,7 +223,7 @@ function App() {
         <Route path="/de/services" element={<DeServices />} />
         <Route path="/de/verwaltungspersonal" element={<Staff />} />
         <Route path="/de/filialen" element={<Branches />} />
-        <Route path="/de/filialen/:branchId" element={<BranchPage />} />
+        <Route path="/de/filialen/:slug" element={<BranchPage />} />
         <Route path="/de/blog" element={<Blog />} />
         <Route path="/de/blog/:slug" element={<BlogPost />} />
         <Route path="/de/akademie" element={<Academy />} />
@@ -261,7 +261,7 @@ function App() {
         <Route path="/ru/services" element={<RuServices />} />
         <Route path="/ru/administrativnyj-personal" element={<Staff />} />
         <Route path="/ru/filialy" element={<Branches />} />
-        <Route path="/ru/filialy/:branchId" element={<BranchPage />} />
+        <Route path="/ru/filialy/:slug" element={<BranchPage />} />
         <Route path="/ru/blog" element={<Blog />} />
         <Route path="/ru/blog/:slug" element={<BlogPost />} />
         <Route path="/ru/akademiya" element={<Academy />} />
@@ -298,7 +298,7 @@ function App() {
         <Route path="/es/services" element={<EsServices />} />
         <Route path="/es/personal-administrativo" element={<Staff />} />
         <Route path="/es/sucursales" element={<Branches />} />
-        <Route path="/es/sucursales/:branchId" element={<BranchPage />} />
+        <Route path="/es/sucursales/:slug" element={<BranchPage />} />
         <Route path="/es/blog" element={<Blog />} />
         <Route path="/es/blog/:slug" element={<BlogPost />} />
         <Route path="/es/academia" element={<Academy />} />
@@ -335,7 +335,7 @@ function App() {
         <Route path="/ar/services" element={<ArServices />} />
         <Route path="/ar/al-muwazafun-al-idariyun" element={<Staff />} />
         <Route path="/ar/al-furu" element={<Branches />} />
-        <Route path="/ar/al-furu/:branchId" element={<BranchPage />} />
+        <Route path="/ar/al-furu/:slug" element={<BranchPage />} />
         <Route path="/ar/al-mudawwana" element={<Blog />} />
         <Route path="/ar/al-mudawwana/:slug" element={<BlogPost />} />
         <Route path="/ar/al-akadimiyya" element={<Academy />} />
