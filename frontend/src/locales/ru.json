@@ -284,8 +284,9 @@
     "gaye_title": "Менеджер по административным делам Бурса",
     "ibrahim_name": "Ибрагим ЮДЖЕЛ",
     "ibrahim_title": "Менеджер по административным делам Гёктюрк"
-  }
-  ,
+  },
+  "noDoctors": "Пока нет врачей",
+  "noDoctorsMessage": "Наши врачи скоро будут здесь",
   "doctors": {
     "title": "Наши Врачи",
     "subtitle": "Познакомьтесь с нашими опытными стоматологами",
@@ -303,6 +304,19 @@
       "branch": "Филиал",
       "specialty": "Специализация",
       "reset": "Сбросить"
+    },
+    "specializations": {
+      "chiefPhysician": "Главный врач / Ответственный менеджер",
+      "anesthesiologist": "Анестезиолог",
+      "oralMaxillofacialSurgeon": "Челюстно-лицевой хирург",
+      "dentalDiseasesSpecialist": "Специалист по заболеваниям зубов",
+      "dentist": "Стоматолог",
+      "endodontist": "Эндодонтист",
+      "orthodontist": "Ортодонт",
+      "pedodontist": "Детский стоматолог",
+      "periodontist": "Пародонтолог",
+      "prosthodontist": "Протезист",
+      "restorativeSpecialist": "Специалист по восстановлению зубов"
     }
   }
 } 

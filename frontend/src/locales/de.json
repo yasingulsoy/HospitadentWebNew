@@ -337,8 +337,9 @@
     "gaye_title": "Verwaltungsmanagerin Bursa",
     "ibrahim_name": "İbrahim YÜCEL",
     "ibrahim_title": "Verwaltungsmanager Göktürk"
-  }
-  ,
+  },
+  "noDoctors": "Noch keine Ärzte",
+  "noDoctorsMessage": "Unsere Ärzte werden hier bald gelistet",
   "doctors": {
     "title": "Unsere Ärzte",
     "subtitle": "Lernen Sie unsere erfahrenen Zahnärzte kennen",
@@ -356,6 +357,19 @@
       "branch": "Filiale",
       "specialty": "Fachgebiet",
       "reset": "Zurücksetzen"
+    },
+    "specializations": {
+      "chiefPhysician": "Chefarzt / Verantwortlicher Manager",
+      "anesthesiologist": "Anästhesist",
+      "oralMaxillofacialSurgeon": "Oral- und Kieferchirurg",
+      "dentalDiseasesSpecialist": "Zahnkrankheiten- und Behandlungspezialist",
+      "dentist": "Zahnarzt",
+      "endodontist": "Endodontist",
+      "orthodontist": "Kieferorthopäde",
+      "pedodontist": "Kinderzahnarzt",
+      "periodontist": "Parodontologe",
+      "prosthodontist": "Prothetiker",
+      "restorativeSpecialist": "Restaurativer Zahnarzt"
     }
   }
 } 

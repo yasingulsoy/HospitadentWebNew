@@ -468,8 +468,23 @@
       "branch": "Şube",
       "specialty": "Uzmanlık",
       "reset": "Sıfırla"
+    },
+    "specializations": {
+      "chiefPhysician": "Başhekim / Mesul Müdür",
+      "anesthesiologist": "Anestezi Uzmanı",
+      "oralMaxillofacialSurgeon": "Ağız, Diş ve Çene Cerrahisi Uzmanı",
+      "dentalDiseasesSpecialist": "Diş Hastalıkları ve Tedavisi Uzmanı",
+      "dentist": "Diş Hekimi",
+      "endodontist": "Endodonti Uzmanı",
+      "orthodontist": "Ortodonti Uzmanı",
+      "pedodontist": "Pedodonti Uzmanı",
+      "periodontist": "Periodontoloji Uzmanı",
+      "prosthodontist": "Protetik Diş Tedavisi Uzmanı",
+      "restorativeSpecialist": "Restoratif Diş Tedavisi Uzmanı"
     }
   },
+  "noDoctors": "Henüz hekim bulunmuyor",
+  "noDoctorsMessage": "Yakında hekimlerimiz burada listelenecek",
   "branch": {
     "title": "Şube Bilgileri",
     "branchInfo": "Şube Bilgileri",

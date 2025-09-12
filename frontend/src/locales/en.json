@@ -142,8 +142,23 @@
       "branch": "Branch",
       "specialty": "Specialty",
       "reset": "Reset"
+    },
+    "specializations": {
+      "chiefPhysician": "Chief Physician / Responsible Manager",
+      "anesthesiologist": "Anesthesiologist",
+      "oralMaxillofacialSurgeon": "Oral and Maxillofacial Surgery Specialist",
+      "dentalDiseasesSpecialist": "Dental Diseases and Treatment Specialist",
+      "dentist": "Dentist",
+      "endodontist": "Endodontics Specialist",
+      "orthodontist": "Orthodontics Specialist",
+      "pedodontist": "Pedodontics Specialist",
+      "periodontist": "Periodontology Specialist",
+      "prosthodontist": "Prosthetic Dental Treatment Specialist",
+      "restorativeSpecialist": "Restorative Dental Treatment Specialist"
     }
   },
+  "noDoctors": "No doctors yet",
+  "noDoctorsMessage": "Our doctors will be listed here soon",
   "home": {
     "title": "A New Era in Digital Dentistry",
     "subtitle": "Get an appointment now for healthy and aesthetic smiles with 3D technologies.",

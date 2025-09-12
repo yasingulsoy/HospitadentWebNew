@@ -383,8 +383,9 @@
     "website": "Sitio web",
     "followUs": "Síguenos",
     "contactInfo": "Información de contacto"
-  }
-  ,
+  },
+  "noDoctors": "Aún no hay médicos",
+  "noDoctorsMessage": "Nuestros médicos se listarán aquí pronto",
   "doctors": {
     "title": "Nuestros Médicos",
     "subtitle": "Conozca a nuestros dentistas expertos",
@@ -402,6 +403,19 @@
       "branch": "Sucursal",
       "specialty": "Especialidad",
       "reset": "Reiniciar"
+    },
+    "specializations": {
+      "chiefPhysician": "Jefe de Médicos / Director Responsable",
+      "anesthesiologist": "Anestesiólogo",
+      "oralMaxillofacialSurgeon": "Cirujano Oral y Maxilofacial",
+      "dentalDiseasesSpecialist": "Especialista en Enfermedades Dentales",
+      "dentist": "Dentista",
+      "endodontist": "Endodoncista",
+      "orthodontist": "Ortodoncista",
+      "pedodontist": "Odontopediatra",
+      "periodontist": "Periodoncista",
+      "prosthodontist": "Prostodoncista",
+      "restorativeSpecialist": "Especialista en Restauración Dental"
     }
   }
 } 

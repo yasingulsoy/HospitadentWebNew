@@ -10,6 +10,28 @@ const Doctors = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Uzmanlık alanını çeviren fonksiyon
+  const translateSpecialty = (specialtyName) => {
+    if (!specialtyName) return '';
+    
+    // Özel durumlar için çeviri
+    const specialtyTranslations = {
+      'Başhekim / Mesul Müdür': t('doctors.specializations.chiefPhysician'),
+      'Anestezi Uzmanı': t('doctors.specializations.anesthesiologist'),
+      'Ağız, Diş ve Çene Cerrahisi Uzmanı': t('doctors.specializations.oralMaxillofacialSurgeon'),
+      'Diş Hastalıkları ve Tedavisi Uzmanı': t('doctors.specializations.dentalDiseasesSpecialist'),
+      'Diş Hekimi': t('doctors.specializations.dentist'),
+      'Endodonti Uzmanı': t('doctors.specializations.endodontist'),
+      'Ortodonti Uzmanı': t('doctors.specializations.orthodontist'),
+      'Pedodonti Uzmanı': t('doctors.specializations.pedodontist'),
+      'Periodontoloji Uzmanı': t('doctors.specializations.periodontist'),
+      'Protetik Diş Tedavisi Uzmanı': t('doctors.specializations.prosthodontist'),
+      'Restoratif Diş Tedavisi Uzmanı': t('doctors.specializations.restorativeSpecialist')
+    };
+
+    return specialtyTranslations[specialtyName] || specialtyName;
+  };
+
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
@@ -81,10 +103,10 @@ const Doctors = () => {
             <div className="text-center py-16">
               <div className="text-6xl mb-4">👨‍⚕️</div>
               <h2 className="text-2xl font-bold text-gray-600 mb-4">
-                {t('noDoctors')}
+                {t('doctors.noDoctors')}
               </h2>
               <p className="text-lg text-gray-500">
-                {t('noDoctorsMessage')}
+                {t('doctors.noDoctorsMessage')}
               </p>
             </div>
           ) : (
@@ -115,7 +137,7 @@ const Doctors = () => {
                       {doctor.name}
                     </h3>
                     <p className="text-[#4b6475] text-sm font-semibold">
-                      {doctor.specialty?.name || ''}
+                      {translateSpecialty(doctor.specialty?.name) || ''}
                     </p>
                   </div>
                 </div>

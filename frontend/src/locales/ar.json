@@ -329,8 +329,9 @@
     "website": "الموقع الإلكتروني",
     "followUs": "تابعنا",
     "contactInfo": "معلومات الاتصال"
-  }
-  ,
+  },
+  "noDoctors": "لا يوجد أطباء بعد",
+  "noDoctorsMessage": "سيتم عرض أطبائنا هنا قريبًا",
   "doctors": {
     "title": "أطباؤنا",
     "subtitle": "تعرّف على أطبائنا الخبراء",
@@ -348,6 +349,19 @@
       "branch": "الفرع",
       "specialty": "التخصص",
       "reset": "إعادة تعيين"
+    },
+    "specializations": {
+      "chiefPhysician": "رئيس الأطباء / المدير المسؤول",
+      "anesthesiologist": "أخصائي التخدير",
+      "oralMaxillofacialSurgeon": "أخصائي جراحة الفم والأسنان والفكين",
+      "dentalDiseasesSpecialist": "أخصائي أمراض الأسنان والعلاج",
+      "dentist": "طبيب أسنان",
+      "endodontist": "أخصائي علاج الجذور",
+      "orthodontist": "أخصائي تقويم الأسنان",
+      "pedodontist": "أخصائي أسنان الأطفال",
+      "periodontist": "أخصائي دواعم السن",
+      "prosthodontist": "أخصائي التركيبات السنية",
+      "restorativeSpecialist": "أخصائي العلاج الترميمي للأسنان"
     }
   }
 } 
