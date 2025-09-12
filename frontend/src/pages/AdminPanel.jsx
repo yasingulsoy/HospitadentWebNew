@@ -315,9 +315,10 @@ const AdminPanel = () => {
     const fields = getFormFields();
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-          <div className="flex justify-between items-center mb-4">
+      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="bg-white rounded-lg w-full max-w-2xl h-[90vh] flex flex-col shadow-xl">
+          {/* Header */}
+          <div className="flex justify-between items-center p-4 sm:p-6 border-b border-gray-200 flex-shrink-0">
             <h3 className="text-xl font-semibold">
               {editingItem ? 'Düzenle' : 'Yeni Ekle'}
             </h3>
@@ -327,13 +328,15 @@ const AdminPanel = () => {
                 setEditingItem(null);
                 setFormData({});
               }}
-              className="text-gray-500 hover:text-gray-700"
+              className="text-gray-500 hover:text-gray-700 p-1"
             >
               <FaTimes size={20} />
             </button>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 pb-20">
+          {/* Form Content */}
+          <form onSubmit={handleSubmit} className="flex-1 flex flex-col min-h-0">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3 max-h-[60vh]">
             {fields.map((field) => (
               <div key={field.name}>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -347,7 +350,7 @@ const AdminPanel = () => {
                     onChange={(e) => setFormData(prev => ({ ...prev, [field.name]: e.target.value }))}
                     required={field.required}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    rows={4}
+                    rows={2}
                   />
                 ) : field.type === 'select' ? (
                   <select
@@ -365,7 +368,7 @@ const AdminPanel = () => {
                     ))}
                   </select>
                 ) : field.type === 'multiselect' ? (
-                  <div className="border border-gray-300 rounded-md p-3 max-h-48 overflow-auto">
+                  <div className="border border-gray-300 rounded-md p-3 max-h-32 overflow-auto">
                     <div className="flex items-center mb-2">
                       <input
                         type="checkbox"
@@ -430,8 +433,10 @@ const AdminPanel = () => {
                 )}
               </div>
             ))}
+            </div>
 
-            <div className="flex justify-end space-x-3 pt-4 sticky bottom-0 bg-white pb-2">
+            {/* Footer with buttons */}
+            <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3 px-4 py-2 bg-gray-100 border-t border-gray-300 flex-shrink-0 sticky bottom-0">
               <button
                 type="button"
                 onClick={() => {
@@ -439,14 +444,14 @@ const AdminPanel = () => {
                   setEditingItem(null);
                   setFormData({});
                 }}
-                className="px-4 py-2 text-gray-600 border border-gray-300 rounded-md hover:bg-gray-50"
+                className="w-full sm:w-auto px-5 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors font-medium"
               >
                 İptal
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 flex items-center"
+                className="w-full sm:w-auto px-5 py-2 bg-[#004876] text-white rounded-md hover:opacity-90 disabled:opacity-50 flex items-center justify-center transition-colors font-medium"
               >
                 {loading ? (
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
