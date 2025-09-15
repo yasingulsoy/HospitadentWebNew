@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components';
-import { FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaExternalLinkAlt } from 'react-icons/fa';
 
 // Şube görselleri eşleşmesi
 const branchImages = {
@@ -39,7 +39,7 @@ const BranchCard = ({ branch, image }) => {
     setFlipped(false);
   };
 
-  const phoneNumber = '4449922'; // Anasayfadaki telefon numarası
+  const phoneNumber = (branch.phone || '4449922').toString();
   const mapUrl = branch.mapUrl;
 
   return (
@@ -98,6 +98,14 @@ const BranchCard = ({ branch, image }) => {
               <FaPhone className="text-4xl text-[#0f4f78] mb-2 group-hover:text-[#2bb3ea] transition-colors" />
               <span className="text-sm font-semibold text-[#0f4f78]">Telefon</span>
             </a>
+            <Link
+              to={`/subelerimiz/${branch.slug}`}
+              onClick={e => e.stopPropagation()}
+              className="flex flex-col items-center group"
+            >
+              <FaExternalLinkAlt className="text-4xl text-[#0f4f78] mb-2 group-hover:text-[#2bb3ea] transition-colors" />
+              <span className="text-sm font-semibold text-[#0f4f78]">Sayfaya git</span>
+            </Link>
           </div>
         </div>
       </div>

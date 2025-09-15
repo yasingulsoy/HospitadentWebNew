@@ -71,6 +71,7 @@ const Doctor = sequelize.define('Doctor', {
 }, {
   tableName: 'doctors',
   timestamps: true,
+  underscored: true,
   hooks: {
     beforeCreate: (doctor) => {
       if (!doctor.slug && doctor.name) {

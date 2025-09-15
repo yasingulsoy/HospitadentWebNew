@@ -32,6 +32,10 @@ const Branch = sequelize.define('Branch', {
     type: DataTypes.STRING,
     defaultValue: ''
   },
+  order: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0
+  },
   isActive: {
     type: DataTypes.BOOLEAN,
     defaultValue: true
@@ -39,6 +43,7 @@ const Branch = sequelize.define('Branch', {
 }, {
   tableName: 'branches',
   timestamps: true,
+  underscored: true,
   hooks: {
     beforeCreate: (branch) => {
       if (!branch.slug && branch.name) {

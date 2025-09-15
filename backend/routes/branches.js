@@ -12,10 +12,9 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Doctor,
-          as: 'doctors',
+          as: 'doctorsMany', // Doctor.js içinde tanımlanan alias
           where: { isActive: true },
-          required: false,
-          order: [['order', 'ASC']]
+          required: false
         }
       ]
     });
@@ -39,10 +38,9 @@ router.get('/:slug', async (req, res) => {
       include: [
         {
           model: Doctor,
-          as: 'doctors',
+          as: 'doctorsMany',
           where: { isActive: true },
-          required: false,
-          order: [['order', 'ASC']]
+          required: false
         }
       ]
     });

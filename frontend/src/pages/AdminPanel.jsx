@@ -25,7 +25,8 @@ const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState('doctors');
   const [doctors, setDoctors] = useState([]);
   const [blogs, setBlogs] = useState([]);
-  const [branches, setBranches] = useState([]);
+  const [branches, setBranches] = useState([]); // yönetim listesi için tam şube nesneleri
+  const [branchOptions, setBranchOptions] = useState([]); // doktor formu için aktif şube seçenekleri
   const [specialties, setSpecialties] = useState([]);
   const [users, setUsers] = useState([]);
   const [roles, setRoles] = useState([]);
@@ -120,10 +121,11 @@ const AdminPanel = () => {
         'Content-Type': 'application/json',
       };
 
-      const [doctorsRes, blogsRes, activesRes, usersRes] = await Promise.all([
+      const [doctorsRes, blogsRes, activesRes, branchesAllRes, usersRes] = await Promise.all([
         fetch(`${API_BASE_URL}/admin/doctors`, { headers }),
         fetch(`${API_BASE_URL}/admin/blogs`, { headers }),
         fetch(`${API_BASE_URL}/admin/branches/active`, { headers }),
+        fetch(`${API_BASE_URL}/admin/branches`, { headers }),
         fetch(`${API_BASE_URL}/admin/users`, { headers })
       ]);
 
@@ -131,10 +133,11 @@ const AdminPanel = () => {
       if (blogsRes.ok) setBlogs(await blogsRes.json());
       if (activesRes.ok) {
         const data = await activesRes.json();
-        setBranches(data.branches || []);
+        setBranchOptions(data.branches || []);
         setSpecialties(data.specialties || []);
         if (Array.isArray(data.roles)) setRoles(data.roles);
       }
+      if (branchesAllRes.ok) setBranches(await branchesAllRes.json());
       if (usersRes.ok) setUsers(await usersRes.json());
     } catch (error) {
       toast.error('Veri yüklenirken hata oluştu');
@@ -296,7 +299,7 @@ const AdminPanel = () => {
           { name: 'education', label: 'Eğitim', type: 'textarea', required: false },
           { name: 'experience', label: 'Deneyim', type: 'textarea', required: false },
           { name: 'languages', label: 'Diller', type: 'textarea', required: false },
-          { name: 'branches', label: 'Şubeler', type: 'multiselect', options: branches, optionLabel: 'name', required: true },
+          { name: 'branches', label: 'Şubeler', type: 'multiselect', options: branchOptions, optionLabel: 'name', required: true },
           { name: 'order', label: 'Sıra', type: 'number', required: false },
           { name: 'isActive', label: 'Aktif', type: 'checkbox', required: false },
           { name: 'image', label: 'Fotoğraf', type: 'file', required: false },
@@ -314,10 +317,10 @@ const AdminPanel = () => {
       case 'branches':
         return [
           { name: 'name', label: 'Şube Adı', type: 'text', required: true },
-          { name: 'address', label: 'Adres', type: 'textarea', required: true },
-          { name: 'phone', label: 'Telefon', type: 'text', required: true },
-          { name: 'email', label: 'E-posta', type: 'email', required: true },
-          { name: 'workingHours', label: 'Çalışma Saatleri', type: 'text', required: false },
+          { name: 'address', label: 'Adres', type: 'textarea', required: false },
+          { name: 'mapUrl', label: 'Google Maps Linki', type: 'text', required: false },
+          { name: 'phone', label: 'Telefon', type: 'text', required: false },
+          { name: 'order', label: 'Sıra', type: 'number', required: false },
           { name: 'isActive', label: 'Aktif', type: 'checkbox', required: false },
           { name: 'image', label: 'Görsel', type: 'file', required: false }
         ];

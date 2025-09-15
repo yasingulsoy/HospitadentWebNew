@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Footer, Navbar } from '../components';
+import { Footer } from '../components';
 import { FaMapMarkerAlt, FaPhone, FaClock, FaArrowLeft } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';
@@ -75,7 +75,6 @@ const BranchPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       
       {/* Header */}
       <div className="bg-gradient-to-r from-[#0f4f78] to-[#2bb3ea] text-white py-16">
