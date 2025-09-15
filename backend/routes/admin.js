@@ -613,4 +613,122 @@ router.post('/doctors/:id/avatar', adminMiddleware, memoryUpload.single('image')
   }
 });
 
-module.exports = router; 
+// ==================== KULLANICI İŞLEMLERİ ====================
+
+// Kullanıcıları listele (şifre alanı hariç)
+router.get('/users', adminMiddleware, async (req, res) => {
+  try {
+    const users = await User.findAll({
+      attributes: { exclude: ['password', 'refreshToken'] },
+      order: [['createdAt', 'DESC']]
+    });
+    res.json(users);
+  } catch (error) {
+    console.error('Users fetch error:', error);
+    res.status(500).json({ 
+      error: 'Kullanıcılar getirilemedi',
+      code: 'FETCH_ERROR'
+    });
+  }
+});
+
+// Kullanıcı oluştur
+router.post('/users', adminMiddleware, async (req, res) => {
+  try {
+    const { email, name, password, role = 'editor', isActive = true } = req.body || {};
+
+    if (!email || !name || !password) {
+      return res.status(400).json({ error: 'Email, ad ve şifre gerekli', code: 'VALIDATION_ERROR' });
+    }
+
+    const exists = await User.findOne({ where: { email } });
+    if (exists) {
+      return res.status(409).json({ error: 'Bu e-posta zaten kayıtlı', code: 'DUPLICATE_EMAIL' });
+    }
+
+    const user = await User.create({ email, name, password, role, isActive });
+    const { password: _p, refreshToken: _r, ...safe } = user.toJSON();
+    res.status(201).json(safe);
+  } catch (error) {
+    console.error('User creation error:', error);
+    res.status(500).json({ 
+      error: 'Kullanıcı eklenemedi',
+      code: 'CREATION_ERROR',
+      details: error.message
+    });
+  }
+});
+
+// Kullanıcı güncelle
+router.put('/users/:id', adminMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { email, name, password, role, isActive } = req.body || {};
+
+    const user = await User.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ error: 'Kullanıcı bulunamadı', code: 'NOT_FOUND' });
+    }
+
+    // E-posta benzersizliği
+    if (email && email !== user.email) {
+      const exists = await User.findOne({ where: { email } });
+      if (exists) {
+        return res.status(409).json({ error: 'Bu e-posta zaten kayıtlı', code: 'DUPLICATE_EMAIL' });
+      }
+      user.email = email;
+    }
+
+    if (typeof name === 'string') user.name = name;
+    if (typeof role === 'string') user.role = role;
+    if (typeof isActive === 'boolean') user.isActive = isActive;
+    if (typeof password === 'string' && password.trim()) user.password = password; // hook hashler
+
+    await user.save();
+    const { password: _p, refreshToken: _r, ...safe } = user.toJSON();
+    res.json(safe);
+  } catch (error) {
+    console.error('User update error:', error);
+    res.status(500).json({ 
+      error: 'Kullanıcı güncellenemedi',
+      code: 'UPDATE_ERROR',
+      details: error.message
+    });
+  }
+});
+
+// Kullanıcı sil
+router.delete('/users/:id', adminMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ error: 'Kullanıcı bulunamadı', code: 'NOT_FOUND' });
+    }
+
+    // Kendi hesabını silme engeli
+    if (req.user && String(req.user.id) === String(id)) {
+      return res.status(400).json({ error: 'Kendi hesabınızı silemezsiniz', code: 'SELF_DELETE_FORBIDDEN' });
+    }
+
+    // Son admin'in silinmesini engelle
+    if (user.role === 'admin') {
+      const adminCount = await User.count({ where: { role: 'admin', isActive: true } });
+      if (adminCount <= 1) {
+        return res.status(400).json({ error: 'Son admin silinemez', code: 'LAST_ADMIN_BLOCK' });
+      }
+    }
+
+    await user.destroy();
+    res.json({ message: 'Kullanıcı silindi' });
+  } catch (error) {
+    console.error('User deletion error:', error);
+    res.status(500).json({ 
+      error: 'Kullanıcı silinemedi',
+      code: 'DELETION_ERROR',
+      details: error.message
+    });
+  }
+});
+
+module.exports = router;

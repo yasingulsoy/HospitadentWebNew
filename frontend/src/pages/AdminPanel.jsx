@@ -27,6 +27,8 @@ const AdminPanel = () => {
   const [blogs, setBlogs] = useState([]);
   const [branches, setBranches] = useState([]);
   const [specialties, setSpecialties] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [roles, setRoles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
@@ -118,10 +120,11 @@ const AdminPanel = () => {
         'Content-Type': 'application/json',
       };
 
-      const [doctorsRes, blogsRes, activesRes] = await Promise.all([
+      const [doctorsRes, blogsRes, activesRes, usersRes] = await Promise.all([
         fetch(`${API_BASE_URL}/admin/doctors`, { headers }),
         fetch(`${API_BASE_URL}/admin/blogs`, { headers }),
-        fetch(`${API_BASE_URL}/admin/branches/active`, { headers })
+        fetch(`${API_BASE_URL}/admin/branches/active`, { headers }),
+        fetch(`${API_BASE_URL}/admin/users`, { headers })
       ]);
 
       if (doctorsRes.ok) setDoctors(await doctorsRes.json());
@@ -130,7 +133,9 @@ const AdminPanel = () => {
         const data = await activesRes.json();
         setBranches(data.branches || []);
         setSpecialties(data.specialties || []);
+        if (Array.isArray(data.roles)) setRoles(data.roles);
       }
+      if (usersRes.ok) setUsers(await usersRes.json());
     } catch (error) {
       toast.error('Veri yüklenirken hata oluştu');
     } finally {
@@ -171,16 +176,26 @@ const AdminPanel = () => {
     });
 
     try {
+      const isUsers = activeTab === 'users';
       const url = editingItem 
         ? `${API_BASE_URL}/admin/${activeTab}/${editingItem.id}`
         : `${API_BASE_URL}/admin/${activeTab}`;
 
       const response = await fetch(url, {
         method: editingItem ? 'PUT' : 'POST',
-        headers: {
+        headers: isUsers ? {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        } : {
           'Authorization': `Bearer ${token}`,
         },
-        body: formDataToSend,
+        body: isUsers ? JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          role: formData.role,
+          isActive: !!formData.isActive
+        }) : formDataToSend,
       });
 
       if (response.ok) {
@@ -305,6 +320,14 @@ const AdminPanel = () => {
           { name: 'workingHours', label: 'Çalışma Saatleri', type: 'text', required: false },
           { name: 'isActive', label: 'Aktif', type: 'checkbox', required: false },
           { name: 'image', label: 'Görsel', type: 'file', required: false }
+        ];
+      case 'users':
+        return [
+          { name: 'name', label: 'Ad Soyad', type: 'text', required: true },
+          { name: 'email', label: 'E-posta', type: 'email', required: true },
+          { name: 'password', label: 'Şifre', type: editingItem ? 'text' : 'password', required: !editingItem },
+          { name: 'role', label: 'Rol', type: 'select', options: roles.length ? roles : [{ id: 'admin', name: 'admin' }, { id: 'editor', name: 'editor' }], optionLabel: 'name', required: true },
+          { name: 'isActive', label: 'Aktif', type: 'checkbox', required: false }
         ];
       default:
         return [];
@@ -468,7 +491,7 @@ const AdminPanel = () => {
   };
 
   const renderTable = () => {
-    let data = activeTab === 'doctors' ? doctors : activeTab === 'blogs' ? blogs : branches;
+    let data = activeTab === 'doctors' ? doctors : activeTab === 'blogs' ? blogs : activeTab === 'branches' ? branches : users;
     if (activeTab === 'doctors') {
       if (searchText) {
         const q = searchText.toLowerCase();
@@ -527,6 +550,14 @@ const AdminPanel = () => {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Şube Adı</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telefon</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-posta</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durum</th>
+                </>
+              )}
+              {activeTab === 'users' && (
+                <>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ad Soyad</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-posta</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rol</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Durum</th>
                 </>
               )}
@@ -608,6 +639,20 @@ const AdminPanel = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.phone}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.email}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                        item.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                      }`}>
+                        {item.isActive ? 'Aktif' : 'Pasif'}
+                      </span>
+                    </td>
+                  </>
+                )}
+                {activeTab === 'users' && (
+                  <>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.name}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.email}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.role}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         item.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
@@ -740,6 +785,9 @@ const AdminPanel = () => {
           <button onClick={()=>setActiveTab('branches')} className={`w-full flex items-center px-3 py-2 rounded-md text-sm ${activeTab==='branches'?'bg-[#004876] text-white':'hover:bg-gray-100 text-gray-800'}`}>
             <FaBuilding className="mr-2"/> Şubeler
           </button>
+          <button onClick={()=>setActiveTab('users')} className={`w-full flex items-center px-3 py-2 rounded-md text-sm ${activeTab==='users'?'bg-[#004876] text-white':'hover:bg-gray-100 text-gray-800'}`}>
+            <FaUserMd className="mr-2"/> Kullanıcılar
+          </button>
         </nav>
         <div className="mt-auto p-4">
           <button onClick={logout} className="w-full flex items-center justify-center px-4 py-2 border rounded-md text-red-600 hover:bg-red-50">
@@ -763,7 +811,7 @@ const AdminPanel = () => {
         <main className="p-4 md:p-8">
           <div className="bg-white rounded-xl shadow-sm border">
             <div className="px-6 py-4 border-b flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-gray-900">{activeTab === 'doctors' ? 'Doktorlar' : activeTab === 'blogs' ? 'Blog Yazıları' : 'Şubeler'}</h2>
+              <h2 className="text-lg font-semibold text-gray-900">{activeTab === 'doctors' ? 'Doktorlar' : activeTab === 'blogs' ? 'Blog Yazıları' : activeTab === 'branches' ? 'Şubeler' : 'Kullanıcılar'}</h2>
             </div>
             <div className="p-6">
               {activeTab === 'doctors' && (
