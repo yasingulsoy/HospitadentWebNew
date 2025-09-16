@@ -17,6 +17,23 @@ import { toast } from 'react-hot-toast';
 
 const API_BASE_URL = 'http://localhost:5000/api';
 
+// JWT yardımcıları
+const decodeJwtPayload = (token) => {
+  try {
+    const base64 = token.split('.')[1];
+    const json = atob(base64.replace(/-/g, '+').replace(/_/g, '/'));
+    return JSON.parse(json);
+  } catch (_) {
+    return null;
+  }
+};
+
+const isTokenValid = (token) => {
+  const payload = decodeJwtPayload(token);
+  if (!payload || !payload.exp) return false;
+  return Date.now() / 1000 < payload.exp;
+};
+
 const AdminPanel = () => {
   // eslint-disable-next-line no-unused-vars
   const { t } = useTranslation();
@@ -56,11 +73,32 @@ const AdminPanel = () => {
     }
 
     const token = localStorage.getItem('adminToken');
-    if (token) {
+    if (token && isTokenValid(token)) {
       setIsAuthenticated(true);
       fetchData();
+    } else if (token && !isTokenValid(token)) {
+      localStorage.removeItem('adminToken');
     }
   }, []);
+
+  // Sekme kapanınca/yenilenince token’ı temizleyerek otomatik çıkışı garanti altına almak için (isteğe bağlı)
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      // Sadece oturum açıkken temizle
+      if (localStorage.getItem('adminToken')) {
+        localStorage.removeItem('adminToken');
+      }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
+  const handleUnauthorized = () => {
+    localStorage.removeItem('adminToken');
+    setIsAuthenticated(false);
+    setUser(null);
+    toast.error('Oturumun süresi doldu. Lütfen tekrar giriş yapın.');
+  };
 
   const login = async (e) => {
     e.preventDefault();
@@ -113,6 +151,10 @@ const AdminPanel = () => {
   const fetchData = async () => {
     const token = localStorage.getItem('adminToken');
     if (!token) return;
+    if (!isTokenValid(token)) {
+      handleUnauthorized();
+      return;
+    }
 
     setLoading(true);
     try {
@@ -128,6 +170,12 @@ const AdminPanel = () => {
         fetch(`${API_BASE_URL}/admin/branches`, { headers }),
         fetch(`${API_BASE_URL}/admin/users`, { headers })
       ]);
+
+      // Herhangi biri 401 ise yetkisiz kabul et
+      if ([doctorsRes, blogsRes, activesRes, branchesAllRes, usersRes].some(r => r.status === 401)) {
+        handleUnauthorized();
+        return;
+      }
 
       if (doctorsRes.ok) setDoctors(await doctorsRes.json());
       if (blogsRes.ok) setBlogs(await blogsRes.json());
@@ -151,6 +199,11 @@ const AdminPanel = () => {
     setLoading(true);
 
     const token = localStorage.getItem('adminToken');
+    if (!token || !isTokenValid(token)) {
+      handleUnauthorized();
+      setLoading(false);
+      return;
+    }
     const formDataToSend = new FormData();
 
     // Form verilerini FormData'ya ekle
@@ -201,7 +254,10 @@ const AdminPanel = () => {
         }) : formDataToSend,
       });
 
-      if (response.ok) {
+      if (response.status === 401) {
+        handleUnauthorized();
+        return;
+      } else if (response.ok) {
         const saved = await response.json();
         // Doktor için DB avatar seçildiyse ikinci isteği yap
         if (activeTab === 'doctors' && formData.saveToDb && formData.image instanceof File) {
@@ -214,6 +270,10 @@ const AdminPanel = () => {
               body: fd
             });
             if (!avatarRes.ok) {
+              if (avatarRes.status === 401) {
+                handleUnauthorized();
+                return;
+              }
               const err = await avatarRes.json().catch(() => ({}));
               toast.error(err.error || 'Avatar DB’ye yüklenemedi');
             }
@@ -241,6 +301,10 @@ const AdminPanel = () => {
     if (!window.confirm('Bu öğeyi silmek istediğinizden emin misiniz?')) return;
 
     const token = localStorage.getItem('adminToken');
+    if (!token || !isTokenValid(token)) {
+      handleUnauthorized();
+      return;
+    }
     try {
       const response = await fetch(`${API_BASE_URL}/admin/${activeTab}/${id}`, {
         method: 'DELETE',
@@ -249,7 +313,10 @@ const AdminPanel = () => {
         },
       });
 
-      if (response.ok) {
+      if (response.status === 401) {
+        handleUnauthorized();
+        return;
+      } else if (response.ok) {
         toast.success('Silindi!');
         fetchData();
       } else {
