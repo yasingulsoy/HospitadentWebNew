@@ -205,7 +205,7 @@ const DoctorProfile = () => {
             <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
               <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
                 <FaBriefcase className="mr-3 text-[#004876]" />
-                Deneyim
+                Sertifikalar
               </h2>
               <ul className="space-y-3">
                 {doctor.experience.map((exp, index) => (

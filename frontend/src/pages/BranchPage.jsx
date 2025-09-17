@@ -193,7 +193,7 @@ const BranchPage = () => {
               
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={30}
+                spaceBetween={24}
                 slidesPerView={1}
                 navigation
                 pagination={{ clickable: true }}
@@ -208,6 +208,9 @@ const BranchPage = () => {
                   1024: {
                     slidesPerView: 3,
                   },
+                  1280: {
+                    slidesPerView: 4,
+                  },
                 }}
                 className="pb-12"
               >
@@ -221,7 +224,7 @@ const BranchPage = () => {
                         const base = process.env.REACT_APP_API_URL || 'http://localhost:5000';
                         const imageSrc = doctor.image
                           ? (doctor.image.startsWith('/uploads') ? `${base}${doctor.image}` : doctor.image)
-                          : '';
+                          : `${base}/api/doctors/${doctor.id}/image`;
                         return (
                           <img
                             src={imageSrc}
