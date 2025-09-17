@@ -5,10 +5,10 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter, FaYoutube, FaWhatsa
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-[#fafbfc] pt-10 pb-4 px-1 md:px-0">
+    <footer className="bg-[#fafbfc] pt-10 pb-4 px-4 md:px-0">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
         {/* 4 Sütun */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 flex-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 flex-1 w-full">
           {/* Kurumsal */}
           <div>
             <h4 className="text-blue font-bold mb-3 tracking-wide text-base md:text-lg uppercase">KURUMSAL</h4>
@@ -68,8 +68,8 @@ const Footer = () => {
         </div>
         {/* Sağ: Logo ve Butonlar */}
         <div className="w-full md:w-72 flex flex-col items-center justify-start mt-8 md:mt-0">
-          <img src={logo} alt="Hospitadent Logo" className="w-48 mb-4" />
-          <div className="flex items-center gap-2 mb-4">
+          <img src={logo} alt="Hospitadent Logo" className="w-40 md:w-48 mb-4" />
+          <div className="flex items-center gap-2 mb-4 flex-wrap justify-center">
             <a href="https://www.facebook.com/hospitadent" target="_blank" rel="noopener noreferrer" className="bg-blue rounded-full flex items-center justify-center text-white hover:bg-primary transition w-9 h-9 hover:scale-110">
               <FaFacebookF className="w-4 h-4" />
             </a>
@@ -89,15 +89,15 @@ const Footer = () => {
               <FaWhatsapp className="w-4 h-4" />
             </a>
           </div>
-          <a href="/branches" className="w-full bg-blue text-white font-bold rounded-md py-3 mb-2 flex items-center justify-center gap-2 text-base hover:bg-primary transition"><span className="material-icons">location_on</span> Şubeleri Göster</a>
-          <a href="tel:4449922" className="w-full bg-blue text-white font-bold rounded-md py-3 mb-2 flex items-center justify-center gap-2 text-base hover:bg-primary transition"><span className="material-icons">call</span> Şimdi Ara</a>
-          <a href="mailto:info@hospitadent.com" className="w-full bg-blue text-white font-bold rounded-md py-3 flex items-center justify-center gap-2 text-base hover:bg-primary transition"><span className="material-icons">mail</span> E-Posta Gönder</a>
+          <a href="/branches" className="w-full bg-blue text-white font-bold rounded-md py-3 mb-2 flex items-center justify-center gap-2 text-sm md:text-base hover:bg-primary transition"><span className="material-icons">location_on</span> Şubeleri Göster</a>
+          <a href="tel:4449922" className="w-full bg-blue text-white font-bold rounded-md py-3 mb-2 flex items-center justify-center gap-2 text-sm md:text-base hover:bg-primary transition"><span className="material-icons">call</span> Şimdi Ara</a>
+          <a href="mailto:info@hospitadent.com" className="w-full bg-blue text-white font-bold rounded-md py-3 flex items-center justify-center gap-2 text-sm md:text-base hover:bg-primary transition"><span className="material-icons">mail</span> E-Posta Gönder</a>
         </div>
       </div>
       {/* Alt Bilgi */}
-              <div className="max-w-7xl mx-auto mt-8 pt-4 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
-        <span>© {currentYear} Hospitadent. Tüm hakları saklıdır.</span>
-        <span>Developer: Yasin Gülsoy</span>
+      <div className="max-w-7xl mx-auto mt-8 pt-4 flex flex-col md:flex-row items-center justify-between text-[11px] md:text-xs text-gray-500 border-t border-gray-200 px-1">
+        <span className="mb-2 md:mb-0 text-center md:text-left">© {currentYear} Hospitadent. Tüm hakları saklıdır.</span>
+        <span className="text-center md:text-right">Developer: Yasin Gülsoy</span>
       </div>
     </footer>
   );

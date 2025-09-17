@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Branch = require('../models/Branch');
 const Doctor = require('../models/Doctor');
+const Specialty = require('../models/Specialty');
 
 // Tüm şubeleri getir
 router.get('/', async (req, res) => {
@@ -14,7 +15,10 @@ router.get('/', async (req, res) => {
           model: Doctor,
           as: 'doctorsMany', // Doctor.js içinde tanımlanan alias
           where: { isActive: true },
-          required: false
+          required: false,
+          include: [
+            { model: Specialty, as: 'specialty', attributes: ['id', 'name'] }
+          ]
         }
       ]
     });
@@ -40,7 +44,10 @@ router.get('/:slug', async (req, res) => {
           model: Doctor,
           as: 'doctorsMany',
           where: { isActive: true },
-          required: false
+          required: false,
+          include: [
+            { model: Specialty, as: 'specialty', attributes: ['id', 'name'] }
+          ]
         }
       ]
     });

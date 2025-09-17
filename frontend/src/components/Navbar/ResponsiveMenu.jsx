@@ -335,7 +335,50 @@ const ResponsiveMenu = ({ navLinksData, nav, handleNav, selectedLang, setSelecte
           </div>
         )}
         
-
+        {/* Dil seçimi - Daha görünür olacak şekilde üst kısma taşındı */}
+        <div className="relative w-full max-w-xs mb-3 language-dropdown-mobile">
+          <button
+            className="flex items-center justify-center rounded bg-white/20 text-white font-bold hover:bg-white/30 transition gap-2 px-4 py-3 text-base w-full"
+            onClick={() => setShowLang(!showLang)}
+          >
+            <CountryFlag countryCode={currentLanguage.flag} svg className="w-6 h-6 rounded" />
+            <span className="text-lg">{currentLanguage.name}</span>
+            <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          {showLang && (
+            <ul className="absolute left-0 right-0 mt-2 bg-[#0f4f78] text-white rounded shadow-xl z-50 w-full">
+              {languages.map((lang, idx) => (
+                <li key={lang.code}>
+                  <button
+                    className={`flex items-center w-full text-left px-4 py-3 text-base ${lang.code === currentLanguage.code ? 'bg-white text-[#0f4f78] font-bold cursor-default' : 'hover:bg-[#2bb3ea]'}`}
+                    onClick={() => { 
+                      if(lang.code !== currentLanguage.code) { 
+                        i18n.changeLanguage(lang.code);
+                        const currentPath = window.location.pathname;
+                        let newPath;
+                        if (lang.code === 'tr') {
+                          newPath = currentPath.replace(/^\/(en|fr|de|ru|es|ar)/, '');
+                          if (newPath === '') newPath = '/';
+                        } else {
+                          if (currentPath.startsWith('/')) {
+                            newPath = `/${lang.code}${currentPath}`;
+                          } else {
+                            newPath = `/${lang.code}/${currentPath}`;
+                          }
+                        }
+                        window.location.href = newPath;
+                      } 
+                    }}
+                    disabled={lang.code === currentLanguage.code}
+                  >
+                    <CountryFlag countryCode={lang.flag} svg className="w-6 h-6 rounded" />
+                    <span className="ml-3 text-lg">{lang.name}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
         
         {/* Menü linkleri */}
         <ul className="w-full flex-1 flex flex-col gap-0 overflow-y-auto pb-6">
@@ -373,59 +416,7 @@ const ResponsiveMenu = ({ navLinksData, nav, handleNav, selectedLang, setSelecte
             <a href="mailto:info@hospitadent.com" className="flex items-center gap-1 hover:text-blue-300 transition"><svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm2 0a6 6 0 11-12 0 6 6 0 0112 0z" /></svg> info@hospitadent.com</a>
           </div>
           
-          {/* Dil seçimi - Mobilde daha görünür */}
-          <div className="relative w-full max-w-xs language-dropdown-mobile">
-            <button
-              className="flex items-center justify-center rounded bg-white/20 text-white font-bold hover:bg-white/30 transition gap-2 px-4 py-3 text-base w-full"
-              onClick={() => setShowLang(!showLang)}
-            >
-              <CountryFlag countryCode={currentLanguage.flag} svg className="w-6 h-6 rounded" />
-              <span className="text-lg">{currentLanguage.name}</span>
-              <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
-            </button>
-            {showLang && (
-              <ul className="absolute left-0 right-0 mt-2 bg-[#0f4f78] text-white rounded shadow-xl z-50 w-full">
-                {languages.map((lang, idx) => (
-                  <li key={lang.code}>
-                    <button
-                      className={`flex items-center w-full text-left px-4 py-3 text-base ${lang.code === currentLanguage.code ? 'bg-white text-[#0f4f78] font-bold cursor-default' : 'hover:bg-[#2bb3ea]'}`}
-                      onClick={() => { 
-                        if(lang.code !== currentLanguage.code) { 
-                          // Önce i18n dilini değiştir
-                          i18n.changeLanguage(lang.code);
-                          
-                          // Mevcut path'i al
-                          const currentPath = window.location.pathname;
-                          
-                          // Path'i dil koduna göre güncelle
-                          let newPath;
-                          if (lang.code === 'tr') {
-                            // Türkçe için /tr prefix'ini kaldır
-                            newPath = currentPath.replace(/^\/(en|fr|de|ru|es|ar)/, '');
-                            if (newPath === '') newPath = '/';
-                          } else {
-                            // Diğer diller için /dil prefix'ini ekle
-                            if (currentPath.startsWith('/')) {
-                              newPath = `/${lang.code}${currentPath}`;
-                            } else {
-                              newPath = `/${lang.code}/${currentPath}`;
-                            }
-                          }
-                          
-                          // Sayfayı yönlendir
-                          window.location.href = newPath;
-                        } 
-                      }}
-                      disabled={lang.code === currentLanguage.code}
-                    >
-                      <CountryFlag countryCode={lang.flag} svg className="w-6 h-6 rounded" />
-                      <span className="ml-3 text-lg">{lang.name}</span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          {/* Dil seçimi alt kısımdan kaldırıldı (üstte gösteriliyor) */}
         </div>
       </div>
     </div>

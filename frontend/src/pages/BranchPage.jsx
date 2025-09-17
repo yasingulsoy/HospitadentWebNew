@@ -15,6 +15,25 @@ const BranchPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Uzmanlık adını Hekimlerimiz sayfasındakiyle aynı şekilde göstermek için çeviri yardımcı fonksiyonu
+  const translateSpecialty = (specialtyName) => {
+    if (!specialtyName) return '';
+    const specialtyTranslations = {
+      'Başhekim / Mesul Müdür': 'Başhekim / Mesul Müdür',
+      'Anestezi Uzmanı': 'Anestezi Uzmanı',
+      'Ağız, Diş ve Çene Cerrahisi Uzmanı': 'Ağız, Diş ve Çene Cerrahisi Uzmanı',
+      'Diş Hastalıkları ve Tedavisi Uzmanı': 'Diş Hastalıkları ve Tedavisi Uzmanı',
+      'Diş Hekimi': 'Diş Hekimi',
+      'Endodonti Uzmanı': 'Endodonti Uzmanı',
+      'Ortodonti Uzmanı': 'Ortodonti Uzmanı',
+      'Pedodonti Uzmanı': 'Pedodonti Uzmanı',
+      'Periodontoloji Uzmanı': 'Periodontoloji Uzmanı',
+      'Protetik Diş Tedavisi Uzmanı': 'Protetik Diş Tedavisi Uzmanı',
+      'Restoratif Diş Tedavisi Uzmanı': 'Restoratif Diş Tedavisi Uzmanı'
+    };
+    return specialtyTranslations[specialtyName] || specialtyName;
+  };
+
   useEffect(() => {
     const fetchBranch = async () => {
       try {
@@ -164,12 +183,12 @@ const BranchPage = () => {
       </div>
 
       {/* Doctors Section */}
-      {branch.doctors && branch.doctors.length > 0 && (
+      {branch.doctorsMany && branch.doctorsMany.length > 0 && (
         <div className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-center text-[#0f4f78] mb-12">
-                {branch.name} Şubesi Hekimlerimiz
+                {branch.name} Uzman Kadromuz
               </h2>
               
               <Swiper
@@ -192,50 +211,36 @@ const BranchPage = () => {
                 }}
                 className="pb-12"
               >
-                {branch.doctors.map((doctor) => (
+                {branch.doctorsMany.map((doctor) => (
                   <SwiperSlide key={doctor.id}>
-                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                      <div className="relative h-64">
-                        {doctor.image ? (
+                    <div
+                      className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                      onClick={() => navigate(`/hekimlerimiz/${doctor.slug}`)}
+                    >
+                      {(() => {
+                        const base = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+                        const imageSrc = doctor.image
+                          ? (doctor.image.startsWith('/uploads') ? `${base}${doctor.image}` : doctor.image)
+                          : '';
+                        return (
                           <img
-                            src={`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}${doctor.image}`}
+                            src={imageSrc}
                             alt={doctor.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-64 object-cover"
+                            onError={(e)=>{ e.currentTarget.onerror=null; e.currentTarget.src=''; }}
                           />
-                        ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-[#0f4f78] to-[#2bb3ea] flex items-center justify-center">
-                            <span className="text-6xl text-white font-bold">
-                              {doctor.name.charAt(0)}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                      
+                        );
+                      })()}
+
                       <div className="p-6">
-                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        <h3 className="font-bold text-xl text-[#0a3a58] mb-1">
                           {doctor.name}
                         </h3>
-                        
+
                         {doctor.specialty && (
-                          <p className="text-[#0f4f78] font-semibold mb-3">
-                            {doctor.specialty.name}
+                          <p className="text-[#4b6475] text-sm font-semibold">
+                            {translateSpecialty(doctor.specialty.name)}
                           </p>
-                        )}
-                        
-                        {doctor.summary && (
-                          <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                            {doctor.summary}
-                          </p>
-                        )}
-                        
-                        {doctor.phone && (
-                          <a
-                            href={`tel:${doctor.phone}`}
-                            className="inline-flex items-center text-[#0f4f78] hover:text-[#2bb3ea] transition-colors"
-                          >
-                            <FaPhone className="mr-2" />
-                            {doctor.phone}
-                          </a>
                         )}
                       </div>
                     </div>
