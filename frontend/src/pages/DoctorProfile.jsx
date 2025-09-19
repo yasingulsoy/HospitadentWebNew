@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Footer } from '../components';
 import { useTranslation } from 'react-i18next';
-import { FaUserMd, FaMapMarkerAlt, FaPhone, FaEnvelope, FaGraduationCap, FaBriefcase, FaLanguage, FaArrowLeft } from 'react-icons/fa';
+import { FaUserMd, FaMapMarkerAlt, FaPhone, FaEnvelope, FaGraduationCap, FaCertificate, FaLanguage, FaArrowLeft } from 'react-icons/fa';
 
 const DoctorProfile = () => {
   const { t } = useTranslation();
@@ -65,7 +65,7 @@ const DoctorProfile = () => {
             onClick={() => navigate('/hekimlerimiz')}
             className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           >
-            Hekimlerimiz Sayfasına Dön
+            Hekimlerimiz
           </button>
         </div>
       </div>
@@ -85,7 +85,7 @@ const DoctorProfile = () => {
             onClick={() => navigate('/hekimlerimiz')}
             className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
           >
-            Hekimlerimiz Sayfasına Dön
+            Hekimlerimiz
           </button>
         </div>
       </div>
@@ -102,7 +102,7 @@ const DoctorProfile = () => {
             className="flex items-center text-white hover:text-blue-200 mb-4 transition-colors"
           >
             <FaArrowLeft className="mr-2" />
-            Hekimlerimiz Sayfasına Dön
+            Hekimlerimiz
           </button>
           
           <div className="flex flex-col md:flex-row items-center">
@@ -200,11 +200,11 @@ const DoctorProfile = () => {
             </div>
           )}
 
-          {/* Deneyim */}
+          {/* Deneyim / Sertifikalar */}
           {doctor.experience && doctor.experience.length > 0 && (
             <div className="bg-white rounded-xl shadow-md p-6 mb-8 border border-gray-100">
               <h2 className="text-2xl font-bold text-[#004876] mb-4 flex items-center">
-                <FaBriefcase className="mr-3 text-[#004876]" />
+                <FaCertificate className="mr-3 text-[#004876]" />
                 Sertifikalar
               </h2>
               <ul className="space-y-3">
