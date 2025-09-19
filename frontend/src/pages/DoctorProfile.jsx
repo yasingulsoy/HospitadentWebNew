@@ -247,6 +247,28 @@ const DoctorProfile = () => {
                       </li>
                     ))}
                   </ul>
+                  
+                  {/* Diller - Eğitim kartının altına eklendi */}
+                  {doctor.languages && doctor.languages.length > 0 && (
+                    <div className="mt-8 pt-6 border-t border-gray-100">
+                      <h3 className="text-xl font-bold text-[#004876] mb-4 flex items-center">
+                        <div className="w-8 h-8 bg-gradient-to-r from-[#004876] to-[#2bb3ea] rounded-lg flex items-center justify-center mr-3">
+                          <FaLanguage className="text-white text-sm" />
+                        </div>
+                        Konuştuğu Diller
+                      </h3>
+                      <div className="flex flex-wrap gap-2">
+                        {doctor.languages.map((lang, index) => (
+                          <span 
+                            key={index}
+                            className="px-4 py-2 bg-gradient-to-r from-[#e6f0f6] to-[#f0f8ff] text-[#004876] rounded-full font-semibold text-base border border-[#2bb3ea]/20 hover:shadow-lg transition-all hover:scale-105"
+                          >
+                            {lang}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -270,28 +292,6 @@ const DoctorProfile = () => {
                 </div>
               )}
             </div>
-
-            {/* Diller */}
-            {doctor.languages && doctor.languages.length > 0 && (
-              <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
-                <h2 className="text-3xl font-bold text-[#004876] mb-6 flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#004876] to-[#2bb3ea] rounded-xl flex items-center justify-center mr-4">
-                    <FaLanguage className="text-white text-xl" />
-                  </div>
-                  Konuştuğu Diller
-                </h2>
-                <div className="flex flex-wrap gap-3">
-                  {doctor.languages.map((lang, index) => (
-                    <span 
-                      key={index}
-                      className="px-6 py-3 bg-gradient-to-r from-[#e6f0f6] to-[#f0f8ff] text-[#004876] rounded-full font-semibold text-lg border border-[#2bb3ea]/20 hover:shadow-lg transition-all hover:scale-105"
-                    >
-                      {lang}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Sağ Kolon - Şube Bilgileri ve İstatistikler */}
@@ -358,16 +358,6 @@ const DoctorProfile = () => {
             )}
 
             {/* İstatistik Kartları */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-gradient-to-br from-[#004876] to-[#2bb3ea] rounded-2xl p-6 text-white text-center hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold mb-2">15+</div>
-                <div className="text-sm opacity-90">Yıl Deneyim</div>
-              </div>
-              <div className="bg-gradient-to-br from-[#2bb3ea] to-[#004876] rounded-2xl p-6 text-white text-center hover:scale-105 transition-transform">
-                <div className="text-3xl font-bold mb-2">500+</div>
-                <div className="text-sm opacity-90">Mutlu Hasta</div>
-              </div>
-            </div>
 
             {/* Hızlı İletişim */}
             <div className="bg-gradient-to-r from-[#004876] to-[#0a5e8f] rounded-2xl p-8 text-white">
