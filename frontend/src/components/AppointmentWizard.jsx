@@ -13,48 +13,36 @@ const branchGroups = [
   { city: 'Hollanda', branches: ['Deen-Hag'] }
 ];
 
-// Doktor verileri
-const doctors = [
+// Varsayılan doktor verileri (fallback için)
+const defaultDoctors = [
   {
     name: 'Dr. Ahmet Yılmaz',
     specialty: 'Ortodonti Uzmanı',
-    experience: '15 yıl',
-    rating: 4.9,
     image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&crop=face'
   },
   {
     name: 'Dr. Ayşe Demir',
     specialty: 'Çocuk Diş Hekimi',
-    experience: '12 yıl',
-    rating: 4.8,
     image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&h=200&fit=crop&crop=face'
   },
   {
     name: 'Dr. Mehmet Kaya',
     specialty: 'Cerrahi Uzmanı',
-    experience: '18 yıl',
-    rating: 4.9,
     image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop&crop=face'
   },
   {
     name: 'Dr. Fatma Özkan',
     specialty: 'Periodontoloji',
-    experience: '14 yıl',
-    rating: 4.7,
     image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=200&h=200&fit=crop&crop=face'
   },
   {
     name: 'Dr. Ali Çelik',
     specialty: 'Endodonti Uzmanı',
-    experience: '16 yıl',
-    rating: 4.8,
     image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&h=200&fit=crop&crop=face'
   },
   {
     name: 'Dr. Zeynep Arslan',
     specialty: 'Protez Uzmanı',
-    experience: '13 yıl',
-    rating: 4.9,
     image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop&crop=face'
   }
 ];
@@ -152,16 +140,16 @@ export const branchImages = {
 const CitySelector = ({ cities, selectedCityIdx, onSelect }) => {
   const { t } = useTranslation();
   return (
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#004876] mb-4">{t('appointment.selectCity')}</h3>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div className="mb-8">
+      <h3 className="text-2xl font-bold text-[#004876] mb-6">{t('appointment.selectCity')}</h3>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {cities.map((city, idx) => (
           <button
             key={idx}
             onClick={() => onSelect(idx)}
-            className={`p-3 rounded-lg border-2 transition-all duration-200 font-medium text-sm ${
+            className={`p-4 rounded-xl border-2 transition-all duration-200 font-medium text-base ${
               selectedCityIdx === idx
-                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-md'
+                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-lg'
                 : 'bg-white text-[#004876] border-gray-200 hover:border-[#2bb3ea] hover:bg-gray-50'
             }`}
           >
@@ -203,28 +191,27 @@ const BranchSelector = ({ branches, selectedBranchIdx, onSelect }) => {
 const DoctorSelector = ({ doctors, selectedIdx, onSelect, branchName }) => {
   const { t } = useTranslation();
   return (
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#004876] mb-4">{t('appointment.selectDoctor')}</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="mb-8">
+      <h3 className="text-2xl font-bold text-[#004876] mb-6">{t('appointment.selectDoctor')}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {doctors.map((doctor, idx) => (
           <button
             key={idx}
             onClick={() => onSelect(idx)}
-            className={`p-4 rounded-lg border-2 transition-all duration-200 text-left flex items-center gap-3 shadow-sm ${
+            className={`p-6 rounded-xl border-2 transition-all duration-200 text-left flex items-center gap-4 shadow-lg ${
               selectedIdx === idx 
-                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-md' 
+                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-xl' 
                 : 'bg-white text-[#004876] border-gray-200 hover:border-[#2bb3ea] hover:bg-gray-50'
             }`}
           >
             <img
               src={doctor.image}
               alt={doctor.name}
-              className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm"
+              className="w-20 h-20 rounded-full object-cover border-3 border-white shadow-md"
             />
             <div className="flex-1">
-              <div className="font-semibold text-sm">{doctor.name}</div>
-              <div className="text-xs opacity-80">{doctor.specialty}</div>
-              <div className="text-xs opacity-70">{doctor.experience} • ⭐ {doctor.rating}</div>
+              <div className="font-bold text-lg">{doctor.name}</div>
+              <div className="text-sm opacity-80 font-medium">{doctor.specialty}</div>
             </div>
           </button>
         ))}
@@ -237,17 +224,17 @@ const DoctorSelector = ({ doctors, selectedIdx, onSelect, branchName }) => {
 const DateSelector = ({ days, selectedDayIdx, onSelect }) => {
   const { t } = useTranslation();
   return (
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#004876] mb-4">{t('appointment.selectDate')}</h3>
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+    <div className="mb-8">
+      <h3 className="text-2xl font-bold text-[#004876] mb-6">{t('appointment.selectDate')}</h3>
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
         {days.map((day, idx) => (
           <button
             key={idx}
             onClick={() => onSelect(idx)}
             disabled={day.slots[0]?.status === 'closed'}
-            className={`p-3 rounded-lg border-2 transition-all duration-200 text-center ${
+            className={`p-4 rounded-xl border-2 transition-all duration-200 text-center ${
               selectedDayIdx === idx
-                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-md'
+                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-lg'
                 : day.slots[0]?.status === 'closed'
                 ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
                 : 'bg-white text-[#004876] border-gray-200 hover:border-[#2bb3ea] hover:bg-gray-50'
@@ -266,17 +253,17 @@ const DateSelector = ({ days, selectedDayIdx, onSelect }) => {
 const TimeSelector = ({ slots, selectedSlot, onSelect }) => {
   const { t } = useTranslation();
   return (
-    <div className="mb-6">
-      <h3 className="text-lg font-semibold text-[#004876] mb-4">{t('appointment.selectTime')}</h3>
-      <div className="grid grid-cols-4 md:grid-cols-5 gap-3">
+    <div className="mb-8">
+      <h3 className="text-2xl font-bold text-[#004876] mb-6">{t('appointment.selectTime')}</h3>
+      <div className="grid grid-cols-4 md:grid-cols-5 gap-4">
         {slots.map((slot, idx) => (
           <button
             key={idx}
             onClick={() => slot.status === 'available' && onSelect(slot.time)}
             disabled={slot.status !== 'available'}
-            className={`p-3 rounded-lg border-2 transition-all duration-200 text-center text-sm font-medium ${
+            className={`p-4 rounded-xl border-2 transition-all duration-200 text-center text-base font-medium ${
               selectedSlot === slot.time
-                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-md'
+                ? 'bg-[#2bb3ea] text-white border-[#2bb3ea] shadow-lg'
                 : slot.status === 'available'
                 ? 'bg-white text-[#004876] border-gray-200 hover:border-[#2bb3ea] hover:bg-gray-50'
                 : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
@@ -310,26 +297,26 @@ const ContactForm = ({ name, setName, phone, setPhone, onSubmit, submitting, sel
 
       <form onSubmit={onSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-semibold text-[#004876] mb-2">{t('appointment.name')}</label>
+          <label className="block text-lg font-bold text-[#004876] mb-3">{t('appointment.name')}</label>
           <input
             type="text"
             value={name}
             onChange={e => setName(e.target.value)}
             required
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2bb3ea] focus:ring-2 focus:ring-[#2bb3ea] outline-none transition-all"
+            className="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-[#2bb3ea] focus:ring-2 focus:ring-[#2bb3ea] outline-none transition-all text-lg"
             placeholder={t('appointment.namePlaceholder')}
           />
         </div>
         
         <div>
-          <label className="block text-sm font-semibold text-[#004876] mb-2">{t('appointment.phone')}</label>
+          <label className="block text-lg font-bold text-[#004876] mb-3">{t('appointment.phone')}</label>
           <input
             type="tel"
             value={phone}
             onChange={e => setPhone(e.target.value)}
             required
             pattern="^05\d{9}$"
-            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#2bb3ea] focus:ring-2 focus:ring-[#2bb3ea] outline-none transition-all"
+            className="w-full px-6 py-4 rounded-xl border border-gray-300 focus:border-[#2bb3ea] focus:ring-2 focus:ring-[#2bb3ea] outline-none transition-all text-lg"
             placeholder="05XXXXXXXXX"
           />
           <div className="text-xs text-gray-500 mt-1">{t('appointment.phoneFormat')}</div>
@@ -338,7 +325,7 @@ const ContactForm = ({ name, setName, phone, setPhone, onSubmit, submitting, sel
         <button
           type="submit"
           disabled={submitting || !name || !/^05\d{9}$/.test(phone)}
-          className="w-full bg-[#2bb3ea] text-white font-bold py-3 rounded-lg shadow-lg hover:bg-[#0f4f78] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-[#2bb3ea] text-white font-bold py-4 rounded-xl shadow-xl hover:bg-[#0f4f78] transition-all disabled:opacity-50 disabled:cursor-not-allowed text-lg"
         >
           {submitting ? t('appointment.submitting') : t('appointment.completeAppointment')}
         </button>
@@ -360,6 +347,9 @@ const AppointmentWizard = () => {
   const [submitting, setSubmitting] = useState(false);
   const [branchSlide, setBranchSlide] = useState(0); // slider için
   const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth >= 768 : true);
+  const [branches, setBranches] = useState([]);
+  const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   // Ekran boyutunu dinle
   useEffect(() => {
@@ -367,6 +357,59 @@ const AppointmentWizard = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Şubeleri ve hekimleri yükle
+  useEffect(() => {
+    const fetchBranches = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('http://localhost:5000/api/branches');
+        if (response.ok) {
+          const branchesData = await response.json();
+          setBranches(branchesData);
+        } else {
+          console.error('Şubeler yüklenemedi, varsayılan veriler kullanılıyor');
+          setDoctors(defaultDoctors);
+        }
+      } catch (error) {
+        console.error('API hatası:', error);
+        setDoctors(defaultDoctors);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBranches();
+  }, []);
+
+  // Seçilen şubeye göre hekimleri filtrele
+  useEffect(() => {
+    if (branches.length > 0 && selectedCityIdx >= 0 && selectedBranchIdx >= 0) {
+      const currentBranches = branchGroups[selectedCityIdx].branches;
+      const selectedBranchName = currentBranches[selectedBranchIdx];
+      
+      // Backend'den gelen şube verilerinde hekimleri bul
+      const selectedBranch = branches.find(branch => branch.name === selectedBranchName);
+      
+      if (selectedBranch && selectedBranch.doctorsMany && selectedBranch.doctorsMany.length > 0) {
+        // Backend'den gelen hekim verilerini formatla
+        const formattedDoctors = selectedBranch.doctorsMany.map(doctor => ({
+          id: doctor.id,
+          name: doctor.name,
+          specialty: doctor.specialty?.name || 'Diş Hekimi',
+          image: doctor.image ? 
+            (doctor.image.startsWith('/uploads') ? 
+              `http://localhost:5000${doctor.image}` : 
+              doctor.image) : 
+            `http://localhost:5000/api/doctors/${doctor.id}/image`
+        }));
+        setDoctors(formattedDoctors);
+      } else {
+        // Seçilen şubede hekim yoksa varsayılan hekimleri göster
+        setDoctors(defaultDoctors);
+      }
+    }
+  }, [branches, selectedCityIdx, selectedBranchIdx]);
 
   // Şehirler listesi
   const cities = branchGroups.map(g => g.city);
@@ -388,28 +431,33 @@ const AppointmentWizard = () => {
   }, [branchSlide, isDesktop, step]);
 
   return (
-    <section id="randevu" className="py-4 bg-white">
-      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-2 sm:p-4 flex flex-col md:flex-row items-stretch gap-0 md:gap-8 min-h-[260px]">
+    <section id="randevu" className="py-12 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-12 flex flex-col lg:flex-row items-stretch gap-8 lg:gap-12 min-h-[500px]">
         {/* Sol: Başlık ve adım göstergesi */}
-        <div className="md:w-1/3 flex flex-col items-center justify-center py-6 md:py-0">
-          <h2 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-[#0f4f78] to-[#2bb3ea] bg-clip-text text-transparent mb-2 text-center">
-            Online Randevu
-          </h2>
-          <p className="text-[#0f4f78] text-lg text-center mb-4">Hızlı ve kolay randevu</p>
-          <div className="flex items-center gap-2 mb-2">
-            {[1,2,3,4,5].map((n) => (
-              <span
-                key={n}
-                className={`w-3 h-3 rounded-full transition-all duration-300
-                  ${step >= n ? 'bg-[#2bb3ea]' : 'bg-blue-100'}
-                `}
-              />
-            ))}
-              </div>
+        <div className="lg:w-2/5 flex flex-col items-center justify-center py-8 lg:py-12">
+          <div className="text-center">
+            <h2 className="text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-[#0f4f78] to-[#2bb3ea] bg-clip-text text-transparent mb-4">
+              Online Randevu
+            </h2>
+            <p className="text-[#0f4f78] text-xl lg:text-2xl text-center mb-8 font-medium">Hızlı ve kolay randevu</p>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              {[1,2,3,4,5].map((n) => (
+                <span
+                  key={n}
+                  className={`w-4 h-4 rounded-full transition-all duration-300
+                    ${step >= n ? 'bg-[#2bb3ea] scale-110' : 'bg-blue-100'}
+                  `}
+                />
+              ))}
+            </div>
+            <div className="text-sm text-gray-600 font-medium">
+              Adım {step} / 5
+            </div>
+          </div>
         </div>
 
         {/* Sağ: İçerik */}
-        <div className="flex-1 flex flex-col justify-center px-2 sm:px-6 py-4 min-w-0">
+        <div className="lg:w-3/5 flex flex-col justify-center px-4 sm:px-6 lg:px-8 py-6 lg:py-8 min-w-0">
           {/* 1. Adım: İl (şehir) seçimi */}
         {step === 1 && (
             <div className="space-y-4">
@@ -418,10 +466,10 @@ const AppointmentWizard = () => {
               selectedCityIdx={selectedCityIdx}
               onSelect={setSelectedCityIdx}
             />
-              <div className="flex justify-center pt-2">
+              <div className="flex justify-center pt-4">
               <button
                 onClick={() => setStep(2)}
-                  className="bg-[#2bb3ea] text-white font-bold py-2 px-6 rounded-lg shadow-lg hover:bg-[#0f4f78] transition-all"
+                  className="bg-[#2bb3ea] text-white font-bold py-4 px-8 rounded-xl shadow-xl hover:bg-[#0f4f78] transition-all text-lg"
               >
                 {t('appointment.next')} →
               </button>
@@ -493,16 +541,16 @@ const AppointmentWizard = () => {
                     <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 8L21 18L11 28"/></svg>
                   </button>
                 </div>
-                <div className="flex justify-between gap-4 pt-2">
+                <div className="flex justify-between gap-6 pt-6">
                   <button
                     onClick={() => setStep(1)}
-                    className="flex-1 bg-blue-50 text-[#2bb3ea] font-bold py-2 rounded-lg hover:bg-blue-100 transition-all"
+                    className="flex-1 bg-blue-50 text-[#2bb3ea] font-bold py-4 rounded-xl hover:bg-blue-100 transition-all text-lg"
                   >
                     ← {t('appointment.previous')}
                   </button>
                   <button
                     onClick={() => setStep(3)}
-                    className="flex-1 bg-[#2bb3ea] text-white font-bold py-2 rounded-lg shadow-lg hover:bg-[#0f4f78] transition-all"
+                    className="flex-1 bg-[#2bb3ea] text-white font-bold py-4 rounded-xl shadow-xl hover:bg-[#0f4f78] transition-all text-lg"
                   >
                     {t('appointment.next')} →
                   </button>
@@ -526,16 +574,16 @@ const AppointmentWizard = () => {
                     </button>
                   ))}
                 </div>
-                <div className="flex justify-between gap-4 pt-2">
+                <div className="flex justify-between gap-6 pt-6">
                   <button
                     onClick={() => setStep(1)}
-                    className="flex-1 bg-blue-50 text-[#2bb3ea] font-bold py-2 rounded-lg hover:bg-blue-100 transition-all"
+                    className="flex-1 bg-blue-50 text-[#2bb3ea] font-bold py-4 rounded-xl hover:bg-blue-100 transition-all text-lg"
                   >
                     ← {t('appointment.previous')}
                   </button>
                   <button
                     onClick={() => setStep(3)}
-                    className="flex-1 bg-[#2bb3ea] text-white font-bold py-2 rounded-lg shadow-lg hover:bg-[#0f4f78] transition-all"
+                    className="flex-1 bg-[#2bb3ea] text-white font-bold py-4 rounded-xl shadow-xl hover:bg-[#0f4f78] transition-all text-lg"
                   >
                     {t('appointment.next')} →
                   </button>
@@ -547,26 +595,59 @@ const AppointmentWizard = () => {
           {/* 3. Adım: Doktor seçimi */}
           {step === 3 && (
           <div>
-            <DoctorSelector
-              doctors={doctors}
-              selectedIdx={selectedDoctorIdx}
-              onSelect={setSelectedDoctorIdx}
-              branchName={selectedBranch}
-            />
-              <div className="flex justify-between gap-4 pt-2">
-              <button
-                  onClick={() => setStep(2)}
-                  className="flex-1 bg-blue-50 text-[#2bb3ea] font-bold py-2 rounded-lg hover:bg-blue-100 transition-all"
-              >
-                ← {t('appointment.previous')}
-              </button>
-              <button
-                  onClick={() => setStep(4)}
-                  className="flex-1 bg-[#2bb3ea] text-white font-bold py-2 rounded-lg shadow-lg hover:bg-[#0f4f78] transition-all"
-              >
-                {t('appointment.next')} →
-              </button>
-            </div>
+            {loading ? (
+              <div className="text-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2bb3ea] mx-auto mb-4"></div>
+                <p className="text-gray-600">Hekimler yükleniyor...</p>
+              </div>
+            ) : doctors.length > 0 ? (
+              <>
+                <DoctorSelector
+                  doctors={doctors}
+                  selectedIdx={selectedDoctorIdx}
+                  onSelect={setSelectedDoctorIdx}
+                  branchName={selectedBranch}
+                />
+                <div className="flex justify-between gap-6 pt-6">
+                  <button
+                    onClick={() => setStep(2)}
+                    className="flex-1 bg-blue-50 text-[#2bb3ea] font-bold py-4 rounded-xl hover:bg-blue-100 transition-all text-lg"
+                  >
+                    ← {t('appointment.previous')}
+                  </button>
+                  <button
+                    onClick={() => setStep(4)}
+                    className="flex-1 bg-[#2bb3ea] text-white font-bold py-4 rounded-xl shadow-xl hover:bg-[#0f4f78] transition-all text-lg"
+                  >
+                    {t('appointment.next')} →
+                  </button>
+                </div>
+              </>
+            ) : (
+              <div className="text-center py-8">
+                <div className="text-6xl mb-4">👨‍⚕️</div>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                  Bu şubede hekim bulunmuyor
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  {selectedBranch} şubesinde şu anda aktif hekim bulunmamaktadır.
+                </p>
+                <div className="flex justify-between gap-6 pt-6">
+                  <button
+                    onClick={() => setStep(2)}
+                    className="flex-1 bg-blue-50 text-[#2bb3ea] font-bold py-4 rounded-xl hover:bg-blue-100 transition-all text-lg"
+                  >
+                    ← {t('appointment.previous')}
+                  </button>
+                  <button
+                    onClick={() => setStep(4)}
+                    className="flex-1 bg-[#2bb3ea] text-white font-bold py-4 rounded-xl shadow-xl hover:bg-[#0f4f78] transition-all text-lg"
+                  >
+                    Devam Et →
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
 
@@ -593,7 +674,7 @@ const AppointmentWizard = () => {
               <button
                   onClick={() => selectedSlot && setStep(5)}
                 disabled={!selectedSlot}
-                  className="flex-1 bg-[#2bb3ea] text-white font-bold py-2 rounded-lg shadow-lg hover:bg-[#0f4f78] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-[#2bb3ea] text-white font-bold py-4 rounded-xl shadow-xl hover:bg-[#0f4f78] transition-all disabled:opacity-50 disabled:cursor-not-allowed text-lg"
               >
                 {t('appointment.next')} →
               </button>
@@ -621,10 +702,10 @@ const AppointmentWizard = () => {
                 }, 1500);
               }}
             />
-              <div className="flex justify-center mt-4">
+              <div className="flex justify-center mt-6">
               <button
                   onClick={() => setStep(4)}
-                  className="bg-gray-200 text-gray-700 font-bold py-2 px-6 rounded-lg hover:bg-gray-300 transition-all"
+                  className="bg-gray-200 text-gray-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-300 transition-all text-lg"
               >
                 ← {t('appointment.previous')}
               </button>
